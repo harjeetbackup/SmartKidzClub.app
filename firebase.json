@@ -8,17 +8,30 @@
     ],
     "rewrites": [
       {
-        "source": "**",
+        "source": "/**",
+        "dynamicLinks": true
+      },
+      {
+        "source": "!/**",
         "destination": "/index.html"
       },
       {
-        "source": "/promos/**",
+        "source": "/b/**",
         "dynamicLinks": true
       },
       {
-        "source": "/links/share/**",
+        "source": "!/b/**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/link/**",
         "dynamicLinks": true
+      },
+      {
+        "source": "!/link/**",
+        "destination": "/index.html"
       }
+      
     ]
   }
 }
