@@ -1,0 +1,107 @@
+@-webkit-keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(calc(-250px * 4));
+        transform: translateX(calc(-250px * 4)); /* width of image * int(totalimages/2) */
+    }
+}
+
+@-moz-keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(calc(-250px * 4));
+        transform: translateX(calc(-250px * 4));
+    }
+}
+
+@-o-keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(calc(-250px * 4));
+        transform: translateX(calc(-250px * 4));
+    }
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(calc(-250px * 4));
+        transform: translateX(calc(-250px * 4));
+    }
+}
+
+section.hero .dTestimonials {
+		margin-top:60px;
+    margin-bottom: 30px;
+}
+
+.testimonials-container .testimonials {
+    background: white;
+    box-shadow: 0 10px 20px -5px #00000020;
+    height: 250px;  /* height of image, increase a little to add gap below and above */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    -webkit-box-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.testimonials-container .testimonials::before,
+.testimonials-container .testimonials::after {
+    background: -webkit-gradient(linear, left top, right top, from(white), to(#ffffff00));
+    background: linear-gradient(to right, white 0%, #ffffff00 50%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 250px; /* width of image */
+    z-index: 2;
+}
+
+.testimonials-container .testimonials::after {
+    right: 0;
+    top: 0;
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+
+.testimonials-container .testimonials::before {
+    left: 0;
+    top: 0;
+}
+
+.testimonials-container .testimonials .testimonial-track:hover {
+    animation-play-state: paused;
+}
+
+.testimonials-container .testimonials .testimonial-track {
+    -webkit-animation: scroll 15s linear infinite; /* speed #s */
+    animation: scroll 15s linear infinite; /* speed #s */
+    display: -webkit-box;
+    display: flex;
+    width: calc(250px * 3); /* width of image * total images */
+}
+
+.testimonials-container .testimonials .testimonial {
+    height: 250px;
+    width: 250px;
+}

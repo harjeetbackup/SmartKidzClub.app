@@ -1,0 +1,323 @@
+@media only screen and (orientation: portrait) {
+    /*.customTag{attribute:value;}*/
+}
+
+@media only screen and (orientation: landscape) {
+    /*.customTag{attribute:value;}*/
+}
+
+.dShow {
+    display: flex !important;
+}
+
+.dHide {
+    display: none !important;
+}
+
+/* Extra small devices (portrait phones, less than 576px, upto 575.98px) */
+@media (max-width: 575.98px) {
+
+    header .download-apps.small {
+        display: block !important;
+    }
+
+    header .download-apps.large {
+        display: none !important;
+    }
+
+    section.hero .hero-caption {
+        font-size: 2rem;
+        margin-bottom: .5em;
+    }
+
+    section.hero .hero-sub-caption {
+        font-size: 1.5rem;
+    }
+		section.hero .hero-sub-caption2 {
+        font-size: 1.4rem;
+    }
+
+    .half-flex {
+        flex-direction: column;
+        align-items: stretch !important;
+        padding-bottom: 10px;
+    }
+
+    .half-flex .half-flex-item {
+        padding: 0 20px 0 20px !important;
+    }
+
+    section.grey-area {
+        flex-direction: column;
+    }
+
+    section.grey-area .images {
+        justify-content: center;
+    }
+
+    .flex-direction-reverse {
+        flex-direction: column-reverse;
+    }
+
+    .intro.yt-container {
+        min-height: 250px;
+    }
+
+    .testimonials-container .testimonials::before,
+    .testimonials-container .testimonials::after {
+        width: 50px !important;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up, upto 767.98px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    section.hero .hero-caption {
+        font-size: 2rem;
+        margin-bottom: .5em;
+    }
+
+    section.hero .hero-sub-caption {
+        font-size: 1.5rem;
+    }
+		section.hero .hero-sub-caption2 {
+        font-size: 1.5rem;
+    }			
+
+    .half-flex {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+
+    .half-flex .half-flex-item {
+        padding: 0 20px 0 20px !important;
+    }
+
+    section.grey-area {
+        flex-direction: column;
+    }
+
+    section.grey-area .images {
+        justify-content: center;
+    }
+
+    .flex-direction-reverse {
+        flex-direction: column-reverse;
+    }
+
+    .intro.yt-container {
+        min-height: 400px;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up, upto 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    section.hero .hero-caption {
+        font-size: 2.5rem;
+    }
+
+    section.hero .hero-sub-caption {
+        font-size: 2rem;
+    }
+		section.hero .hero-sub-caption2 {
+        font-size: 1.2rem;
+    }		
+
+}
+
+/* Large devices (desktops, 992px and up, upto 1199.98px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+    section.hero .hero-caption {
+        font-size: 3rem;
+    }
+
+    section.hero .hero-sub-caption {
+        font-size: 2.2rem;
+    }
+		section.hero .hero-sub-caption2 {
+        font-size: 1.6rem;
+    }		
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+    section.hero .hero-caption {
+        font-size: 3.2rem;
+    }
+
+    section.hero .hero-sub-caption {
+        font-size: 2.2rem;
+    }
+		section.hero .hero-sub-caption2 {
+        font-size: 1.7rem;
+    }
+		
+}
+
+p {
+    margin: 2vw 0;
+}
+
+.dHCenter {
+    text-align: center;
+}
+
+.dHLeft {
+    text-align: left;
+}
+
+.dVTop {
+    vertical-align: top;
+}
+
+.dVMiddle {
+    vertical-align: middle;
+}
+
+.dVBottom {
+    vertical-align: bottom;
+}
+
+.dTable01 {
+    display: table;
+    border: 0px solid blue;
+}
+
+.dCell01 {
+    display: table-cell;
+    border: 0px solid red;
+}
+
+.dContents01 {
+    display: inline-block;
+    border: 0px solid green;
+}
+
+.slider .caption-container {
+    margin: 0;
+}
+
+.slider .nav-container {
+    margin-top: 10px;
+}
+
+header {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FDB515;
+}
+
+header img.logo {
+    height: 80px;
+		border-radius: 10px;
+		padding:2px;
+}
+
+.download-apps.small {
+    display: none;
+}
+
+.download-apps a {
+    outline: none;
+    background-color: white;
+    border-radius: 10px;
+    border: 0;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    margin-left: 5px;
+    background-repeat: round;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    height: 40px;
+}
+
+.download-apps.small a {
+    width: 40px;
+}
+
+.download-apps.large a {
+    width: 130px;
+}
+
+.download-apps.large a.ios {
+    background-image: url('../images/app_store.png');
+		border:2px solid white;
+}
+
+.download-apps.large a.android {
+    background-image: url('../images/google_play.png');
+		border:2px solid white;
+}
+
+.download-apps.small a.ios {
+    background-image: url('../images/ios.png');
+}
+
+.download-apps.small a.android {
+    background-image: url('../images/android.png');
+}
+
+.download-apps.small a:hover,
+.download-apps.small a:active,
+.download-apps.small a:focus {
+    box-shadow: 0 0 2px 2px #00000026;
+    transform: scale(0.95);
+}
+
+.download-apps.large a:hover,
+.download-apps.large a:active,
+.download-apps.large a:focus {
+    box-shadow: 0 0 2px 2px #00000026;
+    transform: scale(0.96);
+}
+
+.my-5 {
+    margin-top: 10px;
+}
+
+.half-flex {
+    width: 100%;
+    display: flex;
+    /*align-items: center;*/
+}
+
+.flex-direction-reverse {
+    align-items: center;
+}
+
+
+.half-flex .half-flex-item {
+    flex: 50%;
+    padding: 2rem 30px 0 30px;
+}
+
+
+.dFooterBand{
+	height:50px;
+	width:100%;
+	background-color:#FDB515;
+}
+
+.dFooterBand p{
+	font-family:RobotoRegular;
+	display:inline;
+	color:white;
+	font-size:.9rem;
+}
+
+.dFooterBand a{
+	font-family:RobotoRegular;
+	color:white;
+}

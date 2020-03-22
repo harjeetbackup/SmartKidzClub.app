@@ -1,0 +1,20 @@
+section.hero .hero-caption {
+    margin: 5px 0 0 0;
+		font-family: RobotoThin;
+}
+
+section.hero .hero-sub-caption {
+    margin: 0;
+    padding: 0 2vw;
+		font-family: RobotoLight;
+}
+
+section.hero .hero-sub-caption2{
+	margin: 20px 0;
+	padding: 0;
+	font-family: RobotoLight;	
+}
+
+section.hero .hero-sub-caption li, section.hero .hero-sub-caption2 li {
+    padding: 0;
+}
