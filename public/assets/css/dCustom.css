@@ -252,7 +252,7 @@ header img.logo {
 }
 
 .download-apps.large a.ios {
-    background-image: url('../images/app_store.png');
+    background-image: url('../images/app_store_coming_soon.png');
 		border:2px solid white;
 }
 
@@ -262,7 +262,7 @@ header img.logo {
 }
 
 .download-apps.small a.ios {
-    background-image: url('../images/ios.png');
+    background-image: url('../images/ios_coming_soon.png');
 }
 
 .download-apps.small a.android {
