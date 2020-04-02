@@ -1,3 +1,5 @@
+This is the copy of firebase.json under public folder.
+
 {
   "hosting": {
     "public": "public",
@@ -15,11 +17,18 @@
       "source": "/link/**",
       "dynamicLinks": true
     },
+		{
+			"source": "!/link/**",
+			"destination": "/index.html"
+		},
 	  {
       "source": "/b/**",
       "dynamicLinks": true
+    },
+	  {
+      "source": "!/b/**",
+      "dynamicLinks": true
     }
-	  
     ]
   }
 }
