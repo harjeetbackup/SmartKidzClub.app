@@ -8,19 +8,19 @@
     ],
     "rewrites": [
 	  {
-      "source": "/link/**",
+      "source": "/link/",
       "dynamicLinks": true
     },
 		{
-			"source": "!/link/**",
+			"source": "!/link/",
 			"destination": "/index.html"
 		},
 	  {
-      "source": "/b/**",
+      "source": "/b/",
       "dynamicLinks": true
     },
 	  {
-      "source": "!/b/**",
+      "source": "!/b/",
       "dynamicLinks": true
     },
 		{
