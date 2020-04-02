@@ -10,7 +10,16 @@
       {
         "source": "**",
         "destination": "/index.html"
-      }
+      },
+	  {
+      "source": "/link/**",
+      "dynamicLinks": true
+    },
+	  {
+      "source": "/b/**",
+      "dynamicLinks": true
+    }
+	  
     ]
   }
 }
