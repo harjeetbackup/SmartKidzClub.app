@@ -644,4 +644,4 @@ ul.social_feed li:first-child iframe{width:100% !important;}
 .vTop{vertical-align:top;}
 .vBtm{vertical-align:bottom;}
 
-div.container{width:1024px;}
+div.container{max-width:1024px;width:100%;}
