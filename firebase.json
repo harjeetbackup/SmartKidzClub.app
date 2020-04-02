@@ -7,10 +7,6 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      },
 	  {
       "source": "/link/**",
       "dynamicLinks": true
@@ -26,7 +22,11 @@
 	  {
       "source": "!/b/**",
       "dynamicLinks": true
-    }
+    },
+		{
+			"source": "**",
+			"destination": "/index.html"
+		}		
     ]
   }
 }

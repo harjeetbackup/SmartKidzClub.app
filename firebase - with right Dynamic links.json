@@ -9,10 +9,6 @@ This is the copy of firebase.json under public folder.
       "**/node_modules/**"
     ],
     "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      },
 	  {
       "source": "/link/**",
       "dynamicLinks": true
@@ -28,7 +24,11 @@ This is the copy of firebase.json under public folder.
 	  {
       "source": "!/b/**",
       "dynamicLinks": true
-    }
+    },
+		{
+			"source": "**",
+			"destination": "/index.html"
+		}		
     ]
   }
 }
