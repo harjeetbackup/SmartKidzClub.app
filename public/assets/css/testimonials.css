@@ -94,8 +94,8 @@ section.hero .dTestimonials {
 }
 
 .testimonials-container .testimonials .testimonial-track {
-    -webkit-animation: scroll 15s linear infinite; /* speed #s */
-    animation: scroll 15s linear infinite; /* speed #s */
+    -webkit-animation: scroll 30s linear infinite; /* speed #s */
+    animation: scroll 30s linear infinite; /* speed #s */
     display: -webkit-box;
     display: flex;
     width: calc(250px * 3); /* width of image * total images */
