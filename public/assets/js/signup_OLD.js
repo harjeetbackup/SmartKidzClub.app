@@ -1,4 +1,4 @@
-const API_URL = 'https://us-central1-smartkidzclub-6f399.cloudfunctions.net/signup',
+const API_URL = null,
     elForm = document.getElementById('signup'),
     elEmail = document.getElementById('email'),
     elPwd = document.getElementById('pwd'),
@@ -21,7 +21,7 @@ function validate(email, pwd, pwdCnf, code, terms) {
     const valEmail = email.trim(),
         valPwd = pwd.trim(),
         valPwdCnf = pwdCnf.trim(),
-        valCode = String(code || '').trim();
+        valCode = code.trim();
 
     if (!valEmail)
         return [ErrorMsg.email, null];
@@ -50,7 +50,7 @@ function validate(email, pwd, pwdCnf, code, terms) {
     return [null, {
         email: valEmail,
         password: valPwd,
-        class_code: valCode.toUpperCase(),
+        code: valCode,
     }]
 }
 
@@ -66,40 +66,31 @@ elForm.addEventListener('submit', e => {
     );
 
     if (error) {
-        // Form has Errors
         return alert(error);
     } else {
-        // Form is valid. Submission started
+        if (!API_URL) {
+            return alert(JSON.stringify({
+                errors: [
+                    "API_URL not found.",
+                    "'data' given below is the POST payload"
+                ],
+                data: formValue
+            }, null, 2))
+        }
+
         elSubmit.disabled = true;
-        elSubmit.innerText = 'PROCESSING...';
         fetch(API_URL, {
             method: 'POST',
-            body: JSON.stringify(formValue),
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            }
+            body: JSON.stringify(formValue)
         })
-            .then(async r => {
-                const res = await r.json();
+            .then(res => res.json())
+            .then(res => {
                 elSubmit.disabled = false;
-                elSubmit.innerText = 'SIGN UP';
-                console.dir(res);
-                alert(res.message);
-                if (res.success) {
-                    elCode.value = null;
-                    elPwd.value = null;
-                    elEmail.value = null;
-                    elPwdCnf.value = null;
-                    elTerms.value = false;
-                    elTerms.checked = false;
-                }
+                alert(JSON.stringify(res, null, 2));
             })
             .catch(err => {
                 elSubmit.disabled = false;
-                elSubmit.innerText = 'SIGN UP';
-                console.error(res);
-                alert(err.message);
+                alert(JSON.stringify(err, null, 2));
             })
     }
 
