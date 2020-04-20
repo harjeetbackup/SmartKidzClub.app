@@ -1,4 +1,4 @@
-const API_URL = 'https://us-central1-smartkidzclub-6f399.cloudfunctions.net/signup',
+const API_URL = 'https://us-central1-smartkidzclub-6f399.cloudfunctions.net/addAccess',
     elForm = document.getElementById('addaccess'),
     elEmail = document.getElementById('email'),
     elCode = document.getElementById('code'),
