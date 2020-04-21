@@ -22,7 +22,7 @@ function validate(email, code) {
 
     return [null, {
         email: valEmail,
-        class_code: valCode.toUpperCase(),
+        redeem_code: valCode.toUpperCase(),
     }]
 }
 
