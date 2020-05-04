@@ -17,6 +17,14 @@ const API_URL = 'https://us-central1-smartkidzclub-6f399.cloudfunctions.net/sign
         terms: "Please accept Terms & Policies",
     }
 
+		function dCustomPopup(dPopupID,dCustomMessage){
+			document.getElementById("dModalPopupLauncher").setAttribute("data-target", dPopupID);
+			if (dCustomMessage != ""){
+				document.getElementsByClassName("dCustomMessage")[0].innerHTML=dCustomMessage;
+			}
+			document.getElementsByClassName("btn btn-primary")[0].click();
+		}
+		
 function validate(email, pwd, pwdCnf, code, terms) {
     const valEmail = email.trim(),
         valPwd = pwd.trim(),
@@ -85,7 +93,13 @@ elForm.addEventListener('submit', e => {
                 elSubmit.disabled = false;
                 elSubmit.innerText = 'SIGN UP';
                 console.dir(res);
-                alert(res.message);
+
+                //alert(res.message);
+								if(res.message == "Registered Successfully")
+									dCustomPopup("#dPopup01","");
+								else
+									dCustomPopup("#dPopup02",res.message);
+								
                 if (res.success) {
                     elCode.value = null;
                     elPwd.value = null;
