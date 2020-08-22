@@ -221,7 +221,7 @@ font-family: 'RobotoRegular'; font-size: 16px; box-shadow: none; text-shadow: no
 
 /* who we are */
 .inner_img{float: right; margin: 0 0 4% 4%; max-width:100%; max-height:350px;}
-.inner_txt p,table.dReadingClubTable td{font-size: 15px; font-family: 'RobotoRegular'; line-height:20px; color:#585858; margin-bottom:15px;}
+.inner_txt p,table.dReadingClubTable td{font-size: 15px; font-family: 'RobotoRegular'; line-height:20px; color:#585858; margin-bottom:15px; vertical-align:top;}
 /* who we are */
 
 /* in the news */
