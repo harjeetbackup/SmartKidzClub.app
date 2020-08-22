@@ -221,7 +221,8 @@ font-family: 'RobotoRegular'; font-size: 16px; box-shadow: none; text-shadow: no
 
 /* who we are */
 .inner_img{float: right; margin: 0 0 4% 4%; max-width:100%; max-height:350px;}
-.inner_txt p,table.dReadingClubTable td{font-size: 15px; font-family: 'RobotoRegular'; line-height:20px; color:#585858; margin-bottom:15px; vertical-align:top;}
+.inner_txt p{font-size: 15px; font-family: 'RobotoRegular'; line-height:20px; color:#585858; margin-bottom:15px; vertical-align:top;}
+.dReadingClub .dLargeText p, table.dReadingClubTable td{font-size: 18px!important; font-family: 'RobotoRegular'; line-height:normal; color:#585858; margin-bottom:15px; vertical-align:top;}
 /* who we are */
 
 /* in the news */
@@ -499,7 +500,8 @@ ul.teach_list .del_img{max-height: 15px; margin-top: 3px; cursor:pointer;}
 .dReadingClub .dDate{font-family:RobotoCondensedRegular!important;font-size:40px!important;text-align:center;}
 .dReadingClub .dDay{font-family:RobotoCondensedRegular!important;font-size:30px!important;text-align:center;line-height:normal;}
 table.dReadingClubTable{margin-bottom:10px;}
-
+.dReadingClub .dButton{color:white;background-color:#e01e4e;padding:10px 20px;border-radius: 5px;}
+.dNoWrap{white-space:nowrap;}
 /* Reading Club styles -End */
 
 /*all page container footer */
