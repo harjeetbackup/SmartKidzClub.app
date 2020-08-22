@@ -221,7 +221,7 @@ font-family: 'RobotoRegular'; font-size: 16px; box-shadow: none; text-shadow: no
 
 /* who we are */
 .inner_img{float: right; margin: 0 0 4% 4%; max-width:100%; max-height:350px;}
-.inner_txt p{font-size: 15px; font-family: 'RobotoRegular'; line-height:20px; color:#585858; margin-bottom:15px;}
+.inner_txt p,table.dReadingClubTable td{font-size: 15px; font-family: 'RobotoRegular'; line-height:20px; color:#585858; margin-bottom:15px;}
 /* who we are */
 
 /* in the news */
@@ -471,6 +471,37 @@ ul.teach_list .del_img{max-height: 15px; margin-top: 3px; cursor:pointer;}
 	/*followerModal*/
 /* modals */
 
+/* Reading Club styles (Find .dReadingClub in the CSS file) -Start */
+.dReadingClub{background-image:url('../../assets/images/ReadingClubBack.png');}
+.dReadingClubLogo{float: right; margin: 0 0 2% 2%; max-width:100%; max-height:365;}
+.dReadingClubChild{float: left; margin: 0 2% 2% 0; max-width:100%; max-height:365px;}
+
+.dReadingClub .dContainer{width:100%;margin-bottom:10px;}
+.dReadingClub .dContainer .dTeacherInfo{width:330px;height:250px;float:left;background-color:#9c708e;border-radius: 10px;padding: 25px 10px;}
+.dReadingClub .dContainer .dSessions{float:right;font-family:ShowcardGothic;margin-right:40px;}
+.dReadingClub .dContainer .dPic{width:100px;float:left;margin-right:10px;}
+.dReadingClub .dContainer .dPic img{margin:0 0 10px 5px;}
+.dReadingClub .dContainer .dPic img.dTeacherPic{border:2px solid white;box-shadow: 2px 2px 10px #000;}
+.dReadingClub .dContainer .dTeacherDetails{float:left;border:0px solid blue;margin-left:15px;}
+.dReadingClub .dContainer .dTeacherDetails p{color:white;}
+.dReadingClub .dContainer .dSocialMedia{width:100%;float:left;}
+.dReadingClub .dContainer .dSessions .dSession1, .dReadingClub .dContainer .dSessions .dSession2{width:230px;height:250px; float:left;border-radius: 10px;padding:10px;margin: 0px 10px;text-align:center;}
+.dReadingClub .dContainer .dSessions .dSession1{background-color:#e7aba7;}
+.dReadingClub .dContainer .dSessions .dSession2{background-color:#afc560;}
+.dFontSCG{font-family:ShowcardGothic!important;}
+.dJr,.dSr{font-size:40px!important;padding:10px;text-shadow: 2px 5px 10px #fff;}
+.dSessionDetails{font-family:RobotoCondensedRegular!important;font-size:30px!important;padding:5px;text-shadow: 1px 2px 10px #fff;}
+.dSessionPrice{font-family:dRoboBlack!important;font-size:30px!important;padding:5px 5px 0 5px;font-weight:bold;text-shadow: 1px 2px 20px #fff;}
+.dRegister{font-family:RobotoCondensedRegular!important;font-size:30px!important;padding:10px 0 15px 0;font-weight:bold;margin-bottom:0!important;border-radius: 10px;}
+.dRegister a{text-decoration:none;color:#fff!important;}
+.dRegister1{background-color:#dc8c87;}
+.dRegister2{background-color:#92ac42;}
+.dReadingClub .dDate{font-family:RobotoCondensedRegular!important;font-size:40px!important;text-align:center;}
+.dReadingClub .dDay{font-family:RobotoCondensedRegular!important;font-size:30px!important;text-align:center;line-height:normal;}
+table.dReadingClubTable{margin-bottom:10px;}
+
+/* Reading Club styles -End */
+
 /*all page container footer */
 p.readAnywhere {position: relative; z-index: 1; font-size: 14px; margin-top: 10px; text-align: center; color: #737373;}
 p.readAnywhere:before{border-top: 1px solid rgba(115, 115, 115, 0.2); content: ""; margin: 0 auto; position: absolute; top: 50%; left: 0; right: 0; bottom: 0;width: 95%; z-index: -1;}
@@ -516,6 +547,12 @@ p.double:after{border-bottom: 0px solid #737373; content: ""; margin: 0 auto; po
 .top_filter1 .fill-search{max-width:190px;}
 .subs_con .sub-left-img, .subs_con .sub-right-img{display:none;}
 .inner_txt .inner_img{float: none; display: table; margin: auto; margin-bottom: 30px;}
+.dReadingClub .dReadingClubLogo{float: none; display: table; margin: auto; margin-bottom: 10px;}
+.dReadingClub .dReadingClubChild{float: none; display: table; margin: auto; margin-bottom: 10px;}
+.dReadingClub .dContainer .dTeacherInfo, .dReadingClub .dContainer .dSessions{float: none; display: table; margin: auto; margin-bottom: 10px;}
+
+
+
 .cart_filter .simpletxt { 
     font-size: 15px; 
 }
@@ -528,6 +565,8 @@ p.double:after{border-bottom: 0px solid #737373; content: ""; margin: 0 auto; po
 
 @media screen and (max-width: 767px)
 {
+.dReadingClub .dContainer .dSessions{margin:0 auto;}
+.dReadingClub .dContainer .dSessions .dSession1,.dReadingClub .dContainer .dSessions .dSession2{float: none; display: table; margin: auto; margin-bottom: 10px;width:330px;}
 .all_head{font-size:32px !important;}
 .book_img{float:none; max-width:300px; margin:auto;}
 .view_book_btn{max-width: 300px; margin: auto; display: table; float: none;}
@@ -645,3 +684,6 @@ ul.social_feed li:first-child iframe{width:100% !important;}
 .vBtm{vertical-align:bottom;}
 
 div.container{max-width:1024px;width:100%;}
+
+
+

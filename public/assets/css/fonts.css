@@ -18,6 +18,10 @@
   src: url(../fonts/RobotoMedium.ttf);
 }
 
+@font-face {
+  font-family: dRoboBlack;
+  src: url(../fonts/RobotoBlack.ttf);
+}
 
 .dRoboThin{
 	font-family:RobotoThin;
@@ -35,8 +39,16 @@
 	font-family:RobotoMedium;
 }
 
+.dRoboBlack{
+	font-family:RobotoMedium;
+}
+
 @font-face {
   font-family: RobotoCondensedRegular;
   src: url(../fonts/robotocondensed-regular.ttf);
 }
 
+@font-face {
+  font-family: ShowcardGothic;
+  src: url(../fonts/SHOWG.TTF);
+}
