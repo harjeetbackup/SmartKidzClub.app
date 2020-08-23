@@ -485,7 +485,7 @@ ul.teach_list .del_img{max-height: 15px; margin-top: 3px; cursor:pointer;}
 .dReadingClub .dContainer .dPic img{margin:0 0 10px 5px;}
 .dReadingClub .dContainer .dPic img.dTeacherPic{border:2px solid white;box-shadow: 2px 2px 10px #000;}
 .dReadingClub .dContainer .dTeacherDetails{float:left;border:0px solid blue;margin-left:15px;opacity:1!important;}
-.dReadingClub .dContainer .dTeacherDetails p{color:black;font-size:17px;}
+.dReadingClub .dContainer .dTeacherDetails p{color:black;font-size:17px;text-shadow:1px 1px 15px #fff;}
 .dReadingClub .dContainer .dTeacherDetails .dTeacherName{font-size:18px;}
 .dReadingClub .dContainer .dSocialMedia{width:100%;float:left;}
 .dReadingClub .dContainer .dSessions .dSession1, .dReadingClub .dContainer .dSessions .dSession2{width:230px;height:250px; float:left;border-radius: 10px;padding:10px;margin: 0px 10px;text-align:center;box-shadow: 5px 5px 10px #606060;}
