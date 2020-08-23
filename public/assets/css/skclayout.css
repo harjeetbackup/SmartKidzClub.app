@@ -502,6 +502,8 @@ ul.teach_list .del_img{max-height: 15px; margin-top: 3px; cursor:pointer;}
 .dReadingClub .dDay{font-family:RobotoCondensedRegular!important;font-size:30px!important;text-align:center;line-height:normal;}
 table.dReadingClubTable{margin-bottom:10px;}
 .dReadingClub .dButton{color:white;background-color:#e01e4e;padding:10px 20px;border-radius: 5px;}
+.dReadingClub .dButton1{background-color:#dc8c87;}
+.dReadingClub .dButton2{background-color:#92ac42;}
 .dNoWrap{white-space:nowrap;}
 /* Reading Club styles -End */
 
