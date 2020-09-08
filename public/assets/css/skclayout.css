@@ -561,7 +561,7 @@ p.double:after{border-bottom: 0px solid #737373; content: ""; margin: 0 auto; po
 .inner_txt .inner_img{float: none; display: table; margin: auto; margin-bottom: 30px;}
 .dReadingClub .dReadingClubLogo{float: none; display: table; margin: auto; margin-bottom: 10px;}
 .dReadingClub .dReadingClubChild{float: none; display: table; margin: auto; margin-bottom: 10px;}
-.dReadingClub .dContainer .dTeacherInfo, .dReadingClub .dContainer .dSessions{float: none; display: table; margin: auto; margin-bottom: 10px;}
+.dReadingClub .dContainer .dTeacherInfo, .dReadingClub .dContainer .dTeacherInfo2, .dReadingClub .dContainer .dSessions{float: none; display: table; margin: auto; margin-bottom: 10px;}
 
 
 
