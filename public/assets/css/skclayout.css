@@ -480,6 +480,8 @@ ul.teach_list .del_img{max-height: 15px; margin-top: 3px; cursor:pointer;}
 
 .dReadingClub .dContainer{width:100%;}
 .dReadingClub .dContainer .dTeacherInfo{width:330px;height:250px;float:left;background-color:rgba(129,85,115,0.5);border-radius: 10px;padding: 25px 10px;box-shadow: 5px 5px 10px #606060;}
+.dReadingClub .dContainer .dTeacherInfo2{width:330px;height:250px;float:left;background-color: rgba(167,215,224,0.5);border-radius: 10px;padding:10px;box-shadow: 5px 5px 10px #606060;background-image:url('../../assets/images/dWhiteBoard.pngX');margin-bottom:20px;}
+
 .dReadingClub .dContainer .dSessions{float:right;font-family:ShowcardGothic;margin-right:40px;}
 .dReadingClub .dContainer .dPic{width:100px;float:left;margin-right:10px;}
 .dReadingClub .dContainer .dPic img{margin:0 0 10px 5px;}
@@ -487,6 +489,10 @@ ul.teach_list .del_img{max-height: 15px; margin-top: 3px; cursor:pointer;}
 .dReadingClub .dContainer .dTeacherDetails{float:left;border:0px solid blue;margin-left:15px;opacity:1!important;}
 .dReadingClub .dContainer .dTeacherDetails p{color:black;font-size:17px;text-shadow:1px 1px 15px #fff;}
 .dReadingClub .dContainer .dTeacherDetails .dTeacherName{font-size:18px;}
+.dReadingClub .dContainer .dTeacherDetails2{margin:0 auto;text-align:center;width:100%;border:0px solid blue;opacity:1!important;}
+.dReadingClub .dContainer .dTeacherDetails2 p.dLedBy{font-size:40px!important;padding:10px;text-shadow: 2px 5px 10px #fff;color:#585858;margin: 0 auto; text-align:center;margin-bottom:10px;}
+.dReadingClub .dContainer .dTeacherDetails2 p{color:#585858;margin: 0 auto; text-align:center;font-size:20px;line-height:25px;text-shadow:1px 1px 15px #fff;}
+.dReadingClub .dContainer .dTeacherDetails2 .dTeacherName{font-size:18px;}
 .dReadingClub .dContainer .dSocialMedia{width:100%;float:left;}
 .dReadingClub .dContainer .dSessions .dSession1, .dReadingClub .dContainer .dSessions .dSession2{width:230px;height:250px; float:left;border-radius: 10px;padding:10px;margin: 0px 10px;text-align:center;box-shadow: 5px 5px 10px #606060;}
 .dReadingClub .dContainer .dSessions .dSession1{background-color:rgba(212,147,143,0.5);}
