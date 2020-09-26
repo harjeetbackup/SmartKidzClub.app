@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SmartKidzClub Premium App</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/dBasic.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/dCustom.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/hero.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/slider.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/grey-area.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/youtube.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/testimonials.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/colored-border.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fonts.css" type="text/css" />
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.css" />
+</head>
+
+<body>
+
+    <div class="dContainer dHCenter">
+
+        <header class="pad-1em">
+            <img class="logo" src="assets/images/SKC_Logo.png" />
+
+            <div class="download-apps small">
+            </div>
+
+            <div class="download-apps large">
+            </div>
+
+        </header>
+
+        <section>
+            <style>
+                ul.firebaseui-idp-list, .firebaseui-list-item{
+                    list-style: none;
+                }
+            </style>
+            <div id='firebaseui-auth-container'></div>
+            <div id="loader">Loading...</div>
+        </section>
+
+    </div>
+
+
+    <script src="/__/firebase/7.21.1/firebase-app.js"></script>
+    <script src="/__/firebase/7.21.1/firebase-auth.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="assets/js/fire.js"></script>
+
+</body>
+
+</html>
