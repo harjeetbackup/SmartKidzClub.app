@@ -2,81 +2,88 @@
 <html lang="en">
 
 <head>
-    <title>SmartKidzClub Premium App</title>
+  <title>SmartKidzClub Premium App</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/dBasic.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/dCustom.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/grey-area.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/colored-border.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/fb-stripe.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/dBasic.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/dCustom.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/grey-area.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/colored-border.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/fonts.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/fb-stripe.css" type="text/css" />
 
 </head>
 
 <body>
 
+  <div class="dContainer dHCenter">
     <header class="pad-1em">
+      <a href="/" style="display: inline-flex;">
         <img class="logo" src="assets/images/SKC_Logo.png" />
+      </a>
     </header>
 
     <section id="firebaseui-auth-container">
-        <div id="loader">Loading &hellip;</div>
+      <div id="login-header" style="margin-bottom: 40px; display: none;">
+        Lets get you signed in first.
+      </div>
+      <div id="loader">Loading &hellip;</div>
     </section>
 
     <main>
-        <div class='profile'>
-            <h1 id="cu-name"></h1>
-            <button type="button" id="signout">
-                Sign out
-            </button>
+      <div class='head-w-btn'>
+        <h1 id="cu-name" class='title'></h1>
+        <button type="button" id="signout">
+          Sign out
+        </button>
+      </div>
+      <div id="subscribe">
+        <section class="products"></section>
+      </div>
+      <section id="my-subscription">
+        <div class='head-w-btn'>
+          <h2 class='title'>My subscription</h2>
+          <button id="billing-portal-button">Manage</button>
         </div>
-        <div id="subscribe">
-            <h2>Subscriptions</h2>
-            <section class="products"></section>
-        </div>
-        <section id="my-subscription">
-            <h2>My subscription</h2>
-            <p></p>
-            <h3>View invoices, update subscription & payment methods</h3>
-            <button id="billing-portal-button">Manage subscription</button>
-        </section>
+        <p></p>
+      </section>
     </main>
 
     <template id="product">
-        <div class="product">
-            <img src="" alt="" />
-            <h2>name</h2>
-            <p class="description">description</p>
-            <form class="product-form">
-                <label for="price">Choose pricing plan</label>
-                <select id="price" name="price"></select>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
+      <div class="product">
+        <h2>name</h2>
+        <img src="" alt="" />
+        <p class="description">description</p>
+        <form class="product-form">
+          <label for="price">Choose pricing plan</label>
+          <select id="price" name="price"></select>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
     </template>
+  </div>
 
-    <!-- Firebase Library -->
-    <script src="/__/firebase/7.21.1/firebase-app.js"></script>
-    <script src="/__/firebase/7.21.1/firebase-auth.js"></script>
-    <script src="/__/firebase/7.21.1/firebase-functions.js"></script>
-    <script src="/__/firebase/7.21.1/firebase-firestore.js"></script>
-    <script src="/__/firebase/init.js"></script>
+  <!-- Firebase Library -->
+  <script src="/__/firebase/7.21.1/firebase-app.js"></script>
+  <script src="/__/firebase/7.21.1/firebase-auth.js"></script>
+  <script src="/__/firebase/7.21.1/firebase-functions.js"></script>
+  <script src="/__/firebase/7.21.1/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
 
-    <!-- Firebase UI Library -->
-    <script src="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.css" />
+  <!-- Firebase UI Library -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.js"></script>
+  <!-- <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.css" /> -->
 
-    <!-- Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
 
-    <!-- Our Code -->
-    <script src="assets/js/fb-stripe.js"></script>
+  <!-- Our Code -->
+  <script src="assets/js/fb-stripe.js"></script>
 
 </body>
 
