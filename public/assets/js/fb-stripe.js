@@ -83,6 +83,7 @@ function startDataListeners() {
           .get();
         if (!'content' in document.createElement('template')) {
           console.error('Your browser doesn’t support HTML template elements.');
+          alert('Your browser doesn’t support HTML template elements.')
           return;
         }
 
@@ -139,18 +140,6 @@ function startDataListeners() {
       const priceData = (await subscription.price.get()).data();
 
       document.querySelector(
-        '#my-subscription div.status span.current'
-      ).textContent = `${subscription.status.toUpperCase()}`;
-
-      document.querySelector(
-        '#my-subscription div.status span.created'
-      ).textContent = `Created On: ${new Date(subscription.created.toDate()).toLocaleString()}`;
-
-      document.querySelector(
-        '#my-subscription div.trial span.from'
-      ).textContent = `From: ${new Date(subscription.trial_start.toDate()).toLocaleString()}`;
-
-      document.querySelector(
         '#my-subscription p.paying'
       ).textContent = `You are paying ${new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -159,12 +148,28 @@ function startDataListeners() {
         } 🥳`;
 
       document.querySelector(
+        '#my-subscription div.status span.current'
+      ).textContent = `${priceData.active ? 'Active' : "Inactive"} (${subscription.status})`;
+
+      document.querySelector(
+        '#my-subscription div.status span.created'
+      ).textContent = `Created On: ${new Date(subscription.created.toDate()).toLocaleString()}`;
+
+      document.querySelector(
+        '#my-subscription div.trial span.interval'
+      ).textContent = `${priceData.trial_period_days} Days`;
+
+      document.querySelector(
         '#my-subscription div.trial span.from'
       ).textContent = `Start: ${new Date(subscription.trial_start.toDate()).toLocaleString()}`;
 
       document.querySelector(
         '#my-subscription div.trial span.to'
       ).textContent = `End: ${new Date(subscription.trial_end.toDate()).toLocaleString()}`;
+
+      document.querySelector(
+        '#my-subscription div.period span.interval'
+      ).textContent = `${priceData.interval_count} ${priceData.interval} (${priceData.type})`;
 
       document.querySelector(
         '#my-subscription div.period span.from'
