@@ -1,41 +1,44 @@
-let currentUser = null;
-const db = firebase.firestore();
-const redirectTo = '/subscribe.html';
+const redirectUrl = '/subscribe.html';
+const functionLocation = 'us-central1';
 const containerFUI = '#firebaseui-auth-container';
 const stripePubKey = 'pk_test_IyNOaAJ4PM6enpAOYFxW6LzD';
-const authUI = {
-  hide: () => document.querySelector(containerFUI).style.display = 'none',
-  show: () => document.querySelector(containerFUI).style.display = 'block',
-}
-const loader = {
-  hide: () => document.getElementById('loader').style.display = 'none',
-  show: () => document.getElementById('loader').style.display = 'block',
-}
+const fullRedirectUrl = window.location.origin + redirectUrl;
+
+let currentUser = null, fui = null;
+const db = firebase.firestore();
+const dq = e => document.querySelector(e);
+const dg = e => document.getElementById(e);
+const dqa = e => document.querySelectorAll(e);
+const asDate = (dt) => dt ? new Date(dt.toDate()).toLocaleString() : ' ';
+const createUIToggle = el => ({
+  el,
+  hide: () => (el.style.display = 'none'),
+  show: () => (el.style.display = 'block'),
+})
+
+const mainUI = createUIToggle(dq('main'));
+const loaderUI = createUIToggle(dg('loader'));
+const authUI = createUIToggle(dq(containerFUI));
+const subscribeUI = createUIToggle(dq('#my-subscription'));
+const productsListUI = createUIToggle(dq('#productsList'));
 
 function initFirebaseUI() {
-  const ui = new firebaseui.auth.AuthUI(firebase.auth());
-  if (ui) {
+  fui = fui || new firebaseui.auth.AuthUI(firebase.auth());
+  if (fui) {
     const uiConfig = {
       callbacks: {
-        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+        signInSuccessWithAuthResult: function (authResult, redirect) {
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
           authUI.hide();
+          mainUI.hide();
+          productsListUI.hide();
           return true;
         },
-        uiShown: function () {
-          // The widget is rendered.
-          // Hide the loader.
-          loader.hide();
-        }
+        uiShown: loaderUI.hide
       },
       signInOptions: [
-        // {
-        // 	requireDisplayName: true,
-        // 	provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        // 	signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD,
-        // },
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         {
@@ -49,29 +52,19 @@ function initFirebaseUI() {
         }
       ],
       credentialHelper: firebaseui.auth.CredentialHelper.NONE,
-      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
       signInFlow: 'popup',
-      signInSuccessUrl: redirectTo,
-      // Terms of service url.
+      signInSuccessUrl: redirectUrl,
       tosUrl: '/termsofuse.html',
-      // Privacy policy url.
       privacyPolicyUrl: '/privacy.html'
     }
-    // if (ui.isPendingRedirect()) {
-    //     ui.start(containerFUI, uiConfig);
-    // }
-    // // This can also be done via:
-    // if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-    //     ui.start(containerFUI, uiConfig);
-    // }
-    ui.start(containerFUI, uiConfig);
+    fui.start(containerFUI, uiConfig);
   }
 }
 
 function startDataListeners() {
   // Get all our products and render them to the page
-  const products = document.querySelector('.products');
-  const template = document.querySelector('#product');
+  const products = dq('.products');
+  const template = dq('#product');
   db.collection('products')
     .where('active', '==', true)
     .get()
@@ -82,9 +75,9 @@ function startDataListeners() {
           .orderBy('unit_amount')
           .get();
         if (!'content' in document.createElement('template')) {
-          console.error('Your browser doesn’t support HTML template elements.');
-          alert('Your browser doesn’t support HTML template elements.')
-          return;
+          const err = 'Your browser doesn’t support HTML template elements.';
+          console.error(err);
+          return alert(err);
         }
 
         const product = doc.data();
@@ -130,16 +123,15 @@ function startDataListeners() {
     .onSnapshot(async (snapshot) => {
       if (snapshot.empty) {
         // Show products
-        document.querySelector('#subscribe').style.display = 'block';
-        return;
+        return productsListUI.show()
       }
-      document.querySelector('#subscribe').style.display = 'none';
-      document.querySelector('#my-subscription').style.display = 'block';
+      productsListUI.hide()
+      dq('#my-subscription').style.display = 'block';
       // In this implementation we only expect one Subscription to exist
       const subscription = snapshot.docs[0].data();
       const priceData = (await subscription.price.get()).data();
 
-      document.querySelector(
+      dq(
         '#my-subscription p.paying'
       ).textContent = `You are paying ${new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -147,37 +139,37 @@ function startDataListeners() {
       }).format((priceData.unit_amount / 100).toFixed(2))} per ${priceData.interval
         } 🥳`;
 
-      document.querySelector(
+      dq(
         '#my-subscription div.status span.current'
       ).textContent = `${priceData.active ? 'Active' : "Inactive"} (${subscription.status})`;
 
-      document.querySelector(
+      dq(
         '#my-subscription div.status span.created'
-      ).textContent = `Created On: ${new Date(subscription.created.toDate()).toLocaleString()}`;
+      ).textContent = `Created On: ${asDate(subscription.created)}`;
 
-      document.querySelector(
+      dq(
         '#my-subscription div.trial span.interval'
       ).textContent = `${priceData.trial_period_days} Days`;
 
-      document.querySelector(
+      dq(
         '#my-subscription div.trial span.from'
-      ).textContent = `Start: ${new Date(subscription.trial_start.toDate()).toLocaleString()}`;
+      ).textContent = `Start: ${asDate(subscription.trial_start)}`;
 
-      document.querySelector(
+      dq(
         '#my-subscription div.trial span.to'
-      ).textContent = `End: ${new Date(subscription.trial_end.toDate()).toLocaleString()}`;
+      ).textContent = `End: ${asDate(subscription.trial_end)}`;
 
-      document.querySelector(
+      dq(
         '#my-subscription div.period span.interval'
       ).textContent = `${priceData.interval_count} ${priceData.interval} (${priceData.type})`;
 
-      document.querySelector(
+      dq(
         '#my-subscription div.period span.from'
-      ).textContent = `Start: ${new Date(subscription.current_period_start.toDate()).toLocaleString()}`;
+      ).textContent = `Start: ${asDate(subscription.current_period_start)}`;
 
-      document.querySelector(
+      dq(
         '#my-subscription div.period span.to'
-      ).textContent = `End: ${new Date(subscription.current_period_end.toDate()).toLocaleString()}`;
+      ).textContent = `End: ${asDate(subscription.current_period_end)}`;
     });
 }
 
@@ -198,7 +190,7 @@ function toggleButtonState(b, disabled) {
 
 async function subscribe(event) {
   event.preventDefault();
-  document.querySelectorAll('button').forEach(b => toggleButtonState(b, true));
+  dqa('button').forEach(b => toggleButtonState(b, true));
   const formData = new FormData(event.target);
 
   const docRef = await db
@@ -207,8 +199,8 @@ async function subscribe(event) {
     .collection('checkout_sessions')
     .add({
       price: formData.get('price'),
-      success_url: window.location.origin + redirectTo,
-      cancel_url: window.location.origin + redirectTo,
+      success_url: fullRedirectUrl,
+      cancel_url: fullRedirectUrl,
     });
   // Wait for the CheckoutSession to get attached by the extension
   docRef.onSnapshot((snap) => {
@@ -216,7 +208,7 @@ async function subscribe(event) {
     if (error) {
       // Show an error to your customer and then inspect your function logs.
       alert(`An error occured: ${error.message}`);
-      document.querySelectorAll('button').forEach((b) => toggleButtonState(b, false));
+      dqa('button').forEach((b) => toggleButtonState(b, false));
     }
     if (sessionId) {
       // We have a session, let's redirect to Checkout
@@ -230,36 +222,40 @@ async function subscribe(event) {
 // Sign out
 document
   .getElementById('signout')
-  .addEventListener('click', () => firebase.auth().signOut());
+  .addEventListener('click', () => {
+    mainUI.hide();
+    productsListUI.hide();
+    firebase.auth().signOut();
+  });
 
 // Billing portal handler
 document
   .querySelector('#billing-portal-button')
   .addEventListener('click', async (event) => {
-    document.querySelectorAll('button').forEach((b) => toggleButtonState(b, true));
+    dqa('button').forEach((b) => toggleButtonState(b, true));
 
     // Call billing portal function
     const functionRef = firebase
       .app()
-      .functions('us-central1')
+      .functions(functionLocation)
       .httpsCallable('ext-firestore-stripe-subscriptions-createPortalLink');
-    const returnUrl = window.location.origin + redirectTo;
-    const { data } = await functionRef({ returnUrl });
+    const { data } = await functionRef({ returnUrl: fullRedirectUrl });
     window.location.assign(data.url);
   });
 
 firebase.auth().onAuthStateChanged((firebaseUser) => {
   if (firebaseUser) {
-    loader.hide();
+    console.log(loaderUI.el);
+    loaderUI.hide();
     authUI.hide();
-    document.querySelector('main').style.display = 'block';
+    mainUI.show();
     currentUser = firebaseUser.uid;
-    document.querySelector('#cu-name').textContent = `Hi, ${firebaseUser.displayName || 'User'}`;
+    dq('#cu-name').textContent = `Hi, ${firebaseUser.displayName || 'User'}`;
     startDataListeners();
   } else {
     authUI.show();
-    document.querySelector('main').style.display = 'none';
-    document.querySelector('#login-header').style.display = 'block';
+    mainUI.hide();
+    dq('#login-header').style.display = 'block';
     initFirebaseUI();
   }
 });
