@@ -150,25 +150,36 @@ function startDataListeners() {
       }).format((priceData.unit_amount / 100).toFixed(2))} per ${priceData.interval
         } 🥳`;
 
-      dq(
-        '#my-subscription div.status span.current'
-      ).textContent = `${priceData.active ? 'Active' : "Inactive"} (${subscription.status})`;
+
+      const status = subscription.status || "";
+      let act = priceData.active ? 'Active' : "Inactive";
+      act = act.toLowerCase() === status.toLowerCase() ? act : (status ? `${act} (${status})` : act);
+
+      dq('#my-subscription div.status span.current').textContent = act;
 
       dq(
         '#my-subscription div.status span.created'
       ).textContent = `Created On: ${asDate(subscription.created)}`;
 
-      dq(
-        '#my-subscription div.trial span.interval'
-      ).textContent = `${priceData.trial_period_days} Days`;
+      const elTrial = dq('#my-subscription div.trial');
+      if (priceData.trial_period_days && subscription.trial_start && subscription.trial_end) {
+        elTrial.style.display = 'flex';
 
-      dq(
-        '#my-subscription div.trial span.from'
-      ).textContent = `Start: ${asDate(subscription.trial_start)}`;
+        dq(
+          '#my-subscription div.trial span.interval'
+        ).textContent = `${priceData.trial_period_days} Days`;
 
-      dq(
-        '#my-subscription div.trial span.to'
-      ).textContent = `End: ${asDate(subscription.trial_end)}`;
+        dq(
+          '#my-subscription div.trial span.from'
+        ).textContent = `Start: ${asDate(subscription.trial_start)}`;
+
+        dq(
+          '#my-subscription div.trial span.to'
+        ).textContent = `End: ${asDate(subscription.trial_end)}`;
+
+      } else {
+        elTrial.style.display = 'none';
+      }
 
       dq(
         '#my-subscription div.period span.interval'
@@ -243,11 +254,13 @@ document
   .querySelector('#billing-portal-button')
   .addEventListener('click', async (event) => {
     dqa('button').forEach((b) => toggleButtonState(b, true));
-
+    await firebase.auth().currentUser.getIdToken(true);
+    // const decodedToken = await firebase.auth().currentUser.getIdTokenResult();
+    // console.log(decodedToken);
     // Call billing portal function
     const functionRef = firebase
       .app()
-      .functions(functionLocation)
+      .functions()
       .httpsCallable(stripee.portalLink);
     const { data } = await functionRef({ returnUrl: fullRedirectUrl });
     window.location.assign(data.url);

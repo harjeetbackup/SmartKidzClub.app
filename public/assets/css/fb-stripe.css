@@ -16,6 +16,11 @@ main {
   width: 90vw;
 }
 
+a.not-link{
+  text-decoration: none;
+  color: white;;  
+}
+
 .head-w-btn {
   display: flex;
   align-items: center;
