@@ -1,6 +1,8 @@
 {
     "private": true,
     "scripts": {
-        "deploy-stage": "firebase deploy --project readtomedev-d8985"
+        "dev": "firebase use stage && firebase serve",
+        "deploy-prod": "firebase use prod && firebase deploy",
+        "deploy-stage": "firebase use stage && firebase deploy"
     }
 }
