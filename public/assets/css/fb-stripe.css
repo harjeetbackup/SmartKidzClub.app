@@ -121,11 +121,21 @@ label {
 
 #my-subscription p {
   margin: 3vw 0;
+  border-top: 1px solid lightgrey;
+  padding-top: 30px;
 }
 
-h3 {
-  border-top: 1px solid;
-  padding-top: 30px;
+.half {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid lightgrey;
+}
+
+#my-subscription .timestamp {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 /* Test card number */
