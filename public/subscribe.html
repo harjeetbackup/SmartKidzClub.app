@@ -19,44 +19,68 @@
     <link rel="stylesheet" href="assets/css/testimonials.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/colored-border.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/fb-stripe.css" type="text/css" />
 
-    <script src="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.css" />
 </head>
 
 <body>
 
-    <div class="dContainer dHCenter">
+    <header class="pad-1em">
+        <img class="logo" src="assets/images/SKC_Logo.png" />
+    </header>
 
-        <header class="pad-1em">
-            <img class="logo" src="assets/images/SKC_Logo.png" />
+    <section id="firebaseui-auth-container">
+        <div id="loader">Loading &hellip;</div>
+    </section>
 
-            <div class="download-apps small">
-            </div>
-
-            <div class="download-apps large">
-            </div>
-
-        </header>
-
-        <section>
-            <style>
-                ul.firebaseui-idp-list, .firebaseui-list-item{
-                    list-style: none;
-                }
-            </style>
-            <div id='firebaseui-auth-container'></div>
-            <div id="loader">Loading...</div>
+    <main>
+        <div class='profile'>
+            <h1 id="cu-name"></h1>
+            <button type="button" id="signout">
+                Sign out
+            </button>
+        </div>
+        <div id="subscribe">
+            <h2>Subscriptions</h2>
+            <section class="products"></section>
+        </div>
+        <section id="my-subscription">
+            <h2>My subscription</h2>
+            <p></p>
+            <h3>View invoices, update subscription & payment methods</h3>
+            <button id="billing-portal-button">Access customer portal</button>
         </section>
+    </main>
 
-    </div>
+    <template id="product">
+        <div class="product">
+            <img src="" alt="" />
+            <h2>name</h2>
+            <p class="description">description</p>
+            <form class="product-form">
+                <label for="price">Choose pricing plan</label>
+                <select id="price" name="price"></select>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </template>
 
-
+    <!-- Firebase Library -->
     <script src="/__/firebase/7.21.1/firebase-app.js"></script>
     <script src="/__/firebase/7.21.1/firebase-auth.js"></script>
+    <script src="/__/firebase/7.21.1/firebase-functions.js"></script>
+    <script src="/__/firebase/7.21.1/firebase-firestore.js"></script>
     <script src="/__/firebase/init.js"></script>
 
-    <script src="assets/js/fire.js"></script>
+    <!-- Firebase UI Library -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.2.0/firebaseui.css" />
+
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <!-- Our Code -->
+    <script src="assets/js/fb-stripe.js"></script>
 
 </body>
 

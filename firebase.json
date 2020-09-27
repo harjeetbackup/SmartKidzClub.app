@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "stripee",
     "public": "public",
     "ignore": [
       "firebase.json",

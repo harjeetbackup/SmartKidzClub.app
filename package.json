@@ -1,0 +1,7 @@
+{
+    "private": true,
+    
+    "scripts": {
+        "up": "firebase deploy --project readtomedev-d8985"
+    }
+}
