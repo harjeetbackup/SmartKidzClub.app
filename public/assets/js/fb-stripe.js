@@ -40,7 +40,7 @@ function initFirebaseUI() {
           authUI.hide();
           mainUI.hide();
           productListUI.hide();
-          return true;
+          return authResult.additionalUserInfo.isNewUser;
         },
         uiShown: loaderUI.hide
       },
@@ -70,57 +70,61 @@ function initFirebaseUI() {
 function startDataListeners() {
   // Get all our products and render them to the page
   const products = dq('.products');
-  const template = dq('#product');
-  db.collection('products')
-    .where('active', '==', true)
-    .get()
-    .then(function (querySnapshot) {
-      querySnapshot.forEach(async function (doc) {
-        const priceSnap = await doc.ref
-          .collection('prices')
-          .orderBy('unit_amount')
-          .get();
-        if (!'content' in document.createElement('template')) {
-          const err = 'Your browser doesn’t support HTML template elements.';
-          console.error(err);
-          return alert(err);
-        }
+  subscribeUI.hide();
+  if (!products.hasChildNodes()) {
+    const template = dq('#product');
+    db.collection('products')
+      .where('active', '==', true)
+      .get()
+      .then(function (querySnapshot) {
+        querySnapshot.forEach(async function (doc) {
+          const priceSnap = await doc.ref
+            .collection('prices')
+            .orderBy('unit_amount')
+            .get();
+          if (!'content' in document.createElement('template')) {
+            const err = 'Your browser doesn’t support HTML template elements.';
+            console.error(err);
+            return alert(err);
+          }
 
-        const product = doc.data();
-        const container = template.content.cloneNode(true);
+          const product = doc.data();
+          const container = template.content.cloneNode(true);
 
-        container.querySelector('h2').innerText = product.name;
-        container.querySelector('.description').innerText =
-          product.description || '';
-        // Prices dropdown
-        priceSnap.docs.forEach((doc) => {
-          const priceId = doc.id;
-          const priceData = doc.data();
-          const content = document.createTextNode(
-            `${new Intl.NumberFormat('en-US', {
-              style: 'currency',
-              currency: priceData.currency,
-            }).format((priceData.unit_amount / 100).toFixed(2))} per ${priceData.interval
-            }`
-          );
-          const option = document.createElement('option');
-          option.value = priceId;
-          option.appendChild(content);
-          container.querySelector('#price').appendChild(option);
+          container.querySelector('h2').innerText = product.name;
+          container.querySelector('.description').innerText =
+            product.description || '';
+          // Prices dropdown
+          priceSnap.docs.forEach((doc) => {
+            const priceId = doc.id;
+            const priceData = doc.data();
+            const content = document.createTextNode(
+              `${new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: priceData.currency,
+              }).format((priceData.unit_amount / 100).toFixed(2))} per ${priceData.interval
+              }`
+            );
+            const option = document.createElement('option');
+            option.value = priceId;
+            option.appendChild(content);
+            container.querySelector('#price').appendChild(option);
+          });
+
+          if (product.images.length) {
+            const img = container.querySelector('img');
+            img.src = product.images[0];
+            img.alt = product.name;
+          }
+
+          const form = container.querySelector('form');
+          form.addEventListener('submit', subscribe);
+
+          products.appendChild(container);
         });
-
-        if (product.images.length) {
-          const img = container.querySelector('img');
-          img.src = product.images[0];
-          img.alt = product.name;
-        }
-
-        const form = container.querySelector('form');
-        form.addEventListener('submit', subscribe);
-
-        products.appendChild(container);
       });
-    });
+  }
+
   // Get all subscriptions for the customer
   db.collection('customers')
     .doc(currentUser)
@@ -129,9 +133,10 @@ function startDataListeners() {
     .onSnapshot(async (snapshot) => {
       if (snapshot.empty) {
         // Show products
-        return productListUI.show()
+        return productListUI.show();
       }
-      productListUI.hide()
+      productListUI.hide();
+      subscribeUI.show();
       dq('#my-subscription').style.display = 'block';
       // In this implementation we only expect one Subscription to exist
       const subscription = snapshot.docs[0].data();
