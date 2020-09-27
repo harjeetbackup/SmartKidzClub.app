@@ -1,5 +1,7 @@
 let currentUser = null;
 const db = firebase.firestore();
+const redirectTo = '/subscribe.html';
+const containerFUI = '#firebaseui-auth-container';
 
 function initFirebaseUI() {
 	const ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -10,6 +12,7 @@ function initFirebaseUI() {
 					// User successfully signed in.
 					// Return type determines whether we continue the redirect automatically
 					// or whether we leave that to developer to handle.
+					document.querySelector(containerFUI).style.display = 'none';
 					return true;
 				},
 				uiShown: function () {
@@ -19,11 +22,12 @@ function initFirebaseUI() {
 				}
 			},
 			signInOptions: [
-				{
-					requireDisplayName: true,
-					provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-					signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD,
-				},
+				// {
+				// 	requireDisplayName: true,
+				// 	provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+				// 	signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD,
+				// },
+				firebase.auth.EmailAuthProvider.PROVIDER_ID,
 				firebase.auth.GoogleAuthProvider.PROVIDER_ID,
 				{
 					provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
@@ -35,23 +39,23 @@ function initFirebaseUI() {
 					defaultCountry: 'US'
 				}
 			],
-			credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+			// credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
 			// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
 			signInFlow: 'popup',
-			signInSuccessUrl: '/subscribe.html',
+			signInSuccessUrl: redirectTo,
 			// Terms of service url.
 			tosUrl: '/termsofuse.html',
 			// Privacy policy url.
 			privacyPolicyUrl: '/privacy.html'
 		}
 		// if (ui.isPendingRedirect()) {
-		//     ui.start('#firebaseui-auth-container', uiConfig);
+		//     ui.start(containerFUI, uiConfig);
 		// }
 		// // This can also be done via:
 		// if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-		//     ui.start('#firebaseui-auth-container', uiConfig);
+		//     ui.start(containerFUI, uiConfig);
 		// }
-		ui.start('#firebaseui-auth-container', uiConfig);
+		ui.start(containerFUI, uiConfig);
 	}
 }
 
@@ -130,13 +134,28 @@ function startDataListeners() {
 				style: 'currency',
 				currency: priceData.currency,
 			}).format((priceData.unit_amount / 100).toFixed(2))} per ${priceData.interval
-				}, giving you the role: ${await getCustomClaimRole()}. 🥳`;
+				} 🥳`;
 		});
+}
+
+function toggleButtonState(b, disabled) {
+	const attrText = b.getAttribute('data-text');
+	if (!attrText) {
+		b.setAttribute('data-text', b.textContent);
+	}
+	b.disabled = disabled;
+	if (b.id !== 'signout') {
+		if (disabled) {
+			b.textContent = 'Processing, please wait...'
+		} else {
+			b.textContent = attrText;
+		}
+	}
 }
 
 async function subscribe(event) {
 	event.preventDefault();
-	document.querySelectorAll('button').forEach((b) => (b.disabled = true));
+	document.querySelectorAll('button').forEach(b => toggleButtonState(b, true));
 	const formData = new FormData(event.target);
 
 	const docRef = await db
@@ -145,8 +164,8 @@ async function subscribe(event) {
 		.collection('checkout_sessions')
 		.add({
 			price: formData.get('price'),
-			success_url: window.location.origin,
-			cancel_url: window.location.origin,
+			success_url: window.location.origin + redirectTo,
+			cancel_url: window.location.origin + redirectTo,
 		});
 	// Wait for the CheckoutSession to get attached by the extension
 	docRef.onSnapshot((snap) => {
@@ -154,7 +173,7 @@ async function subscribe(event) {
 		if (error) {
 			// Show an error to your customer and then inspect your function logs.
 			alert(`An error occured: ${error.message}`);
-			document.querySelectorAll('button').forEach((b) => (b.disabled = false));
+			document.querySelectorAll('button').forEach((b) => toggleButtonState(b, false));
 		}
 		if (sessionId) {
 			// We have a session, let's redirect to Checkout
@@ -163,13 +182,6 @@ async function subscribe(event) {
 			stripe.redirectToCheckout({ sessionId });
 		}
 	});
-}
-
-// Get custom claim role helper
-async function getCustomClaimRole() {
-	await firebase.auth().currentUser.getIdToken(true);
-	const decodedToken = await firebase.auth().currentUser.getIdTokenResult();
-	return decodedToken.claims.stripeRole;
 }
 
 // Sign out
@@ -181,14 +193,15 @@ document
 document
 	.querySelector('#billing-portal-button')
 	.addEventListener('click', async (event) => {
-		document.querySelectorAll('button').forEach((b) => (b.disabled = true));
+		document.querySelectorAll('button').forEach((b) => toggleButtonState(b, true));
 
 		// Call billing portal function
 		const functionRef = firebase
 			.app()
-			.functions(functionLocation)
+			.functions('us-central1')
 			.httpsCallable('ext-firestore-stripe-subscriptions-createPortalLink');
-		const { data } = await functionRef({ returnUrl: window.location.origin });
+		const returnUrl = window.location.origin + redirectTo;
+		const { data } = await functionRef({ returnUrl });
 		window.location.assign(data.url);
 	});
 

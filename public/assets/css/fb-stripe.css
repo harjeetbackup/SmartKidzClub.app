@@ -25,10 +25,10 @@ main {
 
 .profile {
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: space-between;
 }
- 
+
 .profile #cu-name {
   margin: 0;
   padding: 0;
@@ -49,7 +49,7 @@ main {
 }
 
 .product img {
-  width: 12vw;;
+  width: 12vw;
 }
 
 .product input {
@@ -71,7 +71,8 @@ button {
   font-weight: 800;
   line-height: 1.25rem;
   margin-top: 0.25rem;
-  padding: 0.25rem;
+  padding: 0.5em;
+  height: 40px;
 }
 
 button:disabled {
