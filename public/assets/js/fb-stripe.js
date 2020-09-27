@@ -1,7 +1,10 @@
 const redirectUrl = '/subscribe.html';
 const functionLocation = 'us-central1';
 const containerFUI = '#firebaseui-auth-container';
-const stripePubKey = 'pk_test_IyNOaAJ4PM6enpAOYFxW6LzD';
+const stripee = {
+  js: Stripe('pk_test_IyNOaAJ4PM6enpAOYFxW6LzD'),
+  portalLink: 'ext-firestore-stripe-subscriptions-createPortalLink'
+};
 const fullRedirectUrl = window.location.origin + redirectUrl;
 
 let currentUser = null, fui = null;
@@ -17,10 +20,13 @@ const createUIToggle = el => ({
 })
 
 const mainUI = createUIToggle(dq('main'));
-const loaderUI = createUIToggle(dg('loader'));
+const loaderUI = {
+  ...createUIToggle(dg('loader')),
+  header: createUIToggle(dg('login-header')),
+};
 const authUI = createUIToggle(dq(containerFUI));
 const subscribeUI = createUIToggle(dq('#my-subscription'));
-const productsListUI = createUIToggle(dq('#productsList'));
+const productListUI = createUIToggle(dq('#productsList'));
 
 function initFirebaseUI() {
   fui = fui || new firebaseui.auth.AuthUI(firebase.auth());
@@ -33,7 +39,7 @@ function initFirebaseUI() {
           // or whether we leave that to developer to handle.
           authUI.hide();
           mainUI.hide();
-          productsListUI.hide();
+          productListUI.hide();
           return true;
         },
         uiShown: loaderUI.hide
@@ -123,9 +129,9 @@ function startDataListeners() {
     .onSnapshot(async (snapshot) => {
       if (snapshot.empty) {
         // Show products
-        return productsListUI.show()
+        return productListUI.show()
       }
-      productsListUI.hide()
+      productListUI.hide()
       dq('#my-subscription').style.display = 'block';
       // In this implementation we only expect one Subscription to exist
       const subscription = snapshot.docs[0].data();
@@ -213,8 +219,7 @@ async function subscribe(event) {
     if (sessionId) {
       // We have a session, let's redirect to Checkout
       // Init Stripe
-      const stripe = Stripe(stripePubKey);
-      stripe.redirectToCheckout({ sessionId });
+      stripee.js.redirectToCheckout({ sessionId });
     }
   });
 }
@@ -224,7 +229,7 @@ document
   .getElementById('signout')
   .addEventListener('click', () => {
     mainUI.hide();
-    productsListUI.hide();
+    productListUI.hide();
     firebase.auth().signOut();
   });
 
@@ -238,14 +243,13 @@ document
     const functionRef = firebase
       .app()
       .functions(functionLocation)
-      .httpsCallable('ext-firestore-stripe-subscriptions-createPortalLink');
+      .httpsCallable(stripee.portalLink);
     const { data } = await functionRef({ returnUrl: fullRedirectUrl });
     window.location.assign(data.url);
   });
 
 firebase.auth().onAuthStateChanged((firebaseUser) => {
   if (firebaseUser) {
-    console.log(loaderUI.el);
     loaderUI.hide();
     authUI.hide();
     mainUI.show();
@@ -255,7 +259,7 @@ firebase.auth().onAuthStateChanged((firebaseUser) => {
   } else {
     authUI.show();
     mainUI.hide();
-    dq('#login-header').style.display = 'block';
+    loaderUI.header.show();
     initFirebaseUI();
   }
 });
