@@ -155,7 +155,7 @@ function toggleButtonState(b, disabled) {
   b.disabled = disabled;
   if (b.id !== 'signout') {
     if (disabled) {
-      b.textContent = 'Processing, please wait...'
+      b.textContent = 'Processing...'
     } else {
       b.textContent = attrText;
     }
