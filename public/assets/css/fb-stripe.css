@@ -137,6 +137,10 @@ label {
   border-top: 1px solid lightgrey;
 }
 
+.trial.half{
+  display: none;
+}
+
 #my-subscription .timestamp {
   display: flex;
   flex-direction: column;

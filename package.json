@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "firebase use stage && firebase serve",
-        "deploy-prod": "firebase use prod && firebase deploy",
-        "deploy-stage": "firebase use stage && firebase deploy"
+        "host-prod": "firebase use prod && firebase deploy",
+        "host-stage": "firebase use stage && firebase deploy"
     }
 }

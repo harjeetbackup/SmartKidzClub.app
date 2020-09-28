@@ -1,9 +1,9 @@
 const redirectUrl = '/subscribe.html';
-const functionLocation = 'us-central1';
 const containerFUI = '#firebaseui-auth-container';
 const stripee = {
+  funcLocation: 'us-central1',
   js: Stripe('pk_test_IyNOaAJ4PM6enpAOYFxW6LzD'),
-  portalLink: 'ext-firestore-stripe-subscriptions-createPortalLink'
+  funcPortalLink: 'ext-firestore-stripe-subscriptions-createPortalLink'
 };
 const enablePortalHack = true;
 const fullRedirectUrl = window.location.origin + redirectUrl;
@@ -259,29 +259,36 @@ document
     dqa('button').forEach((b) => toggleButtonState(b, true));
     const tkn = await firebase.auth().currentUser.getIdToken(true);
     let gotoPortalLink = null;
-    if (enablePortalHack) {
-      const { result } = await fetch(
-        'https://us-central1-readtomedev-d8985.cloudfunctions.net/ext-firestore-stripe-subscriptions-createPortalLink',
-        {
-          method: 'POST',
-          headers: new Headers({
-            'Content-Type': "application/json",
-            authorization: `Bearer ${tkn}`
-          }),
-          body: JSON.stringify({ data: { returnUrl: fullRedirectUrl } })
-        }
-      ).then(x => x.json());
-      gotoPortalLink = result.url;
-    } else {
-      const functionRef = firebase
-        .app()
-        .functions()
-        .httpsCallable(stripee.portalLink);
-      const { data } = await functionRef({ returnUrl: fullRedirectUrl });
-      gotoPortalLink = data.url;
+    const { funcLocation, funcPortalLink } = stripee;
+    try {
+      if (enablePortalHack) {
+        const projId = firebase.app().options.projectId;
+        const { result } = await fetch(
+          `https://${funcLocation}-${projId}.cloudfunctions.net/${funcPortalLink}`,
+          {
+            method: 'POST',
+            headers: new Headers({
+              'Content-Type': "application/json",
+              authorization: `Bearer ${tkn}`
+            }),
+            body: JSON.stringify({ data: { returnUrl: fullRedirectUrl } })
+          }
+        ).then(x => x.json());
+        gotoPortalLink = result.url;
+      } else {
+        const func = firebase
+          .app()
+          .functions(funcLocation);
+        const functionRef = func.httpsCallable(funcPortalLink);
+        const { data } = await functionRef({ returnUrl: fullRedirectUrl });
+        gotoPortalLink = data.url;
+      }
+      window.location.assign(gotoPortalLink);
+    } catch (error) {
+      console.error(error);
+      alert('Some error occurred. Please try again later!');
+      dqa('button').forEach((b) => toggleButtonState(b, false));
     }
-
-    window.location.assign(gotoPortalLink);
   });
 
 firebase.auth().onAuthStateChanged((firebaseUser) => {
