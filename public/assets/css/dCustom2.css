@@ -1,0 +1,111 @@
+div.dContainer {
+	background:#fff!important;
+	padding-bottom:1px;
+	margin-bottom:20px;
+}
+
+main{
+	max-width:1024px;
+	margin:3rem auto;
+	width:100%;
+	padding:0 2rem;
+}
+
+#firebaseui-auth-container{
+	font-weight:normal!important;
+}
+
+.head-w-btn{
+	display:inline-block;
+	width:100%;
+	text-align:right;
+}
+
+.head-w-btn h1#cu-name, .head-w-btn h2.title{
+	font-size:inherit;
+	font-size:larger;
+	font-weight:normal;
+}
+
+div.product h2{
+	font-weight:normal;
+}
+
+div.product p.description{
+	/*font-size:larger;*/
+}
+
+.head-w-btn button,.head-w-btn button#signout{
+	float:right;
+}
+
+div.half{
+	align-items:flex-start;
+	width:100%;
+}
+
+div.half h3{
+	text-align:left;
+	font-weight:normal;
+}
+
+div.half .timestamp{
+	text-align:right;
+	white-space:nowrap;
+}
+
+div.half .timestamp .current, div.half .timestamp .interval{
+	text-transform: capitalize
+}
+
+.dContainer p.dPlanAddInfo{font-size:smaller;}
+
+div.dDivider{border-top:1px solid lightgrey;margin:1.5rem auto;height:1px;}
+
+div.dSignInBox{border:2px solid #FDB515;padding:1.5rem 1rem;border-radius:1em;}
+
+a.dIOS {background-image: url('../../assets/images/app_store.png');border:2px solid white;}
+a.dAndroid {background-image: url('../../assets/images/google_play.png');border:2px solid white;}
+
+.download-apps {
+	margin:1rem 0 0 0;
+}
+
+.download-apps a{
+	outline: none;
+	background-color: white;
+	border-radius: 10px;
+	border: 0;
+	color: #000;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 14px;
+	margin: 5px;
+	background-repeat: round;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: all 300ms ease;
+	height: 40px;
+}
+
+.download-apps a {
+	width: 140px;
+}
+.download-apps a:hover,
+.download-apps a:active,
+.download-apps a:focus {
+	box-shadow: 0 0 2px 2px var(--success);
+	/* transform: scale(0.96); */
+}
+	
+#my-subscription p.paying{margin-top:1rem;}
+
+button{
+	font-size:inherit;
+}
+select{
+	font-size:inherit;
+}
+

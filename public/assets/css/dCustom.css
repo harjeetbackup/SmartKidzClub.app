@@ -222,20 +222,23 @@ header img.logo {
 
 header a.subscribe{
     text-decoration: none;
-    background: #333;
-    border: 2px solid black;
+    background: #e01e4e;
+		border:2px solid #ffd986;
     padding: 8px 12px;
     border-radius: 10px;
     font-size: 18px;
-    color: #eee;
+    color: #fff;
     transition: all 200ms ease;
 }
 
 header a.subscribe:hover,
 header a.subscribe:active,
 header a.subscribe:focus {
+		border:2px solid #fff;
+		/*
     box-shadow: 0 0 2px 2px #00000026;
-    transform: scale(0.95);
+    transform: scale(0.95); 
+		*/
 }
 
 .download-apps.small {
