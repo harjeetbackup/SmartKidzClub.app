@@ -111,3 +111,6 @@ select{
 	font-size:inherit;
 }
 
+button.firebaseui-idp-phone{
+	display:none;
+}
