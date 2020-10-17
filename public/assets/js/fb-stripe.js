@@ -37,9 +37,6 @@ function initFirebaseUI() {
     const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirect) {
-          // User successfully signed in.
-          // Return type determines whether we continue the redirect automatically
-          // or whether we leave that to developer to handle.
           authUI.hide();
           mainUI.hide();
           productListUI.hide();
@@ -49,7 +46,6 @@ function initFirebaseUI() {
       },
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         {
           provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
           recaptchaParameters: {
@@ -78,9 +74,10 @@ function startDataListeners() {
     const template = dq('#product');
     db.collection('products')
       .where('active', '==', true)
+      .where('origin', '==', location.host)
       .get()
-      .then(function (querySnapshot) {
-        querySnapshot.forEach(async function (doc) {
+      .then((qs) => {
+        qs.forEach(async function (doc) {
           const priceSnap = await doc.ref
             .collection('prices')
             .orderBy('unit_amount')
@@ -98,9 +95,10 @@ function startDataListeners() {
           container.querySelector('.description').innerText =
             product.description || '';
           // Prices dropdown
-          priceSnap.docs.forEach((doc) => {
-            const priceId = doc.id;
-            const priceData = doc.data();
+          const prices = priceSnap.docs
+            .map(d => ({ ...d.data(), id: d.id }))
+            .sort((a, b) => a.year > b.year ? 1 : -1)
+          prices.forEach((priceData) => {
             const content = document.createTextNode(
               `${new Intl.NumberFormat('en-US', {
                 style: 'currency',
@@ -109,7 +107,7 @@ function startDataListeners() {
               }`
             );
             const option = document.createElement('option');
-            option.value = priceId;
+            option.value = priceData.id;
             option.appendChild(content);
             container.querySelector('#price').appendChild(option);
           });
