@@ -2,7 +2,7 @@ const redirectUrl = '/subscribe.html';
 const containerFUI = '#firebaseui-auth-container';
 const stripee = {
   funcLocation: 'us-central1',
-  js: Stripe('pk_test_IyNOaAJ4PM6enpAOYFxW6LzD'),
+  js: Stripe('pk_live_nd0WM0o2MU4oGG1piPBdezuw'),
   funcPortalLink: 'ext-firestore-stripe-subscriptions-createPortalLink'
 };
 const enablePortalHack = true;
@@ -241,7 +241,9 @@ async function subscribe(event) {
     if (sessionId) {
       // We have a session, let's redirect to Checkout
       // Init Stripe
-      stripee.js.redirectToCheckout({ sessionId,clientReferenceId: getClientReferenceId() });
+      stripee.js.redirectToCheckout({ sessionId,
+        //clientReferenceId: getClientReferenceId() 
+      });
     }
   });
 }
