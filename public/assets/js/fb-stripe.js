@@ -211,6 +211,11 @@ function toggleButtonState(b, disabled) {
   }
 }
 
+function getClientReferenceId() {
+  return window.Rewardful && window.Rewardful.referral || ('checkout_'+(new Date).getTime());
+}
+
+
 async function subscribe(event) {
   event.preventDefault();
   dqa('button').forEach(b => toggleButtonState(b, true));
@@ -236,7 +241,7 @@ async function subscribe(event) {
     if (sessionId) {
       // We have a session, let's redirect to Checkout
       // Init Stripe
-      stripee.js.redirectToCheckout({ sessionId });
+      stripee.js.redirectToCheckout({ sessionId,clientReferenceId: getClientReferenceId() });
     }
   });
 }
