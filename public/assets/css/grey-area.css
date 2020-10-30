@@ -28,6 +28,7 @@ section.grey-area .images .image {
     width: 100px;
     /*background-color: #808080;*/
     margin: 5px;
+	cursor:pointer;
 }
 
 section.grey-area .images .imageCaption{
