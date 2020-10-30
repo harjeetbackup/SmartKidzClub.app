@@ -18,9 +18,18 @@ section.grey-area .images {
     align-items: center;
 }
 
+section.grey-area .images a{
+	text-decoration:none;
+	color:inherit;
+}
+
 section.grey-area .images .image {
-    height: 80px;
+    height: 130px; /*height: 80px;*/
     width: 100px;
-    background-color: #808080;
+    /*background-color: #808080;*/
     margin: 5px;
+}
+
+section.grey-area .images .imageCaption{
+	font-size:.9rem;
 }
