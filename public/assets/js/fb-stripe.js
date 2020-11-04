@@ -229,6 +229,7 @@ async function subscribe(event) {
       price: formData.get('price'),
       success_url: fullRedirectUrl,
       cancel_url: fullRedirectUrl,
+      client_reference_id: getClientReferenceId(),
     });
   // Wait for the CheckoutSession to get attached by the extension
   docRef.onSnapshot((snap) => {
