@@ -1,35 +1,38 @@
-const redirectUrl = '/subscribe.html';
-const containerFUI = '#firebaseui-auth-container';
+// https://stripe-subs-ext.web.app
+const redirectUrl = "/subscribe.html";
+const containerFUI = "#firebaseui-auth-container";
 const stripee = {
-  funcLocation: 'us-central1',
-  js: Stripe('pk_live_nd0WM0o2MU4oGG1piPBdezuw'),
-  funcPortalLink: 'ext-firestore-stripe-subscriptions-createPortalLink'
+  funcLocation: "us-central1",
+  js: Stripe("pk_live_nd0WM0o2MU4oGG1piPBdezuw"),
+  funcPortalLink: "ext-firestore-stripe-subscriptions-createPortalLink",
 };
 const enablePortalHack = true;
 const fullRedirectUrl = window.location.origin + redirectUrl;
 
-// https://stripe-subs-ext.web.app
-
-let currentUser = null, fui = null;
+let fui = null,
+  currentUser = {
+    id: null,
+    email: null,
+  };
 const db = firebase.firestore();
-const dq = e => document.querySelector(e);
-const dg = e => document.getElementById(e);
-const dqa = e => document.querySelectorAll(e);
-const asDate = (dt) => dt ? new Date(dt.toDate()).toLocaleString() : ' ';
-const createUIToggle = el => ({
+const dq = (e) => document.querySelector(e);
+const dg = (e) => document.getElementById(e);
+const dqa = (e) => document.querySelectorAll(e);
+const asDate = (dt) => (dt ? new Date(dt.toDate()).toLocaleString() : " ");
+const createUIToggle = (el) => ({
   el,
-  hide: () => (el.style.display = 'none'),
-  show: () => (el.style.display = 'block'),
-})
+  hide: () => (el.style.display = "none"),
+  show: () => (el.style.display = "block"),
+});
 
-const mainUI = createUIToggle(dq('main'));
+const mainUI = createUIToggle(dq("main"));
 const loaderUI = {
-  ...createUIToggle(dg('loader')),
-  header: createUIToggle(dg('login-header')),
+  ...createUIToggle(dg("loader")),
+  header: createUIToggle(dg("login-header")),
 };
 const authUI = createUIToggle(dq(containerFUI));
-const subscribeUI = createUIToggle(dq('#my-subscription'));
-const productListUI = createUIToggle(dq('#productsList'));
+const subscribeUI = createUIToggle(dq("#my-subscription"));
+const productListUI = createUIToggle(dq("#productsList"));
 
 function initFirebaseUI() {
   fui = fui || new firebaseui.auth.AuthUI(firebase.auth());
@@ -42,48 +45,49 @@ function initFirebaseUI() {
           productListUI.hide();
           return authResult.additionalUserInfo.isNewUser;
         },
-        uiShown: loaderUI.hide
+        uiShown: loaderUI.hide,
       },
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
         {
           provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
           recaptchaParameters: {
-            type: 'image', // 'audio'
-            size: 'normal', // 'invisible' or 'compact'
-            badge: 'bottomleft' //' bottomright' or 'inline' applies to invisible.
+            type: "image", // 'audio'
+            size: "normal", // 'invisible' or 'compact'
+            badge: "bottomleft", //' bottomright' or 'inline' applies to invisible.
           },
-          defaultCountry: 'US'
-        }
+          defaultCountry: "US",
+        },
       ],
-      credentialHelper: firebaseui.auth.CredentialHelper.NONE,
-      signInFlow: 'popup',
+      signInFlow: "popup",
+      tosUrl: "/termsofuse.html",
       signInSuccessUrl: redirectUrl,
-      tosUrl: '/termsofuse.html',
-      privacyPolicyUrl: '/privacy.html'
-    }
+      privacyPolicyUrl: "/privacy.html",
+      credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+    };
     fui.start(containerFUI, uiConfig);
   }
 }
 
 function startDataListeners() {
   // Get all our products and render them to the page
-  const products = dq('.products');
+  const products = dq(".products");
   subscribeUI.hide();
   if (!products.hasChildNodes()) {
-    const template = dq('#product');
-    db.collection('products')
-      .where('active', '==', true)
-      .where('origin', '==', location.host)
+    const template = dq("#product");
+    const where = db
+      .collection("products")
+      .where("active", "==", true)
+      // .where("origin", "==", location.host)
       .get()
       .then((qs) => {
         qs.forEach(async function (doc) {
           const priceSnap = await doc.ref
-            .collection('prices')
-            .orderBy('unit_amount')
+            .collection("prices")
+            .orderBy("unit_amount")
             .get();
-          if (!'content' in document.createElement('template')) {
-            const err = 'Your browser doesn’t support HTML template elements.';
+          if (!"content" in document.createElement("template")) {
+            const err = "Your browser doesn’t support HTML template elements.";
             console.error(err);
             return alert(err);
           }
@@ -91,35 +95,36 @@ function startDataListeners() {
           const product = doc.data();
           const container = template.content.cloneNode(true);
 
-          container.querySelector('h2').innerText = product.name;
-          container.querySelector('.description').innerText =
-            product.description || '';
+          container.querySelector("h2").innerText = product.name;
+          container.querySelector(".description").innerText =
+            product.description || "";
           // Prices dropdown
           const prices = priceSnap.docs
-            .map(d => ({ ...d.data(), id: d.id }))
-            .sort((a, b) => a.year > b.year ? 1 : -1)
+            .map((d) => ({ ...d.data(), id: d.id }))
+            .sort((a, b) => (a.year > b.year ? 1 : -1));
           prices.forEach((priceData) => {
             const content = document.createTextNode(
-              `${new Intl.NumberFormat('en-US', {
-                style: 'currency',
+              `${new Intl.NumberFormat("en-US", {
+                style: "currency",
                 currency: priceData.currency,
-              }).format((priceData.unit_amount / 100).toFixed(2))} per ${priceData.interval
+              }).format((priceData.unit_amount / 100).toFixed(2))} per ${
+                priceData.interval
               }`
             );
-            const option = document.createElement('option');
+            const option = document.createElement("option");
             option.value = priceData.id;
             option.appendChild(content);
-            container.querySelector('#price').appendChild(option);
+            container.querySelector("#price").appendChild(option);
           });
 
           if (product.images.length) {
-            const img = container.querySelector('img');
+            const img = container.querySelector("img");
             img.src = product.images[0];
             img.alt = product.name;
           }
 
-          const form = container.querySelector('form');
-          form.addEventListener('submit', subscribe);
+          const form = container.querySelector("form");
+          form.addEventListener("submit", subscribe);
 
           products.appendChild(container);
         });
@@ -127,10 +132,10 @@ function startDataListeners() {
   }
 
   // Get all subscriptions for the customer
-  db.collection('customers')
-    .doc(currentUser)
-    .collection('subscriptions')
-    .where('status', 'in', ['trialing', 'active'])
+  db.collection("customers")
+    .doc(currentUser.id)
+    .collection("subscriptions")
+    .where("status", "in", ["trialing", "active"])
     .onSnapshot(async (snapshot) => {
       if (snapshot.empty) {
         // Show products
@@ -138,73 +143,81 @@ function startDataListeners() {
       }
       productListUI.hide();
       subscribeUI.show();
-      dq('#my-subscription').style.display = 'block';
+      dq("#my-subscription").style.display = "block";
       // In this implementation we only expect one Subscription to exist
       const subscription = snapshot.docs[0].data();
       const priceData = (await subscription.price.get()).data();
 
       dq(
-        '#my-subscription p.paying'
-      ).textContent = `You are paying ${new Intl.NumberFormat('en-US', {
-        style: 'currency',
+        "#my-subscription p.paying"
+      ).textContent = `You are paying ${new Intl.NumberFormat("en-US", {
+        style: "currency",
         currency: priceData.currency,
-      }).format((priceData.unit_amount / 100).toFixed(2))} per ${priceData.interval
-        } 🥳`;
-
+      }).format((priceData.unit_amount / 100).toFixed(2))} per ${
+        priceData.interval
+      } 🥳`;
 
       const status = subscription.status || "";
-      let act = priceData.active ? 'Active' : "Inactive";
-      act = act.toLowerCase() === status.toLowerCase() ? act : (status ? `${act} (${status})` : act);
+      let act = priceData.active ? "Active" : "Inactive";
+      act =
+        act.toLowerCase() === status.toLowerCase()
+          ? act
+          : status
+          ? `${act} (${status})`
+          : act;
 
-      dq('#my-subscription div.status span.current').textContent = act;
+      dq("#my-subscription div.status span.current").textContent = act;
 
       dq(
-        '#my-subscription div.status span.created'
+        "#my-subscription div.status span.created"
       ).textContent = `Created On: ${asDate(subscription.created)}`;
 
-      const elTrial = dq('#my-subscription div.trial');
-      if (priceData.trial_period_days && subscription.trial_start && subscription.trial_end) {
-        elTrial.style.display = 'flex';
+      const elTrial = dq("#my-subscription div.trial");
+      if (
+        priceData.trial_period_days &&
+        subscription.trial_start &&
+        subscription.trial_end
+      ) {
+        elTrial.style.display = "flex";
 
         dq(
-          '#my-subscription div.trial span.interval'
+          "#my-subscription div.trial span.interval"
         ).textContent = `${priceData.trial_period_days} Days`;
 
         dq(
-          '#my-subscription div.trial span.from'
+          "#my-subscription div.trial span.from"
         ).textContent = `Start: ${asDate(subscription.trial_start)}`;
 
-        dq(
-          '#my-subscription div.trial span.to'
-        ).textContent = `End: ${asDate(subscription.trial_end)}`;
-
+        dq("#my-subscription div.trial span.to").textContent = `End: ${asDate(
+          subscription.trial_end
+        )}`;
       } else {
-        elTrial.style.display = 'none';
+        elTrial.style.display = "none";
       }
 
       dq(
-        '#my-subscription div.period span.interval'
+        "#my-subscription div.period span.interval"
       ).textContent = `${priceData.interval_count} ${priceData.interval} (${priceData.type})`;
 
       dq(
-        '#my-subscription div.period span.from'
+        "#my-subscription div.period span.from"
       ).textContent = `Start: ${asDate(subscription.current_period_start)}`;
 
-      dq(
-        '#my-subscription div.period span.to'
-      ).textContent = `End: ${asDate(subscription.current_period_end)}`;
+      dq("#my-subscription div.period span.to").textContent = `End: ${asDate(
+        subscription.current_period_end
+      )}`;
     });
 }
 
 function toggleButtonState(b, disabled) {
-  const attrText = b.getAttribute('data-text');
+  const attrText = b.getAttribute("data-text");
   if (!attrText) {
-    b.setAttribute('data-text', b.textContent);
+    b.setAttribute("data-text", b.textContent);
   }
   b.disabled = disabled;
-  if (b.id !== 'signout') {
+  if (b.id !== "signout") {
     if (disabled) {
-      b.textContent = 'Processing...'
+      b.textContent = "Processing...";
     } else {
       b.textContent = attrText;
     }
@@ -212,23 +225,33 @@ function toggleButtonState(b, disabled) {
 }
 
 function getClientReferenceId() {
-  return window.Rewardful && window.Rewardful.referral || ('checkout_'+(new Date).getTime());
+  return (
+    (window.Rewardful && window.Rewardful.referral) ||
+    "checkout_" + new Date().getTime()
+  );
 }
-
 
 async function subscribe(event) {
   event.preventDefault();
-  dqa('button').forEach(b => toggleButtonState(b, true));
+  dqa("button").forEach((b) => toggleButtonState(b, true));
   const formData = new FormData(event.target);
+  const refUser = new URL(location.href).searchParams.get("install");
+
+  let success_url = `${fullRedirectUrl}?scs=1`;
+
+  if (refUser) {
+    success_url += `&install=${refUser}`;
+  }
 
   const docRef = await db
-    .collection('customers')
-    .doc(currentUser)
-    .collection('checkout_sessions')
+    .collection("customers")
+    .doc(currentUser.id)
+    .collection("checkout_sessions")
     .add({
-      price: formData.get('price'),
-      success_url: fullRedirectUrl,
+      success_url,
       cancel_url: fullRedirectUrl,
+      price: formData.get("price"),
+      clientReferenceId: getClientReferenceId(),
       client_reference_id: getClientReferenceId(),
     });
   // Wait for the CheckoutSession to get attached by the extension
@@ -237,32 +260,30 @@ async function subscribe(event) {
     if (error) {
       // Show an error to your customer and then inspect your function logs.
       alert(`An error occured: ${error.message}`);
-      dqa('button').forEach((b) => toggleButtonState(b, false));
+      dqa("button").forEach((b) => toggleButtonState(b, false));
     }
     if (sessionId) {
       // We have a session, let's redirect to Checkout
       // Init Stripe
-      stripee.js.redirectToCheckout({ sessionId,
-        //clientReferenceId: getClientReferenceId() 
+      stripee.js.redirectToCheckout({
+        sessionId,
       });
     }
   });
 }
 
 // Sign out
-document
-  .getElementById('signout')
-  .addEventListener('click', () => {
-    mainUI.hide();
-    productListUI.hide();
-    firebase.auth().signOut();
-  });
+document.getElementById("signout").addEventListener("click", () => {
+  mainUI.hide();
+  productListUI.hide();
+  firebase.auth().signOut();
+});
 
 // Billing portal handler
 document
-  .querySelector('#billing-portal-button')
-  .addEventListener('click', async (event) => {
-    dqa('button').forEach((b) => toggleButtonState(b, true));
+  .querySelector("#billing-portal-button")
+  .addEventListener("click", async (event) => {
+    dqa("button").forEach((b) => toggleButtonState(b, true));
     const tkn = await firebase.auth().currentUser.getIdToken(true);
     let gotoPortalLink = null;
     const { funcLocation, funcPortalLink } = stripee;
@@ -272,39 +293,63 @@ document
         const { result } = await fetch(
           `https://${funcLocation}-${projId}.cloudfunctions.net/${funcPortalLink}`,
           {
-            method: 'POST',
+            method: "POST",
             headers: new Headers({
-              'Content-Type': "application/json",
-              authorization: `Bearer ${tkn}`
+              "Content-Type": "application/json",
+              authorization: `Bearer ${tkn}`,
             }),
-            body: JSON.stringify({ data: { returnUrl: fullRedirectUrl } })
+            body: JSON.stringify({
+              data: {
+                returnUrl: fullRedirectUrl,
+                clientReferenceId: getClientReferenceId(),
+                client_reference_id: getClientReferenceId(),
+              },
+            }),
           }
-        ).then(x => x.json());
+        ).then((x) => x.json());
         gotoPortalLink = result.url;
       } else {
-        const func = firebase
-          .app()
-          .functions(funcLocation);
+        const func = firebase.app().functions(funcLocation);
         const functionRef = func.httpsCallable(funcPortalLink);
-        const { data } = await functionRef({ returnUrl: fullRedirectUrl });
+        const { data } = await functionRef({
+          returnUrl: fullRedirectUrl,
+          clientReferenceId: getClientReferenceId(),
+          client_reference_id: getClientReferenceId(),
+        });
         gotoPortalLink = data.url;
       }
       window.location.assign(gotoPortalLink);
     } catch (error) {
       console.error(error);
-      alert('Some error occurred. Please try again later!');
-      dqa('button').forEach((b) => toggleButtonState(b, false));
+      alert("Some error occurred. Please try again later!");
+      dqa("button").forEach((b) => toggleButtonState(b, false));
     }
   });
 
-firebase.auth().onAuthStateChanged((firebaseUser) => {
-  if (firebaseUser) {
+function updateReferral() {
+  const scs = new URL(location.href).searchParams.get("scs");
+  if (typeof window.rewardful !== "undefined" && scs === "1") {
+    window.rewardful("convert", { email: currentUser.email });
+    setTimeout(() => {
+      window.history.pushState(
+        null,
+        document.title,
+        location.href.replace("scs=1", "").replace("?&", "?")
+      );
+    }, 500);
+  }
+}
+
+firebase.auth().onAuthStateChanged((fbUser) => {
+  if (fbUser) {
     loaderUI.hide();
     authUI.hide();
     mainUI.show();
-    currentUser = firebaseUser.uid;
-    dq('#cu-name').textContent = `Hi, ${firebaseUser.displayName || 'User'}`;
+    currentUser.id = fbUser.uid;
+    currentUser.email = fbUser.email;
+    dq("#cu-name").textContent = `Hi, ${fbUser.displayName || "User"}`;
     startDataListeners();
+    updateReferral();
   } else {
     authUI.show();
     mainUI.hide();
