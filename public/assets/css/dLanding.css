@@ -1,0 +1,87 @@
+.dHScroll{
+	height:300px;
+	width:100%;
+	white-space:nowrap;
+	overflow-x:auto;
+	overflow-y:hidden;
+}
+
+.dHScroll img{
+	white-space: nowrap;
+}
+
+h2.dSectionH2, .dCall h2{
+	font-family:Eina-Bold;
+	font-size:30px;
+	margin:13px;
+	letter-spacing:-0.025em;
+	line-height:1.34;
+	font-weight:normal;
+}
+
+h3.dSectionH3, .dCall h3{
+	font-family:Helvetica;
+	font-size:16px;
+	letter-spacing:0.01em;
+	color:rgb(87, 100, 115);
+	line-height:1.73;
+	margin:0;
+	font-weight:normal;
+}
+
+
+.dInsp, .dTest, .dWebi, .dCall{
+	padding: 0 10px;
+}
+
+.dInsp .dSection, .dTest .dSection, .dWebi .dSection, .dCall .dSection, .dSectionHs{
+	padding:20px 0 20px 0;
+}
+
+.dInsp .dImages img, .dTest .dImages img, .dWebi .dImages img{
+	border:5px solid white /*rgba(253, 181, 21, 0.51)*/;
+	border-radius:10px;
+	box-shadow: 2px 2px 5px #888888;
+	margin:0 5px;
+}
+
+.dAppShow{
+	background-color:#138CCE;
+}
+
+.dAppShow .dImages img{
+	height:250px;
+}
+
+.dAppShow h2.dSectionH2, .dAppShow h3.dSectionH3, .dCall h2, .dCall h3{
+	color:white;
+}
+
+.dCall{
+	background-color:#e01e4e;
+}
+
+.dCall .dButton{
+	text-decoration:none;
+	display:inline-block;
+	background:white;
+	color:#e01e4e;
+	border-radius:5px;
+	padding: 5px 20px;
+	margin:5px 0 10px 0;
+	box-shadow:2px 2px 5px #808080;
+	transition: transform .2s;
+	
+}
+
+
+
+.dCall .dButton:hover{
+	transform: scale(1.1);
+}
+
+div.dContainer {
+	max-width:none;
+}
+
+

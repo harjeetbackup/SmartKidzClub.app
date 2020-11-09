@@ -52,3 +52,13 @@
   font-family: ShowcardGothic;
   src: url(../fonts/SHOWG.TTF);
 }
+
+@font-face {
+  font-family: 'Eina-Bold';
+  src: url('../fonts/Eina01-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Eina01-Bold.woff') format('woff'),
+    url('../fonts/Eina01-Bold.ttf') format('truetype'),
+    url('../fonts/Eina01-Bold.svg#Eina01-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
