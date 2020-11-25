@@ -84,6 +84,7 @@ function startDataListeners() {
         qs.forEach(async function (doc) {
           const priceSnap = await doc.ref
             .collection("prices")
+            .where("active", "==", true)
             .orderBy("unit_amount")
             .get();
           if (!"content" in document.createElement("template")) {
