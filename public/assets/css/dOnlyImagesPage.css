@@ -1,0 +1,20 @@
+div.dContainer {
+    width: 100%;
+    max-width: 994px;
+    margin: 0 auto;
+}
+
+.pad-1em{
+	margin-bottom:0;
+}
+
+div.dContents{
+	padding: 0;
+}
+
+div.dContents img{
+	margin:0;
+	padding:0;
+	display:block;
+	width:100%;
+}
