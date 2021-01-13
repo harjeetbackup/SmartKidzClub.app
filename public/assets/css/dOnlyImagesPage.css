@@ -30,6 +30,10 @@ div.dContents img.dHalf{
 	width:50%;
 }
 
+div.dContents img.dQtr{
+	width:25%;
+}
+
 div.dContents img.dRightIntro{
 	margin:0;
 	padding:0;
