@@ -1,5 +1,11 @@
 // https://stripe-subs-ext.web.app
-const redirectUrl = "/subscribe.html";
+let refUser = new URL(location.href).searchParams.get("via");
+
+const redirectUrl = () => {
+  const urlsubs = "/subscribe.html";
+  return refUser ? `${urlsubs}?via=${refUser}` : urlsubs;
+};
+
 const containerFUI = "#firebaseui-auth-container";
 const stripee = {
   funcLocation: "us-central1",
@@ -7,7 +13,7 @@ const stripee = {
   funcPortalLink: "ext-firestore-stripe-subscriptions-createPortalLink",
 };
 const enablePortalHack = true;
-const fullRedirectUrl = window.location.origin + redirectUrl;
+const fullRedirectUrl = () => window.location.origin + redirectUrl();
 
 let fui = null,
   currentUser = {
@@ -34,7 +40,12 @@ const authUI = createUIToggle(dq(containerFUI));
 const subscribeUI = createUIToggle(dq("#my-subscription"));
 const productListUI = createUIToggle(dq("#productsList"));
 
+function updateRefUser() {
+  refUser = new URL(location.href).searchParams.get("via");
+}
+
 function initFirebaseUI() {
+  updateRefUser();
   fui = fui || new firebaseui.auth.AuthUI(firebase.auth());
   if (fui) {
     const uiConfig = {
@@ -61,7 +72,7 @@ function initFirebaseUI() {
       ],
       signInFlow: "popup",
       tosUrl: "/termsofuse.html",
-      signInSuccessUrl: redirectUrl,
+      signInSuccessUrl: redirectUrl(),
       privacyPolicyUrl: "/privacy.html",
       credentialHelper: firebaseui.auth.CredentialHelper.NONE,
     };
@@ -126,6 +137,17 @@ function startDataListeners() {
 
           const form = container.querySelector("form");
           form.addEventListener("submit", subscribe);
+
+          const coupon = Rewardful.coupon;
+          if (coupon) {
+            const amt = coupon.percent_off
+              ? (coupon.percent_off + "%")
+              : ("$" + coupon.amount_off);
+              const b = (txt) => `<b style='color: #138cce'>${txt}</b>`
+            container.querySelector(
+              ".couponInfo"
+            ).innerHTML = `Use promo code ${b(coupon.id)} on the next screen to get ${b(amt)} discount`;
+          }
 
           products.appendChild(container);
         });
@@ -226,22 +248,41 @@ function toggleButtonState(b, disabled) {
 }
 
 function getClientReferenceId() {
-  return (
+  const _clientReference = () =>
     (window.Rewardful && window.Rewardful.referral) ||
-    "checkout_" + new Date().getTime()
-  );
+    "checkout_" + new Date().getTime();
+  const clientReferenceId = _clientReference();
+  return {
+    clientReferenceId,
+    client_reference_id: clientReferenceId,
+  };
+}
+
+function getCoupon() {
+  const _coupon = () =>
+    window.Rewardful && window.Rewardful.coupon
+      ? window.Rewardful.coupon.id
+      : null;
+  const couponId = _coupon();
+
+  return {
+    couponId,
+    coupon_id: couponId,
+  };
 }
 
 async function subscribe(event) {
   event.preventDefault();
   dqa("button").forEach((b) => toggleButtonState(b, true));
   const formData = new FormData(event.target);
-  const refUser = new URL(location.href).searchParams.get("install");
+  refUser = new URL(location.href).searchParams.get("via");
+  const frUrl = fullRedirectUrl();
+  const hasQmark = frUrl.includes("?");
 
-  let success_url = `${fullRedirectUrl}?scs=1`;
+  let success_url = `${fullRedirectUrl()}${hasQmark ? "&" : ""}scs=1`;
 
-  if (refUser) {
-    success_url += `&install=${refUser}`;
+  if (refUser && !hasQmark) {
+    success_url += `&via=${refUser}`;
   }
 
   const docRef = await db
@@ -250,10 +291,14 @@ async function subscribe(event) {
     .collection("checkout_sessions")
     .add({
       success_url,
-      cancel_url: fullRedirectUrl,
+      cancel_url: fullRedirectUrl(),
       price: formData.get("price"),
-      clientReferenceId: getClientReferenceId(),
-      client_reference_id: getClientReferenceId(),
+      ...getCoupon(),
+      ...getClientReferenceId(),
+      allow_promotion_codes: true,
+      subscription_data: {
+        ...getCoupon(),
+      },
     });
   // Wait for the CheckoutSession to get attached by the extension
   docRef.onSnapshot((snap) => {
@@ -301,9 +346,9 @@ document
             }),
             body: JSON.stringify({
               data: {
-                returnUrl: fullRedirectUrl,
-                clientReferenceId: getClientReferenceId(),
-                client_reference_id: getClientReferenceId(),
+                returnUrl: fullRedirectUrl(),
+                ...getCoupon(),
+                ...getClientReferenceId(),
               },
             }),
           }
@@ -313,9 +358,9 @@ document
         const func = firebase.app().functions(funcLocation);
         const functionRef = func.httpsCallable(funcPortalLink);
         const { data } = await functionRef({
-          returnUrl: fullRedirectUrl,
-          clientReferenceId: getClientReferenceId(),
-          client_reference_id: getClientReferenceId(),
+          returnUrl: fullRedirectUrl(),
+          ...getCoupon(),
+          ...getClientReferenceId(),
         });
         gotoPortalLink = data.url;
       }
@@ -342,6 +387,7 @@ function updateReferral() {
 }
 
 firebase.auth().onAuthStateChanged((fbUser) => {
+  updateRefUser();
   if (fbUser) {
     loaderUI.hide();
     authUI.hide();
