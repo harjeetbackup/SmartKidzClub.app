@@ -2,8 +2,8 @@
 let refUser = new URL(location.href).searchParams.get("via");
 
 const redirectUrl = () => {
-  const urlsubs = "/subscribe.html";
-  return refUser ? `${urlsubs}?via=${refUser}` : urlsubs;
+  const urlsubs = "/subscribe.html?a=1";
+  return refUser ? `${urlsubs}&via=${refUser}` : urlsubs;
 };
 
 const containerFUI = "#firebaseui-auth-container";
@@ -277,11 +277,10 @@ async function subscribe(event) {
   const formData = new FormData(event.target);
   refUser = new URL(location.href).searchParams.get("via");
   const frUrl = fullRedirectUrl();
-  const hasQmark = frUrl.includes("?");
 
-  let success_url = `${fullRedirectUrl()}${hasQmark ? "&" : ""}scs=1`;
+  let success_url = `${frUrl}&scs=1`;
 
-  if (refUser && !hasQmark) {
+  if (refUser && !success_url.includes(`via=${refUser}`)) {
     success_url += `&via=${refUser}`;
   }
 
@@ -291,7 +290,7 @@ async function subscribe(event) {
     .collection("checkout_sessions")
     .add({
       success_url,
-      cancel_url: fullRedirectUrl(),
+      cancel_url: frUrl,
       price: formData.get("price"),
       ...getCoupon(),
       ...getClientReferenceId(),
