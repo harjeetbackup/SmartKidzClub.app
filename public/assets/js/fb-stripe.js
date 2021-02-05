@@ -291,13 +291,11 @@ async function subscribe(event) {
     .add({
       success_url,
       cancel_url: frUrl,
-      price: formData.get("price"),
+      via: refUser,
       ...getCoupon(),
       ...getClientReferenceId(),
       allow_promotion_codes: true,
-      subscription_data: {
-        ...getCoupon(),
-      },
+      price: formData.get("price"),
     });
   // Wait for the CheckoutSession to get attached by the extension
   docRef.onSnapshot((snap) => {
