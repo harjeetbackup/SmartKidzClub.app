@@ -59,58 +59,39 @@ export const SplitSection = styled(GridCell)`
 
 export const DownloadApp = styled.div`
   display: flex;
+  gap: 30px;
   align-items: center;
   justify-content: center;
-  & > div {
-    border: 2px solid ${v.color.brandYellow};
-    border-radius: 5px;
-    margin: ${v.size.px10} ${v.size.px20};
-    padding: ${v.size.px10};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-
-    p {
-      font-size: ${v.size.px16};
-      text-align: center;
+  a {
+    outline: none;
+    background-color: white;
+    border-radius: 10px;
+    border: 0;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    background-repeat: round;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+    height: 30px;
+    width: 100px;
+    &.android {
+      background-image: url(pics/google_play.png);
     }
-    div {
-      display: flex;
-      gap: 30px;
-      a {
-        outline: none;
-        background-color: white;
-        border-radius: 10px;
-        border: 0;
-        color: #000;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 14px;
-        background-repeat: round;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: all 300ms ease;
-        height: 30px;
-        width: 100px;
-        &.android {
-          background-image: url(pics/google_play.png);
-        }
-        &.ios {
-          background-image: url(pics/app_store.png);
-        }
-      }
+    &.ios {
+      background-image: url(pics/app_store.png);
     }
+  }
 
-    ${media.min.l} {
-      padding: ${v.size.px20};
-      div a {
-        height: 40px;
-        width: 140px;
-      }
+  ${media.min.l} {
+    padding: ${v.size.px20};
+    a {
+      height: 40px;
+      width: 140px;
     }
   }
 `;

@@ -71,7 +71,7 @@ export const MenuItem = styled.li`
 export const Profile = styled.div`
   padding: 0.8em 1em;
   font-size: ${v.size.px14};
-  border-radius: 4px;
+  border-radius: 10px;
   border: 1px solid grey;
   display: flex;
   align-items: center;
@@ -99,14 +99,6 @@ export const ActionButton = styled(Button)`
   &.secondary {
     color: ${v.color.white};
     background-color: ${v.color.brandRed};
-  }
-  span.title {
-    display: none;
-  }
-  ${media.min.s} {
-    span.title {
-      display: inline-block;
-    }
   }
 `;
 

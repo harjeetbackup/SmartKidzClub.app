@@ -2,15 +2,10 @@ import styled from 'styled-components';
 import media from 'styles/media-query';
 import v from 'styles/variables';
 
-export const Rating = styled.div`
-  font-size: ${v.size.px22};
-  color: ${v.color.brandYellow};
-  white-space: pre;
-`;
-
 export default styled.div`
-  border: 3px solid ${v.color.brandBlue};
   border-radius: 5px;
+  color: ${v.color.white};
+  background: ${v.color.brandBlue};
   margin: 0 20px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -33,7 +28,6 @@ export default styled.div`
 
   h4 {
     font-size: ${v.size.px14};
-    color: ${v.color.brandRed};
   }
 
   h5 {

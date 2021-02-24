@@ -5,7 +5,7 @@ import v from 'styles/variables';
 export default styled.button<{ primary?: boolean }>`
   padding: 0.8em 1em;
   font-size: ${v.size.px14};
-  border-radius: 4px;
+  border-radius: 10px;
   transition: 0.1s;
   border: 1px solid grey;
   color: ${v.color.black};

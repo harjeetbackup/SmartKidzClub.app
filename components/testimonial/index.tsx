@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { size } from 'styles/media-query';
 import v from 'styles/variables';
 import reviews from './data';
-import Card, { Rating } from './style';
+import Card from './style';
 
 const glideOptions = {
   type: 'carousel',
@@ -36,7 +36,7 @@ const Testimonial = () => {
               <Card>
                 <div>
                   <h4>{item.reviewer}</h4>
-                  <Rating>&#9733; &#9733; &#9733; &#9733; &#9733;</Rating>
+                  <img src='pics/review_rating.png' alt='Review Rating' />
                 </div>
                 <p>{item.review}</p>
               </Card>

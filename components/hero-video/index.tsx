@@ -55,7 +55,7 @@ export default function HeroVideo() {
         </VideoWrapper>
 
         <Content area='text'>
-          <h1>Education Library at Fingertips</h1>
+          <h1>Educational Library at Fingertips</h1>
           <p>Reading | Activities | Quizzes | Math</p>
           <h2>Build independent and strong readers</h2>
           <Badges>

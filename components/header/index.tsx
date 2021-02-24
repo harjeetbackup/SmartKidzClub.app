@@ -46,7 +46,7 @@ function Header() {
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
               >
-                📚 Profile
+                Profile
                 {hover && (
                   <Menu>
                     <MenuItem
@@ -55,9 +55,7 @@ function Header() {
                         gotoUrl && Router.push(gotoUrl);
                       }}
                     >
-                      <button type='button'>
-                        🙂 <span>Account</span>
-                      </button>
+                      <button type='button'>Account</button>
                     </MenuItem>
                     <MenuItem
                       onClick={() => {
@@ -66,9 +64,7 @@ function Header() {
                         Router.push('/');
                       }}
                     >
-                      <button type='button'>
-                        🚪 <span>Sign out</span>
-                      </button>
+                      <button type='button'>Sign out</button>
                     </MenuItem>
                   </Menu>
                 )}
@@ -82,8 +78,7 @@ function Header() {
                 gotoUrl && Router.push(gotoUrl);
               }}
             >
-              <span className='icon'>📚</span>
-              <span className='title'>Subscribe | Sign In</span>
+              Subscribe | Sign In
             </ActionButton>
           )}
         </Actions>

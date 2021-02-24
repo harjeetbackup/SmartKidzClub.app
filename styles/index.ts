@@ -12,7 +12,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     scroll-behavior: smooth;
     scrollbar-width: thin;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   #nprogress {

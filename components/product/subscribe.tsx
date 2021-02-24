@@ -115,6 +115,7 @@ export default function PriceList() {
 
             <>
               <FreeTrialLink
+                white
                 onClick={subscribe}
                 as={'button' as any}
                 colorProfile='secondary'

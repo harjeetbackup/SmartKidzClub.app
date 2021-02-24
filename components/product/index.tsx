@@ -17,11 +17,10 @@ export default function PriceList() {
       }}
     >
       <Wrapper area='content'>
-        <Heading>Unlock unlimited learning</Heading>
+        <Heading>Unlock Unlimited Learning</Heading>
 
         {products.map(p => (
           <Products key={p.name}>
-            <b>{p.name}</b>
             <AllPrices>
               {p.prices.map(m => (
                 <Price key={m.id} {...m} />
@@ -30,7 +29,7 @@ export default function PriceList() {
           </Products>
         ))}
 
-        <FreeTrialButton />
+        <FreeTrialButton flipColor />
 
         <Hint />
       </Wrapper>

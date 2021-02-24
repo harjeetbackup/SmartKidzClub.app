@@ -30,7 +30,7 @@ const features: AppFeatureProps[] = [
   },
   {
     flip: true,
-    children: <p>Keep kids safe. Works without internet</p>,
+    children: <p>Keep kids safe with offline access</p>,
     color: v.color.brandBlue,
     alt: 'img',
     img: 'pics/feature-4.jpg',
@@ -39,7 +39,7 @@ const features: AppFeatureProps[] = [
     children: <p>Trusted by parents worldwide</p>,
     color: v.color.brandYellow,
     alt: 'img',
-    img: 'pics/feature-1.jpg',
+    img: 'pics/feature-5.jpg',
   },
 ];
 

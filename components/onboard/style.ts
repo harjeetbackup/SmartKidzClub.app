@@ -4,8 +4,20 @@ import v from 'styles/variables';
 
 export default styled(StyledFirebaseAuth)`
   margin-top: ${v.size.px30};
+  font-family: ${v.font.light};
 
-  *[class$='--colored'] {
+  *[class$='--colored'],
+  label.firebaseui-label::after {
     background-color: ${v.color.brandRed} !important;
+  }
+
+  h1.firebaseui-title {
+    color: ${v.color.black} !important;
+    font-family: ${v.font.light};
+  }
+
+  button.firebaseui-button {
+    border-radius: 10px;
+    text-transform: capitalize;
   }
 `;

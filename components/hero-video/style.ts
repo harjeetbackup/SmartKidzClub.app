@@ -146,6 +146,7 @@ export const Content = styled(GridCell)`
   flex-direction: column;
   padding: 10px;
   text-align: center;
+  font-weight: 300;
   justify-content: center;
 
   & > * {

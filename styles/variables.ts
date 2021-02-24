@@ -10,10 +10,14 @@ export default {
   },
   color: {
     brandRed: '#E01B4D',
-    brandBlue: '#128CCD',
+    brandBlue: '#138cee',
     brandYellow: '#FDB515',
-    black: '#505050',
+    black: '#404040',
     white: '#ffffff',
+  },
+  font: {
+    light: "'Roboto Light', sans-serif",
+    regular: "'Roboto Regular', sans-serif",
   },
   limit: {
     wrapperMaxWidth: '1170px',

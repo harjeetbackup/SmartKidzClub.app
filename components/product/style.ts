@@ -4,9 +4,8 @@ import media from 'styles/media-query';
 import v from 'styles/variables';
 
 export const Heading = styled.h3`
-  font-weight: bold;
   font-size: ${v.size.px24};
-  color: ${v.color.brandRed};
+  color: ${v.color.white};
 `;
 
 export const Subtitle = styled.p`
@@ -14,10 +13,8 @@ export const Subtitle = styled.p`
 `;
 
 export const StyledHint = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-size: ${v.size.px14};
-  font-style: italic;
+  margin-top: ${v.size.px10};
+  font-family: ${v.font.regular};
 `;
 
 export const Products = styled.div`
@@ -47,9 +44,12 @@ export const StyledPrice = styled.div<{ selectable?: boolean }>`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid ${v.color.brandYellow};
+  border: 5px solid ${v.color.brandYellow};
+  color: ${v.color.black};
+  background-color: ${v.color.white};
+  box-shadow: 0 0 10px white;
   padding: ${v.size.px10};
-  border-radius: 5px;
+  border-radius: 10px;
   grid-gap: 10px;
   width: 60%;
   position: relative;
@@ -147,6 +147,8 @@ export const PromoWrapper = styled.div`
 `;
 
 export default styled(GridCell)`
+  color: ${v.color.white};
+  background: ${v.color.brandBlue};
   padding: ${v.size.px22};
   border-radius: 15px;
   box-shadow: 0 6px 50px #264e7624;
@@ -154,10 +156,4 @@ export default styled(GridCell)`
   position: relative;
   display: flex;
   flex-direction: column;
-  & > * {
-    margin-top: 20px;
-    &:first-child {
-      margin: 0;
-    }
-  }
 `;

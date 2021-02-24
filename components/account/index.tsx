@@ -60,12 +60,7 @@ export default function Account(s: ISubscription & { auth?: IAuth }) {
         }}
       >
         <Welcome area='welcome'>
-          <h1>
-            Hey,{' '}
-            {s.auth?.firebaseUser?.displayName?.trim() ||
-              s.auth?.email ||
-              'user'}
-          </h1>
+          <h1>{s.auth?.email}</h1>
           <Button
             flipColor
             colorProfile='primary'
@@ -80,8 +75,7 @@ export default function Account(s: ISubscription & { auth?: IAuth }) {
           You have an active plan of{' '}
           <b>
             {s.price.formatted.price}/{s.price.interval}
-          </b>{' '}
-          👏
+          </b>
         </Paying>
 
         <SplitSection area='status'>

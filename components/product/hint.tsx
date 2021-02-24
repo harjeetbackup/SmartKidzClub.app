@@ -3,7 +3,7 @@ import { StyledHint } from './style';
 export default function Hint() {
   return (
     <StyledHint>
-      <small>7-days free trial, cancel anytime!</small>
+      <small>Cancel Anytime</small>
     </StyledHint>
   );
 }
