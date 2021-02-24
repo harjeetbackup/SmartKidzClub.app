@@ -1,2 +1,0 @@
-CSS downloaded from:
-https://cdn.rawgit.com/JacobLett/bootstrap4-latest/master/bootstrap-4-latest.min.css
