@@ -1,23 +1,14 @@
 export const size = {
   // default styles should be mobile-first
 
-  // mobileS: '320px',
-  // mobileM: '360px',
-  // mobileL: '425px',
   /** small devices: 576px */
   s: 576,
-  // mobileXL: '640px',
   /** medium devices: 768px */
   m: 768,
   /** large devices: 992px */
   l: 992,
-  // desktopS: '1024px',
   /** extra large devices: 1200 */
   xl: 1200,
-  // desktopM: '1280px',
-  // desktopL: '1366px',
-  // desktopXL: '1440px',
-  // desktopXXL: '2560px',
 };
 
 export type TSize = keyof typeof size;
