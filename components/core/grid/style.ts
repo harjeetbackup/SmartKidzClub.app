@@ -13,8 +13,6 @@ export default styled.div<{
 }>`
   display: grid;
   grid-gap: ${p => p.gap ?? v.size.px10};
-  // padding-right: 1rem;
-  // padding-left: 1rem;
 
   ${p =>
     p.areas.xs &&

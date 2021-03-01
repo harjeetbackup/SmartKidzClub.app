@@ -19,9 +19,7 @@ export default function Price(
       </span>
       <b>{props.formatted?.price}</b>
       <small>{props.formatted?.type}</small>
-      {props.bestValue && (
-        <BestValue className='best'>Greatest Value</BestValue>
-      )}
+      {props.bestValue && <BestValue className='best'>Best Value</BestValue>}
     </StyledPrice>
   );
 }

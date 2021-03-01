@@ -15,8 +15,7 @@ export const Logo = styled.img`
   display: none;
   ${media.min.s} {
     display: block;
-    width: 150px;
-    padding: 10px;
+    width: 140px;
   }
 `;
 

@@ -9,7 +9,7 @@ import Card from './style';
 const glideOptions = {
   type: 'carousel',
   gap: 0,
-  autoplay: 5000,
+  autoplay: 0,
   perView: 2,
   animationDuration: 700,
   breakpoints: {

@@ -13,35 +13,25 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 5px 1px #808080ba;
+  height: 100%;
+  min-height: 200px;
 
   & > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: ${v.size.px10};
     flex-wrap: wrap;
   }
-  & > * {
-    &:not(p) {
-      margin-bottom: 10px;
-    }
-  }
+
+  font-size: ${v.size.px14};
+  line-height: 1.2;
 
   h4 {
-    font-size: ${v.size.px14};
+    font-weight: bold;
   }
 
-  h5 {
-    font-size: ${v.size.px12};
-    font-style: italic;
-  }
-
-  ${media.min.m} {
-    h4 {
-      font-size: ${v.size.px16};
-    }
-
-    p {
-      font-size: ${v.size.px14};
-    }
+  ${media.min.l} {
+    min-height: 230px;
   }
 `;

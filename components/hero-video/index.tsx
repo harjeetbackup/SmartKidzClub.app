@@ -36,13 +36,17 @@ export default function HeroVideo() {
         <VideoWrapper area='img'>
           <ImgWrapper>
             <Img
-              src='pics/hero-image.jpg'
               alt='Video'
-              loading='lazy'
-              className='shadow'
+              className='shadow animate'
               onClick={toggleModal}
+              src='pics/hero-image.jpg'
             />
-            <span className='play'>&#127916;</span>
+            <Img
+              alt='Play'
+              className='play animate'
+              onClick={toggleModal}
+              src='pics/play_icon.jpg'
+            />
           </ImgWrapper>
 
           <LinkWrapper>
@@ -59,9 +63,9 @@ export default function HeroVideo() {
           <p>Reading | Activities | Quizzes | Math</p>
           <h2>Build independent and strong readers</h2>
           <Badges>
-            <Img as='img' alt='EAS' src='pics/hero-bma.png' />
-            <Img as='img' alt='EAS' src='pics/hero-eas.png' />
-            <Img as='img' alt='EAS' src='pics/hero-common.png' />
+            <Img alt='EAS' src='pics/hero-bma.png' />
+            <Img alt='EAS' src='pics/hero-eas.png' />
+            <Img alt='EAS' src='pics/hero-common.png' />
           </Badges>
         </Content>
       </Grid>

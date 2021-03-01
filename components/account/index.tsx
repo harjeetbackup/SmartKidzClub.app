@@ -1,5 +1,4 @@
 import Button from 'components/core/button';
-import Grid from 'components/core/grid';
 import Overlay, { Rotate } from 'components/core/overlay';
 import { app } from 'lib/firebase/client';
 import { CreateCouponId, CreateRewardfulClientRefId } from 'lib/rewardful';
@@ -7,7 +6,7 @@ import { IAuth, ISubscription } from 'models';
 import Router from 'next/router';
 import { useState } from 'react';
 import v from 'styles/variables';
-import { Paying, SplitSection, Welcome } from './style';
+import Wrapper, { Paying, SplitSection, Welcome } from './style';
 
 export default function Account(s: ISubscription & { auth?: IAuth }) {
   const [overlay, setOverlay] = useState(false);
@@ -39,24 +38,16 @@ export default function Account(s: ISubscription & { auth?: IAuth }) {
         </Overlay>
       )}
 
-      <Grid
+      <Wrapper
         areas={{
           xs: ['welcome/4', 'paying/4', 'status/4', 'trial/4', 'subs/4'],
           m: [
-            '. welcome/4 .',
-            '. paying/4 .',
-            '. status/4 .',
-            '. trial/4 .',
-            '. subs/4 .',
+            './2 welcome/4 ./2',
+            './2 paying/4 ./2',
+            './2 status/4 ./2',
+            './2 trial/4 ./2',
+            './2 subs/4 ./2',
           ],
-          // l: [
-          //   './2 welcome/4 ./2',
-          //   './2 downloadApp/4 ./2',
-          //   './2 paying/4 ./2',
-          //   './2 status/4 ./2',
-          //   './2 trial/4 ./2',
-          //   './2 subs/4 ./2',
-          // ],
         }}
       >
         <Welcome area='welcome'>
@@ -105,7 +96,7 @@ export default function Account(s: ISubscription & { auth?: IAuth }) {
             <span>End: {s.formatted.current_period_end}</span>
           </div>
         </SplitSection>
-      </Grid>
+      </Wrapper>
     </>
   );
 }

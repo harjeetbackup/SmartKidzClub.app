@@ -1,13 +1,23 @@
 import { IFrame, VideoContainer } from './style';
 
+const params = [
+  'autoplay=0',
+  'enablejsapi=0',
+  'modestbranding=0',
+  'showinfo=0',
+  'width=100%',
+  'rel=0',
+  'autoplay=1',
+].join('&amp;');
+
 export default function Video() {
   return (
     <VideoContainer>
       <IFrame
-        allowFullScreen
-        src='https://www.youtube.com/embed/XKEsrHHyLbk?autoplay=0&amp;enablejsapi=0&amp;modestbranding=0&amp;showinfo=0&amp;width=100%&amp;rel=0'
-        frameBorder='0'
         width='100%'
+        frameBorder='0'
+        allowFullScreen
+        src={`https://www.youtube.com/embed/XKEsrHHyLbk?${params}`}
       />
     </VideoContainer>
   );

@@ -13,11 +13,6 @@ export default class BivocalBirdsDoc extends Document {
     return (
       <Html lang='en' dir='ltr'>
         <Head>
-          <link rel='preconnect' href='https://fonts.gstatic.com' />
-          <link
-            href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap'
-            rel='stylesheet'
-          />
           <link rel='shortcut icon' href='/favicon.ico' />
           <script
             dangerouslySetInnerHTML={{

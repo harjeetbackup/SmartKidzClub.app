@@ -46,6 +46,6 @@ export const Content = styled(GridCell)<{ flip?: boolean }>`
   }
 
   ${media.min.l} {
-    font-size: ${v.size.px28};
+    font-size: ${v.size.px26};
   }
 `;

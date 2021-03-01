@@ -4,6 +4,7 @@ import v from 'styles/variables';
 export default styled.a<{ flipColor?: boolean }>`
   align-self: center;
   padding: 10px;
+  font-size: ${v.size.px16};
   ${p =>
     p.flipColor
       ? css`

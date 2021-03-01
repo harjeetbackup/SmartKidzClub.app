@@ -26,6 +26,7 @@ function splitAreas(str: string[] = []): [string, number] {
 
 export default function Grid({
   areas,
+  className,
   ...p
 }: {
   gap?: string;
@@ -41,6 +42,7 @@ export default function Grid({
   return (
     <Wrapper
       {...p}
+      className={className}
       areas={{ xs, s, m, l, xl }}
       columns={{
         xs: len_xs,

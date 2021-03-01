@@ -1,10 +1,10 @@
-import { GridCell } from 'components/core/grid';
+import Grid, { GridCell } from 'components/core/grid';
 import styled, { css } from 'styled-components';
 import media from 'styles/media-query';
 import v from 'styles/variables';
 
 export const Heading = styled.h3`
-  font-size: ${v.size.px24};
+  font-size: ${v.size.px20};
   color: ${v.color.white};
 `;
 
@@ -58,11 +58,11 @@ export const StyledPrice = styled.div<{ selectable?: boolean }>`
     p.selectable &&
     css`
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.1s ease-in;
       box-shadow: 0 0 5px grey;
       &:hover {
-        transition: all 0.2s ease;
-        transform: scale(1.05);
+        transition: all 0.1s ease-in;
+        transform: scale(1.048);
         box-shadow: 0 0 5px ${v.color.brandRed};
       }
 
@@ -78,11 +78,11 @@ export const StyledPrice = styled.div<{ selectable?: boolean }>`
     `}
 
   ${media.min.m} {
-    font-size: ${v.size.px22};
+    font-size: ${v.size.px18};
   }
 
   ${media.min.l} {
-    font-size: ${v.size.px18};
+    font-size: ${v.size.px16};
     width: 30%;
   }
 
@@ -110,13 +110,11 @@ export const BestValue = styled.span`
   }
 `;
 
-export const Subscribed = styled.div`
+export const Subscribed = styled(Grid)`
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-top: ${v.size.px40};
+  margin-top: ${v.size.px20};
   padding: 0 ${v.size.px20};
+  gap: 20px;
 
   h1 {
     font-size: ${v.size.px32};
@@ -130,10 +128,6 @@ export const Subscribed = styled.div`
   a {
     color: blue;
     text-decoration: underline;
-  }
-
-  ${media.min.l} {
-    gap: 50px;
   }
 `;
 

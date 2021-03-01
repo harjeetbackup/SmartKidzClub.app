@@ -56,15 +56,15 @@ export const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
   padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  span.play {
+  img.play {
+    height: 80px;
+    width: 80px;
     position: absolute;
-    margin: 10px 20px;
-    cursor: pointer;
     pointer-events: none;
-
-    bottom: 0;
-    right: 0;
   }
 `;
 
@@ -77,10 +77,8 @@ export const LinkWrapper = styled.div`
 `;
 
 export const Img = styled.img`
-  transform: scale(0.98);
   height: auto;
   width: 100%;
-  transition: all 0.2s ease-in-out;
   cursor: pointer;
   max-width: 100%;
   border-radius: 4px;
@@ -90,9 +88,14 @@ export const Img = styled.img`
     box-shadow: 0 0 10px #555;
   }
 
-  &:hover {
+  &.animate {
+    transform: scale(0.98);
     transition: all 0.2s ease-in-out;
-    transform: scale(0.99);
+
+    &:hover {
+      transition: all 0.2s ease-in-out;
+      transform: scale(0.99);
+    }
   }
 `;
 
@@ -128,15 +131,36 @@ export const FreeTrialLink = styled.a`
 export const Badges = styled.div`
   display: flex;
   justify-content: center;
+
+  &,
+  &:hover {
+    transform: none;
+  }
+
   img {
-    width: 80px;
     padding: 0 5px;
     cursor: default;
+    &:nth-child(1) {
+      width: 90px;
+    }
+    &:nth-child(2) {
+      width: 80px;
+    }
+    &:nth-child(3) {
+      width: 100px;
+    }
 
     ${media.min.l} {
-      width: 100px;
       padding: 0 10px;
-      transform: scale(1);
+      &:nth-child(1) {
+        width: 100px;
+      }
+      &:nth-child(2) {
+        width: 90px;
+      }
+      &:nth-child(3) {
+        width: 110px;
+      }
     }
   }
 `;
@@ -172,21 +196,9 @@ export const Content = styled(GridCell)`
     width: 100%;
   }
 
-  ${media.min.l} {
-    h1 {
-      font-size: ${v.size.px26};
-    }
-    p {
-      font-size: ${v.size.px18};
-    }
-    h2 {
-      font-size: ${v.size.px22};
-    }
-  }
-
   ${media.min.xl} {
     h1 {
-      font-size: ${v.size.px32};
+      font-size: ${v.size.px30};
     }
   }
 `;

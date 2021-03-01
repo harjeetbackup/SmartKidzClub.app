@@ -56,7 +56,7 @@ const GlideCarousel = ({
 
   // Load glide
   useEffect(() => {
-    new Glide(id ? `#${id}` : '#glide', options).mount();
+    new Glide(id ? `#${id}` : '#glide', options).mount().pause();
   });
 
   return (

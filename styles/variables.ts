@@ -16,8 +16,8 @@ export default {
     white: '#ffffff',
   },
   font: {
-    light: "'Roboto Light', sans-serif",
-    regular: "'Roboto Regular', sans-serif",
+    light: "'RobotoLight', sans-serif",
+    regular: "'RobotoRegular', sans-serif",
   },
   limit: {
     wrapperMaxWidth: '1170px',

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import fonts from './fonts';
 import media from './media-query';
 import reset from './reset';
 import v from './variables';
@@ -12,7 +13,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     scroll-behavior: smooth;
     scrollbar-width: thin;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'RobotoLight', sans-serif;
   }
 
   #nprogress {
@@ -33,5 +34,8 @@ export default createGlobalStyle`
       display: none;
     }
   }
-    ${reset}
+  
+  ${reset}
+
+  ${fonts}
 `;
