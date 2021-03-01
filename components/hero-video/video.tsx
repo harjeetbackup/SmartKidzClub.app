@@ -1,7 +1,8 @@
 import { IFrame, VideoContainer } from './style';
 
 const params = [
-  'autoplay=0',
+  'loop=1',
+  'autoplay=1',
   'enablejsapi=0',
   'modestbranding=0',
   'showinfo=0',

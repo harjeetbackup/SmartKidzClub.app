@@ -6,13 +6,19 @@ import {
   withAuthUser,
   withAuthUserTokenSSR,
 } from 'next-firebase-auth';
+import Head from 'next/head';
 
 function Page() {
   const auth = useAuthUser() as IAuth;
   const { user, subscription } = useUserWithSubscription();
 
   return (
-    <>{user && subscription && <Account {...subscription} auth={auth} />}</>
+    <>
+      <Head>
+        <title>My Account | SmarkKidzClub Premium App</title>
+      </Head>
+      {user && subscription && <Account {...subscription} auth={auth} />}
+    </>
   );
 }
 

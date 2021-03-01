@@ -4,6 +4,7 @@ import HeroVideo from 'components/hero-video';
 import PriceList from 'components/product';
 import Testimonial from 'components/testimonial';
 import { withAuthUser, withAuthUserTokenSSR } from 'next-firebase-auth';
+import Head from 'next/head';
 import v from 'styles/variables';
 
 const features: AppFeatureProps[] = [
@@ -46,6 +47,9 @@ const features: AppFeatureProps[] = [
 function Page() {
   return (
     <>
+      <Head>
+        <title>SmarkKidzClub Premium App</title>
+      </Head>
       <HeroVideo />
       <Testimonial />
       <div style={{ margin: `${v.size.px50} 0` }}>

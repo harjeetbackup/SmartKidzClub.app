@@ -2,6 +2,7 @@ import Onboard from 'components/onboard';
 import Steps from 'components/steps';
 import useGotoRoute from 'hooks/goto-route';
 import { withAuthUser, withAuthUserTokenSSR } from 'next-firebase-auth';
+import Head from 'next/head';
 import Router from 'next/router';
 import { useEffect } from 'react';
 import v from 'styles/variables';
@@ -17,6 +18,9 @@ const Page = () => {
 
   return (
     <>
+      <Head>
+        <title>Login | SmarkKidzClub Premium App</title>
+      </Head>
       <Steps count={1} />
 
       <h1 style={{ textAlign: 'center', marginTop: v.size.px10 }}>

@@ -112,17 +112,17 @@ export const BestValue = styled.span`
 
 export const Subscribed = styled(Grid)`
   text-align: center;
-  margin-top: ${v.size.px20};
   padding: 0 ${v.size.px20};
   gap: 20px;
 
   h1 {
-    font-size: ${v.size.px32};
+    font-size: ${v.size.px28};
     color: ${v.color.brandRed};
+    padding: ${v.size.px10};
   }
 
-  h2 {
-    font-size: ${v.size.px26};
+  p {
+    padding-bottom: ${v.size.px2};
   }
 
   a {
