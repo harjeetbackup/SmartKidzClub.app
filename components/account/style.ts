@@ -18,6 +18,7 @@ export const Welcome = styled(GridCell)`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
   h1 {
     font-weight: bolder;
     font-size: ${v.size.px20};
@@ -43,6 +44,8 @@ export const SplitSection = styled(GridCell)`
   gap: 10px;
   padding: ${v.size.px10};
   margin: 0 ${v.size.px20};
+  background: ${v.color.blue};
+  color: ${v.color.white};
 
   div {
     text-align: center;
@@ -60,45 +63,6 @@ export const SplitSection = styled(GridCell)`
       gap: 10px;
       align-items: flex-end;
       flex-direction: column;
-    }
-  }
-`;
-
-export const DownloadApp = styled(GridCell)`
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  justify-content: center;
-  a {
-    outline: none;
-    background-color: white;
-    border-radius: 10px;
-    border: 0;
-    color: #000;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 14px;
-    background-repeat: round;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 300ms ease;
-    height: 30px;
-    width: 100px;
-    &.android {
-      background-image: url(pics/google_play.png);
-    }
-    &.ios {
-      background-image: url(pics/app_store.png);
-    }
-  }
-
-  ${media.min.l} {
-    padding: ${v.size.px20};
-    a {
-      height: 40px;
-      width: 140px;
     }
   }
 `;

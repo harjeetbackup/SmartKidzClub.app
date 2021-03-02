@@ -5,7 +5,7 @@ import v from 'styles/variables';
 export default styled.div`
   border-radius: 5px;
   color: ${v.color.white};
-  background: ${v.color.brandBlue};
+  background: ${v.color.blue};
   margin: 0 20px;
   overflow: hidden;
   text-overflow: ellipsis;

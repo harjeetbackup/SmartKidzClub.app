@@ -6,7 +6,7 @@ import v from './variables';
 
 export default createGlobalStyle`
  :root {
-    --nprogress-color: ${v.color.brandRed};
+    --nprogress-color: ${v.color.red};
   }
 
   *:not(i) {
@@ -18,7 +18,7 @@ export default createGlobalStyle`
 
   #nprogress {
     .bar {
-      background-color: ${v.color.brandRed};
+      background-color: ${v.color.red};
       height: 3px;
       top: 60px;
 

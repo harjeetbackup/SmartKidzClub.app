@@ -313,7 +313,7 @@ export default function Page() {
 
           <p>
             or an email to: <br />
-            <span style={{ color: v.color.brandBlue }}>
+            <span style={{ color: v.color.blue }}>
               info[at]smartkidzclub.com
             </span>
             .
@@ -330,7 +330,7 @@ export default function Page() {
             <a
               href='http://www.asacp.org'
               target='_blank'
-              style={{ color: v.color.brandBlue }}
+              style={{ color: v.color.blue }}
             >
               www.asacp.org
             </a>
@@ -354,7 +354,7 @@ export default function Page() {
           <p className='xtext-justify'>
             If Users have any questions about this Privacy Policy, please feel
             free to contact the Owner via email at{' '}
-            <span style={{ color: v.color.brandBlue }}>
+            <span style={{ color: v.color.blue }}>
               info[at]smartkidzclub.com
             </span>
             .

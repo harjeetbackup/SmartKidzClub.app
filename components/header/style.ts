@@ -53,13 +53,13 @@ export const MenuItem = styled.li`
     display: flex;
     justify-content: space-between;
     &:focus {
-      border: 2px solid ${v.color.brandRed};
+      border: 2px solid ${v.color.red};
     }
   }
 
   &:hover {
     color: ${v.color.white};
-    background-color: ${v.color.brandBlue};
+    background-color: ${v.color.blue};
   }
 
   ${media.min.l} {
@@ -80,14 +80,8 @@ export const Profile = styled.div`
   cursor: pointer;
   height: 40px;
   outline-color: ${v.color.white};
-  background-color: ${v.color.brandRed};
+  background-color: ${v.color.red};
   position: relative;
-
-  ${media.min.s} {
-    span.title {
-      display: inline-block;
-    }
-  }
 `;
 
 export const ActionButton = styled(Button)`
@@ -97,7 +91,7 @@ export const ActionButton = styled(Button)`
 
   &.secondary {
     color: ${v.color.white};
-    background-color: ${v.color.brandRed};
+    background-color: ${v.color.red};
   }
 `;
 
@@ -109,7 +103,7 @@ export default styled.header`
   left: 0px;
   & > div {
     box-shadow: 0 0 3px;
-    background: ${v.color.brandYellow};
+    background: ${v.color.yellow};
     position: sticky;
     top: 0px;
     left: 0px;

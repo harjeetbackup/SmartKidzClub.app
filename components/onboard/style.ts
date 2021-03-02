@@ -8,7 +8,7 @@ export default styled(StyledFirebaseAuth)`
 
   *[class$='--colored'],
   label.firebaseui-label::after {
-    background-color: ${v.color.brandRed} !important;
+    background-color: ${v.color.red} !important;
   }
 
   h1.firebaseui-title {

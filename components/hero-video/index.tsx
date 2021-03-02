@@ -63,9 +63,9 @@ export default function HeroVideo() {
           <p>Reading | Activities | Quizzes | Math</p>
           <h2>Build independent and strong readers</h2>
           <Badges>
-            <Img alt='EAS' src='pics/hero-bma.png' />
-            <Img alt='EAS' src='pics/hero-eas.png' />
             <Img alt='EAS' src='pics/hero-common.png' />
+            <Img alt='EAS' src='pics/hero-eas.png' />
+            <Img alt='EAS' src='pics/hero-bma.png' />
           </Badges>
         </Content>
       </Grid>

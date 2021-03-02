@@ -107,6 +107,8 @@ export const FreeTrialLink = styled.a`
   box-shadow: 0 0 5px grey;
   transition: 0.1s;
   position: relative;
+  font-family: ${v.font.regular};
+  text-align: center;
 
   &:disabled {
     box-shadow: none;
@@ -114,12 +116,12 @@ export const FreeTrialLink = styled.a`
   }
 
   background: ${v.color.white};
-  color: ${v.color.brandRed};
+  color: ${v.color.red};
 
   &:focus,
   &:hover:not(:disabled) {
     transition: 0.1s;
-    box-shadow: 0 0 8px ${v.color.brandRed};
+    box-shadow: 0 0 8px ${v.color.red};
   }
 
   &:active {

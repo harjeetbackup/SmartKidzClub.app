@@ -10,7 +10,7 @@ import v from 'styles/variables';
 const features: AppFeatureProps[] = [
   {
     children: <p>Simplify reading for you and your child</p>,
-    color: v.color.brandYellow,
+    color: v.color.yellow,
     alt: 'img',
     img: 'pics/feature-1.jpg',
   },
@@ -19,26 +19,26 @@ const features: AppFeatureProps[] = [
     children: (
       <p>Keep kids focused on reading with audio &amp; word highlighting</p>
     ),
-    color: v.color.brandBlue,
+    color: v.color.blue,
     alt: 'img',
     img: 'pics/feature-2.jpg',
   },
   {
     children: <p>Motivate kids with rewards and badges</p>,
-    color: v.color.brandYellow,
+    color: v.color.yellow,
     alt: 'img',
     img: 'pics/feature-3.jpg',
   },
   {
     flip: true,
     children: <p>Keep kids safe with offline access</p>,
-    color: v.color.brandBlue,
+    color: v.color.blue,
     alt: 'img',
     img: 'pics/feature-4.jpg',
   },
   {
     children: <p>Trusted by parents worldwide</p>,
-    color: v.color.brandYellow,
+    color: v.color.yellow,
     alt: 'img',
     img: 'pics/feature-5.jpg',
   },

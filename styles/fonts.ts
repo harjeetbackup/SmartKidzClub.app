@@ -22,7 +22,7 @@ export default css`
   }
 
   @font-face {
-    font-family: dRoboBlack;
+    font-family: RobotoBlack;
     src: url(fonts/RobotoBlack.ttf);
   }
 

@@ -12,7 +12,7 @@ import stripe from 'lib/stripe';
 import { IAuth, IPrice } from 'models';
 import { useAuthUser } from 'next-firebase-auth';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import v from 'styles/variables';
 import routeVia from 'utils/route-via';
 import Hint from './hint';
@@ -26,6 +26,13 @@ export default function PriceList() {
   const router = useRouter();
   const [status, setStatus] = useState('');
   const [selected, setSelected] = useState<IPrice>();
+
+  useEffect(() => {
+    if (products.length && !selected) {
+      const bestPrice = products[0].prices.find(f => f.bestValue);
+      setSelected(bestPrice);
+    }
+  }, [products, selected]);
 
   async function subscribe() {
     setStatus('Step 3: Creating session...');

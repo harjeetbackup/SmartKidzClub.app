@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import v from 'styles/variables';
 
 export const Heading = styled.h1`
-  color: ${v.color.brandBlue};
+  color: ${v.color.blue};
   width: 100%;
   font-family: 'RobotoCondensedRegular';
   font-size: 32px;

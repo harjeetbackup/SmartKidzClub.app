@@ -14,16 +14,16 @@ export const Step = styled.div`
   font-size: ${v.size.px14};
   border-radius: 50%;
   margin: ${v.size.px10};
-  border: 2px solid ${v.color.brandRed};
+  border: 2px solid ${v.color.red};
   vertical-align: center;
   justify-content: center;
   align-items: center;
   display: flex;
   /* &:hover {
-    box-shadow: 0 0 10px ${v.color.brandRed};
+    box-shadow: 0 0 10px ${v.color.red};
   } */
   color: ${v.color.white};
-  background-color: ${v.color.brandRed};
+  background-color: ${v.color.red};
 
   ${media.min.s} {
     width: 45px;

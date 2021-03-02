@@ -5,7 +5,6 @@ import { CreateCouponId, CreateRewardfulClientRefId } from 'lib/rewardful';
 import { IAuth, ISubscription } from 'models';
 import Router from 'next/router';
 import { useState } from 'react';
-import v from 'styles/variables';
 import Wrapper, { Paying, SplitSection, Welcome } from './style';
 
 export default function Account(s: ISubscription & { auth?: IAuth }) {
@@ -48,18 +47,19 @@ export default function Account(s: ISubscription & { auth?: IAuth }) {
             './2 trial/4 ./2',
             './2 subs/4 ./2',
           ],
+          xl: [
+            './3 welcome/3 ./3',
+            './3 paying/3 ./3',
+            './3 status/3 ./3',
+            './3 trial/3 ./3',
+            './3 subs/3 ./3',
+          ],
         }}
       >
         <Welcome area='welcome'>
           <h1>{s.auth?.email}</h1>
-          <Button
-            flipColor
-            colorProfile='primary'
-            onClick={manageAccount}
-            style={{ color: v.color.black, opacity: 1 }}
-          >
-            My Subscription
-          </Button>
+
+          <Button onClick={manageAccount}>My Subscription</Button>
         </Welcome>
 
         <Paying area='paying'>

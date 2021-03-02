@@ -9,15 +9,20 @@ export default {
     overlay: 12,
   },
   color: {
-    brandRed: '#E01B4D',
-    brandBlue: '#138cee',
-    brandYellow: '#FDB515',
+    red: '#E01B4D',
+    blue: '#138cce',
+    yellow: '#FDB515',
     black: '#404040',
     white: '#ffffff',
   },
   font: {
     light: "'RobotoLight', sans-serif",
     regular: "'RobotoRegular', sans-serif",
+    medium: "'RobotoMedium', sans-serif",
+    black: "'RobotoBlack', sans-serif",
+    condensedRegular: "'RobotoCondensedRegular', sans-serif",
+    eina: "'Eina-Bold', sans-serif",
+    gothic: "'ShowcardGothic', sans-serif",
   },
   limit: {
     wrapperMaxWidth: '1170px',

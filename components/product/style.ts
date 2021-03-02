@@ -1,4 +1,4 @@
-import Grid, { GridCell } from 'components/core/grid';
+import { GridCell } from 'components/core/grid';
 import styled, { css } from 'styled-components';
 import media from 'styles/media-query';
 import v from 'styles/variables';
@@ -44,7 +44,7 @@ export const StyledPrice = styled.div<{ selectable?: boolean }>`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  border: 5px solid ${v.color.brandYellow};
+  border: 5px solid ${v.color.yellow};
   color: ${v.color.black};
   background-color: ${v.color.white};
   box-shadow: 0 0 10px white;
@@ -63,16 +63,16 @@ export const StyledPrice = styled.div<{ selectable?: boolean }>`
       &:hover {
         transition: all 0.1s ease-in;
         transform: scale(1.048);
-        box-shadow: 0 0 5px ${v.color.brandRed};
+        box-shadow: 0 0 5px ${v.color.red};
       }
 
       &.active {
-        border-color: ${v.color.brandRed};
-        box-shadow: 0 0 10px ${v.color.brandRed};
+        border-color: ${v.color.red};
+        box-shadow: 0 0 10px ${v.color.red};
 
         span.best {
-          border-color: ${v.color.brandRed};
-          background-color: ${v.color.brandRed};
+          border-color: ${v.color.red};
+          background-color: ${v.color.red};
         }
       }
     `}
@@ -95,39 +95,19 @@ export const BestValue = styled.span`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: -10px;
+  top: -12px;
   padding: 0 5px;
   z-index: 1;
   color: ${v.color.white};
-  border: 2px solid ${v.color.brandYellow};
+  border: 2px solid ${v.color.yellow};
   border-radius: 5px;
-  background-color: ${v.color.brandYellow};
-  font-size: ${v.size.px12};
+  background-color: ${v.color.yellow};
+  font-size: ${v.size.px14};
+  font-weight: bold;
   white-space: pre;
 
   ${media.min.m} {
-    font-size: ${v.size.px10};
-  }
-`;
-
-export const Subscribed = styled(Grid)`
-  text-align: center;
-  padding: 0 ${v.size.px20};
-  gap: 20px;
-
-  h1 {
-    font-size: ${v.size.px28};
-    color: ${v.color.brandRed};
-    padding: ${v.size.px10};
-  }
-
-  p {
-    padding-bottom: ${v.size.px2};
-  }
-
-  a {
-    color: blue;
-    text-decoration: underline;
+    font-size: ${v.size.px12};
   }
 `;
 
@@ -136,13 +116,13 @@ export const PromoWrapper = styled.div`
   margin: ${v.size.px10};
   padding: 0 ${v.size.px20};
   b {
-    color: ${v.color.brandBlue};
+    color: ${v.color.blue};
   }
 `;
 
 export default styled(GridCell)`
   color: ${v.color.white};
-  background: ${v.color.brandBlue};
+  background: ${v.color.blue};
   padding: ${v.size.px22};
   border-radius: 15px;
   box-shadow: 0 6px 50px #264e7624;

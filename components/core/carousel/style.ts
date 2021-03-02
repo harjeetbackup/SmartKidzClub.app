@@ -65,7 +65,8 @@ const BulletButton = styled.button`
 const ActionButton = styled.button`
   cursor: pointer;
   color: ${v.color.white};
-  background-color: ${v.color.brandYellow};
+  background-color: ${v.color.yellow};
+  opacity: 0.6;
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -73,6 +74,7 @@ const ActionButton = styled.button`
   text-align: center;
   &:focus,
   &:hover {
+    opacity: 1;
     box-shadow: 0 0 5px ${v.color.black};
   }
 `;

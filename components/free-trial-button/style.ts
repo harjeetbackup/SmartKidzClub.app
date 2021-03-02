@@ -8,18 +8,20 @@ export default styled.a<{ flipColor?: boolean }>`
   ${p =>
     p.flipColor
       ? css`
-          color: ${v.color.brandRed};
+          color: ${v.color.red};
           background: ${v.color.white};
+          font-family: ${v.font.regular};
         `
       : css`
           color: ${v.color.white};
-          background: ${v.color.brandRed};
+          background: ${v.color.red};
         `}
   margin-top: 10px;
   border-radius: 10px;
   box-shadow: 0 0 5px grey;
   transition: 0.1s;
   position: relative;
+  text-align: center;
 
   &:disabled {
     box-shadow: none;
@@ -29,7 +31,7 @@ export default styled.a<{ flipColor?: boolean }>`
   &:focus,
   &:hover:not(:disabled) {
     transition: 0.1s;
-    box-shadow: 0 0 8px ${v.color.brandRed};
+    box-shadow: 0 0 8px ${v.color.red};
   }
 
   &:active {
