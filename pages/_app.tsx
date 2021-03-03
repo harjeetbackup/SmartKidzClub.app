@@ -37,7 +37,7 @@ function App({ Component, pageProps }: AppPropsType) {
       </Head>
       <GlobalStyle />
       <GlobalProvider products={products}>
-        <Header />
+        <Header {...pageProps} />
         <Component {...pageProps} />
       </GlobalProvider>
     </>

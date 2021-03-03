@@ -1,5 +1,6 @@
 import Grid from 'components/core/grid';
 import Modal from 'components/core/modal';
+import { Android, IOS } from 'components/download-link';
 import FreeTrialButton from 'components/free-trial-button';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -15,7 +16,7 @@ import {
 } from './style';
 import Video from './video';
 
-export default function HeroVideo() {
+export default function HeroVideo(p: { landing: boolean }) {
   const [modal, setModal] = useState(false);
 
   function toggleModal() {
@@ -49,10 +50,17 @@ export default function HeroVideo() {
             />
           </ImgWrapper>
 
-          <LinkWrapper>
-            <Link href='#pricelist'>
-              <FreeTrialLink href='#pricelist'>View Plans</FreeTrialLink>
-            </Link>
+          <LinkWrapper {...p}>
+            {p.landing ? (
+              <LinkWrapper className='apps'>
+                <IOS />
+                <Android />
+              </LinkWrapper>
+            ) : (
+              <Link href='#pricelist'>
+                <FreeTrialLink href='#pricelist'>View Plans</FreeTrialLink>
+              </Link>
+            )}
 
             <FreeTrialButton />
           </LinkWrapper>

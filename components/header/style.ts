@@ -25,7 +25,7 @@ export const Actions = styled(GridCell)`
   align-content: center;
   justify-content: flex-end;
   align-items: center;
-  grid-gap: 15px;
+  gap: 10px;
 `;
 
 export const Menu = styled.ul`

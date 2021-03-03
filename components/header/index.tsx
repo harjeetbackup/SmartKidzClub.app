@@ -1,4 +1,5 @@
 import Grid, { GridCell } from 'components/core/grid';
+import { Android, IOS } from 'components/download-link';
 import useGotoRoute from 'hooks/goto-route';
 import { IAuth } from 'models';
 import { useAuthUser, withAuthUser } from 'next-firebase-auth';
@@ -15,7 +16,7 @@ import Wrapper, {
   Profile,
 } from './style';
 
-function Header() {
+function Header(p: { landing: boolean }) {
   const gotoUrl = useGotoRoute();
   const auth = useAuthUser() as IAuth;
   const [hover, setHover] = useState(false);
@@ -37,8 +38,14 @@ function Header() {
             </a>
           </Link>
         </GridCell>
+
         <Actions area='actions'>
-          {auth?.id ? (
+          {p.landing ? (
+            <>
+              <IOS />
+              <Android />
+            </>
+          ) : auth?.id ? (
             <>
               <Profile
                 tabIndex={0}

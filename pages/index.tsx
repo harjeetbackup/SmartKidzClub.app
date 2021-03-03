@@ -3,6 +3,7 @@ import ColorBar from 'components/color-bar';
 import HeroVideo from 'components/hero-video';
 import PriceList from 'components/product';
 import Testimonial from 'components/testimonial';
+import { NextPageContext } from 'next';
 import { withAuthUser, withAuthUserTokenSSR } from 'next-firebase-auth';
 import Head from 'next/head';
 import v from 'styles/variables';
@@ -44,13 +45,13 @@ const features: AppFeatureProps[] = [
   },
 ];
 
-function Page() {
+function Page(p: { landing: boolean }) {
   return (
     <>
       <Head>
         <title>SmarkKidzClub Premium App</title>
       </Head>
-      <HeroVideo />
+      <HeroVideo {...p} />
       <Testimonial />
       <div style={{ margin: `${v.size.px50} 0` }}>
         {features.map((m, i) => (
@@ -63,6 +64,12 @@ function Page() {
   );
 }
 
-export const getServerSideProps = withAuthUserTokenSSR()();
+export const getServerSideProps = withAuthUserTokenSSR()(
+  async (ctx: NextPageContext) => ({
+    props: {
+      landing: [1, '1'].includes(ctx.query.landing as string),
+    },
+  })
+);
 
 export default withAuthUser()(Page);

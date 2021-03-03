@@ -5,8 +5,8 @@ import Hint from './hint';
 import Price from './price';
 import Wrapper, { AllPrices, Heading, Products } from './style';
 
-const placeholder = [...Array(3).fill(1).keys()];
-console.log(placeholder);
+// const placeholder = [...Array(3).fill(1).keys()];
+// console.log(placeholder);
 
 export default function PriceList() {
   const { products } = useGlobal() || [];

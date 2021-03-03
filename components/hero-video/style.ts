@@ -1,5 +1,5 @@
 import { GridCell } from 'components/core/grid';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import media, { size } from 'styles/media-query';
 import v from 'styles/variables';
 
@@ -68,12 +68,20 @@ export const ImgWrapper = styled.div`
   }
 `;
 
-export const LinkWrapper = styled.div`
+export const LinkWrapper = styled.div<{ landing?: boolean }>`
   display: flex;
-  grid-gap: 20px;
+  gap: 20px;
   justify-content: center;
   align-items: center;
-  margin-top: ${v.size.px10};
+  margin-top: ${v.size.px20};
+  ${p =>
+    p.landing &&
+    css`
+      flex-direction: column-reverse;
+      .apps {
+        margin: 0;
+      }
+    `}
 `;
 
 export const Img = styled.img`
@@ -102,7 +110,6 @@ export const Img = styled.img`
 export const FreeTrialLink = styled.a`
   align-self: center;
   padding: 10px;
-  margin-top: 10px;
   border-radius: 10px;
   box-shadow: 0 0 5px grey;
   transition: 0.1s;

@@ -1,5 +1,6 @@
 import confetti from 'canvas-confetti';
 import { GridCell } from 'components/core/grid';
+import { Android, IOS } from 'components/download-link';
 import { withAuthUser, withAuthUserTokenSSR } from 'next-firebase-auth';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -38,20 +39,8 @@ const Page = () => {
             password that was used to create this account.
           </p>
           <DownloadApp>
-            <a
-              title='Download iOS App'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='ios'
-              href='https://apps.apple.com/us/app/smart-kidz-club-premium-app/id532545204?ls=1'
-            />
-            <a
-              title='Download Android App'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='android'
-              href='https://play.google.com/store/apps/details?id=com.skc.smartkidzclub'
-            />
+            <IOS />
+            <Android />
           </DownloadApp>
           <p>
             Use the app every day for 10-20 minutes with your child and see an

@@ -16,7 +16,6 @@ export default styled.a<{ flipColor?: boolean }>`
           color: ${v.color.white};
           background: ${v.color.red};
         `}
-  margin-top: 10px;
   border-radius: 10px;
   box-shadow: 0 0 5px grey;
   transition: 0.1s;

@@ -35,7 +35,7 @@ export default function Modal({ children, ...p }: Props & IChildren) {
         aria-label='Close Modal'
         onClick={p.onRequestClose}
       >
-        &#10006;
+        ×
       </CloseButton>
       {children}
     </ReactModal>
