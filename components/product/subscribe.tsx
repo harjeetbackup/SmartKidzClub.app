@@ -126,7 +126,6 @@ export default function PriceList() {
                 onClick={subscribe}
                 as={'button' as any}
                 colorProfile='secondary'
-                flipColor={!!selected?.id}
                 disabled={status || !selected}
               >
                 {status ? (

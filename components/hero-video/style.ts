@@ -130,40 +130,16 @@ export const FreeTrialLink = styled.a`
   }
 `;
 
-export const Badges = styled.div`
-  display: flex;
-  justify-content: center;
-
-  &,
-  &:hover {
-    transform: none;
+export const Badges = styled(Img)`
+  width: 200px;
+  ${media.min.m} {
+    width: 210px;
   }
-
-  img {
-    padding: 0 5px;
-    cursor: default;
-    &:nth-child(1) {
-      width: 90px;
-    }
-    &:nth-child(2) {
-      width: 80px;
-    }
-    &:nth-child(3) {
-      width: 100px;
-    }
-
-    ${media.min.l} {
-      padding: 0 10px;
-      &:nth-child(1) {
-        width: 100px;
-      }
-      &:nth-child(2) {
-        width: 90px;
-      }
-      &:nth-child(3) {
-        width: 110px;
-      }
-    }
+  ${media.min.l} {
+    width: 230px;
+  }
+  ${media.min.xl} {
+    width: 250px;
   }
 `;
 

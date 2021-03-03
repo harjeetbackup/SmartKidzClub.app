@@ -4,7 +4,7 @@
   "private": true,
   "main": "firebase.function.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=local firebase use stage && next dev",
+    "dev": "cross-env NODE_ENV=local firebase use stage && next dev -p 5500",
     "build": "next build",
     "start": "next start",
     "logs": "firebase functions:log",

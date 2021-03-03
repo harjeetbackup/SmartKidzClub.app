@@ -50,7 +50,7 @@ export default function PriceList() {
           </>
         )}
 
-        <FreeTrialButton flipColor />
+        <FreeTrialButton />
 
         <Hint />
       </Wrapper>
