@@ -1,17 +1,25 @@
+const redirected = (source, destination) => [
+  {
+    source: `${source}.html`,
+    destination,
+    permanent: true,
+  },
+  {
+    source,
+    destination,
+    permanent: true,
+  },
+];
+
 module.exports = {
   trailingSlash: false,
   async redirects() {
     return [
-      {
-        source: '/landing.html',
-        destination: '/?landing=1',
-        permanent: true,
-      },
-      {
-        source: '/landing',
-        destination: '/?landing=1',
-        permanent: true,
-      },
+      ...redirected('/landing', '/?landing=1'),
+      ...redirected('/signup', '/sign-up'),
+      ...redirected('/addaccess', '/add-access'),
+      ...redirected('/termsofuse', '/terms-of-use'),
+      ...redirected('/privacy', '/privacy-policy'),
     ];
   },
 };
