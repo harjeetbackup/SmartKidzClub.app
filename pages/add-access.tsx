@@ -24,6 +24,10 @@ const Page = () => {
       const res = await fetch(API_URL, {
         method: 'POST',
         body: JSON.stringify(form.data),
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
       })
         .then(r => r.json())
         .finally(() => setLoading(false));
@@ -42,7 +46,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Access | SmarkKidzClub Premium App</title>
+        <title>Add Access | SmarkKidzClub Premium App</title>
       </Head>
 
       {loading && (
@@ -53,12 +57,12 @@ const Page = () => {
 
       <Wrapper
         areas={{
-          xs: ['access/4', 'content/4'],
-          m: ['./4 access/4 ./4', './4 content/4 ./4'],
+          xs: ['welcome/4', 'content/4'],
+          m: ['./4 welcome/4 ./4', './4 content/4 ./4'],
         }}
       >
-        <Heading area='access' as='h1'>
-          Access
+        <Heading area='welcome' as='h1'>
+          Welcome Back
         </Heading>
 
         <Form<IAccess>

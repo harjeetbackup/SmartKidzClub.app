@@ -44,6 +44,10 @@ export default styled.form<{ area?: string }>`
   align-items: center;
   justify-content: center;
   ${p => p.area && `grid-area: ${p.area}`};
+  padding: 20px;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%),
+    0 1px 5px 0 rgb(0 0 0 / 12%);
 `;
 
 export const HintOrError = styled.span<{ error?: boolean }>`
@@ -95,15 +99,14 @@ export const FormControl = css`
   width: 100%;
   height: 40px;
   background-color: transparent;
-  border: 1px solid ${v.color.black};
-  border-radius: 5px;
+  border-bottom: 1px solid #0000001f;
   transition: border 0.15s ease-in-out;
 
   ${Placeholder};
 
   &:focus {
     outline: none;
-    border: 1px solid ${v.color.yellow};
+    border-bottom: 1px solid ${v.color.yellow};
     transition: border 0.15s ease-in-out;
   }
 

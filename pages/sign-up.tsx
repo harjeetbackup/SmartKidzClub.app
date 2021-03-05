@@ -26,6 +26,10 @@ const Page = () => {
       const res = await fetch(API_URL, {
         method: 'POST',
         body: JSON.stringify(form.data),
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
       })
         .then(r => r.json())
         .finally(() => setLoading(false));
@@ -55,12 +59,12 @@ const Page = () => {
 
       <Wrapper
         areas={{
-          xs: ['signup/4', 'content/4'],
-          m: ['./4 signup/4 ./4', './4 content/4 ./4'],
+          xs: ['welcome/4', 'content/4'],
+          m: ['./4 welcome/4 ./4', './4 content/4 ./4'],
         }}
       >
-        <Heading area='signup' as='h1'>
-          Sign Up
+        <Heading area='welcome' as='h1'>
+          Welcome
         </Heading>
 
         <Form<ISignUp>
