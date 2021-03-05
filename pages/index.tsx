@@ -49,7 +49,7 @@ function Page(p: { landing: boolean }) {
   return (
     <>
       <Head>
-        <title>SmarkKidzClub Premium App</title>
+        <title>SmartKidzClub Premium App</title>
       </Head>
       <HeroVideo {...p} />
       <Testimonial />

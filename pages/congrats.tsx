@@ -19,7 +19,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>SmarkKidzClub Premium App</title>
+        <title>SmartKidzClub Premium App</title>
       </Head>
 
       <Wrapper

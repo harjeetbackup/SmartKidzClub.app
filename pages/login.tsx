@@ -19,7 +19,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Login | SmarkKidzClub Premium App</title>
+        <title>Login | SmartKidzClub Premium App</title>
       </Head>
       <Steps count={1} />
 

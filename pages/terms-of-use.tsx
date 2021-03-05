@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Terms of Use | SmarkKidzClub Premium App</title>
+        <title>Terms of Use | SmartKidzClub Premium App</title>
       </Head>
 
       <Wrapper>

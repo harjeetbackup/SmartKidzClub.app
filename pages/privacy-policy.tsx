@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Privacy Policy | SmarkKidzClub Premium App</title>
+        <title>Privacy Policy | SmartKidzClub Premium App</title>
       </Head>
 
       <Wrapper>

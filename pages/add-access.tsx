@@ -8,7 +8,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import { toast } from 'react-toast';
 import Wrapper, { Heading } from 'styles/pages/access';
-import { size, string, trimmed } from 'superstruct';
+import { string } from 'superstruct';
 
 const API_URL = `https://${config.firebase.location}-${config.firebase.projectId}.cloudfunctions.net/addAccess`;
 
@@ -46,12 +46,12 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Add Access | SmarkKidzClub Premium App</title>
+        <title>Add Access | SmartKidzClub Premium App</title>
       </Head>
 
       {loading && (
         <Overlay>
-          Please wait... <Rotate>⌛</Rotate>
+          Submitting... <Rotate>⌛</Rotate>
         </Overlay>
       )}
 
@@ -70,8 +70,8 @@ const Page = () => {
           data={data}
           onSubmit={onSubmit}
           validations={{
+            class_code: string(),
             email: Validations.email,
-            class_code: trimmed(size(string(), 6, 6)),
           }}
         >
           {form => (
@@ -86,14 +86,14 @@ const Page = () => {
 
               <Input
                 required
-                maxLength={6}
-                minLength={6}
                 name='class_code'
                 label='Redeem Code'
                 customForm={form}
               />
 
-              <Button type='submit'>Add Access</Button>
+              <Button type='submit' disabled={loading}>
+                Add Access
+              </Button>
             </>
           )}
         </Form>

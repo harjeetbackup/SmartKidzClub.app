@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { toast } from 'react-toast';
 import Wrapper, { Agreement, Heading } from 'styles/pages/access';
-import { boolean, size, string, trimmed } from 'superstruct';
+import { boolean, string } from 'superstruct';
 
 const API_URL = `https://${config.firebase.location}-${config.firebase.projectId}.cloudfunctions.net/signup`;
 
@@ -21,11 +21,16 @@ const Page = () => {
   async function onSubmit(form: IFormSubmit) {
     toast.hideAll();
     if (!form.valid) return;
+    const { passwordCnf, agreement, ...rest } = form.data as ISignUp;
+    if (passwordCnf !== rest.password) {
+      return toast.warn("Passwords don't match");
+    }
+    if (!agreement) return;
     try {
       setLoading(true);
       const res = await fetch(API_URL, {
         method: 'POST',
-        body: JSON.stringify(form.data),
+        body: JSON.stringify(rest),
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
@@ -36,7 +41,13 @@ const Page = () => {
 
       if (res.success) {
         toast.success(res.message);
-        setData({ class_code: '', email: '', password: '', agreement: false });
+        setData({
+          email: '',
+          password: '',
+          class_code: '',
+          passwordCnf: '',
+          agreement: false,
+        });
       } else {
         toast.error(res.message);
       }
@@ -48,12 +59,12 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Sign Up | SmarkKidzClub Premium App</title>
+        <title>Sign Up | SmartKidzClub Premium App</title>
       </Head>
 
       {loading && (
         <Overlay>
-          Please wait... <Rotate>⌛</Rotate>
+          Submitting... <Rotate>⌛</Rotate>
         </Overlay>
       )}
 
@@ -74,9 +85,9 @@ const Page = () => {
           validations={{
             password: string(),
             agreement: boolean(),
+            class_code: string(),
             passwordCnf: string(),
             email: Validations.email,
-            class_code: trimmed(size(string(), 6, 6)),
           }}
         >
           {form => (
@@ -91,6 +102,7 @@ const Page = () => {
 
               <Input
                 required
+                minLength={6}
                 type='password'
                 name='password'
                 label='Password'
@@ -99,6 +111,7 @@ const Page = () => {
 
               <Input
                 required
+                minLength={6}
                 type='password'
                 name='passwordCnf'
                 label='Confirm Password'
@@ -107,8 +120,6 @@ const Page = () => {
 
               <Input
                 required
-                maxLength={6}
-                minLength={6}
                 name='class_code'
                 label='Redeem Code'
                 customForm={form}
@@ -129,7 +140,9 @@ const Page = () => {
                 </Checkbox>
               </Agreement>
 
-              <Button type='submit'>Sign Up</Button>
+              <Button type='submit' disabled={loading}>
+                Sign Up
+              </Button>
             </>
           )}
         </Form>

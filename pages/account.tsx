@@ -15,7 +15,7 @@ function Page() {
   return (
     <>
       <Head>
-        <title>My Account | SmarkKidzClub Premium App</title>
+        <title>My Account | SmartKidzClub Premium App</title>
       </Head>
       {user && subscription && <Account {...subscription} auth={auth} />}
     </>

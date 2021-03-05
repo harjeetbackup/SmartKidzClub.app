@@ -35,10 +35,10 @@ function App({ Component, pageProps }: AppPropsType) {
   return (
     <>
       <Head>
-        <title>SmarkKidzClub Premium App</title>
+        <title>SmartKidzClub Premium App</title>
       </Head>
       <GlobalStyle />
-      <ToastContainer position='bottom-center' />
+      <ToastContainer position='bottom-center' delay={4000} />
       <GlobalProvider products={products}>
         <Header {...pageProps} />
         <Component {...pageProps} />

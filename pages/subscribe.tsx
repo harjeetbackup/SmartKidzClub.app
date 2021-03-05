@@ -19,7 +19,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Subscribe | SmarkKidzClub Premium App</title>
+        <title>Subscribe | SmartKidzClub Premium App</title>
       </Head>
 
       <Steps count={2} />
