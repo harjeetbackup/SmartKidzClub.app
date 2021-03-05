@@ -36,7 +36,7 @@ export default styled(Grid)`
   gap: 20px;
 
   h1 {
-    font-size: ${v.size.px28};
+    font-size: ${v.size.px24};
     color: ${v.color.red};
     padding: ${v.size.px10};
   }

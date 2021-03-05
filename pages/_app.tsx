@@ -8,6 +8,7 @@ import { AppPropsType } from 'next/dist/next-server/lib/utils';
 import Head from 'next/head';
 import 'nprogress/css/nprogress.css';
 import { useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toast';
 import GlobalStyle from 'styles';
 import { ProductsWithPrices } from 'utils/product';
 
@@ -36,6 +37,7 @@ function App({ Component, pageProps }: AppPropsType) {
         <title>SmarkKidzClub Premium App</title>
       </Head>
       <GlobalStyle />
+      <ToastContainer position='bottom-center' />
       <GlobalProvider products={products}>
         <Header {...pageProps} />
         <Component {...pageProps} />

@@ -1,5 +1,10 @@
-export interface ISignUp {
-  code: string;
-  email: string;
+export interface ISignUp extends IAccess {
   password: string;
+  passwordCnf?: string;
+  agreement: boolean;
+}
+
+export interface IAccess {
+  class_code: string;
+  email: string;
 }

@@ -7,6 +7,7 @@ export default {
     header: 10,
     modal: 11,
     overlay: 12,
+    toast: 13,
   },
   color: {
     red: '#E01B4D',

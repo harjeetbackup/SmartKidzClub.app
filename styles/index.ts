@@ -35,6 +35,10 @@ export default createGlobalStyle`
     }
   }
   
+  .toastContainer{
+    z-index: ${v.zIndex.toast};
+  }
+
   ${reset}
 
   ${fonts}

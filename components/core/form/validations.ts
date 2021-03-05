@@ -19,4 +19,7 @@ export function formatError(err: any) {
 
 export default {
   email: define('email', isEmail),
+  code: define('code', v => {
+    return /[0-9a-zA-Z]{6,6}/.test(String(v || ''));
+  }),
 };

@@ -46,15 +46,17 @@ export default styled.form<{ area?: string }>`
   ${p => p.area && `grid-area: ${p.area}`};
 `;
 
-export const FormGroup = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
-export const HintOrError = styled.b<{ error?: boolean }>`
+export const HintOrError = styled.span<{ error?: boolean }>`
   color: ${p => (p.error ? v.color.red : 'grey')};
   font-size: 0.8rem;
   padding: 0 0.7rem;
+  font-family: ${v.font.regular};
+`;
+
+export const FormGroup = styled.div`
+  position: relative;
+  width: 100%;
+  font-size: initial;
 `;
 
 export const Label = styled.label<{ required?: boolean }>`
