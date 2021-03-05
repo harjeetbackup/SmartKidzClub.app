@@ -1,3 +1,4 @@
+import config from 'config';
 import { init } from 'next-firebase-auth';
 import { firebaseConfig as firebaseClientInitConfig } from './client';
 
@@ -12,30 +13,27 @@ const initAuth = () =>
     logoutAPIEndpoint: '/api/logout',
     firebaseAdminInitConfig: {
       credential: {
-        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+        clientEmail: config.firebase.clientEmail,
+        projectId: config.firebase.projectId,
         // Using JSON to handle newline problems when storing the
         // key as a secret in Vercel. See:
         // https://github.com/vercel/vercel/issues/749#issuecomment-707515089
-        privateKey: process.env.FIREBASE_PRIVATE_KEY
-          ? JSON.parse(process.env.FIREBASE_PRIVATE_KEY)
+        privateKey: config.firebase.privateKey
+          ? JSON.parse(config.firebase.privateKey)
           : undefined,
       },
-      databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+      databaseURL: config.firebase.databaseURL,
     },
     firebaseClientInitConfig,
     cookies: {
       name: 'SmartKidzClubPremiumApp',
-      keys: [
-        process.env.COOKIE_SECRET_CURRENT,
-        process.env.COOKIE_SECRET_PREVIOUS,
-      ],
+      keys: [config.cookie.secret.current, config.cookie.secret.previous],
       httpOnly: true,
       maxAge: TWELVE_DAYS_IN_MS,
       overwrite: true,
       path: '/',
       sameSite: 'strict',
-      secure: process.env.NEXT_PUBLIC_COOKIE_SECURE === 'true',
+      secure: config.cookie.secure === 'true',
       signed: true,
     },
   });

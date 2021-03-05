@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { toast } from 'react-toast';
 import Wrapper, { Agreement, Heading } from 'styles/pages/access';
-import { size, string, trimmed } from 'superstruct';
+import { boolean, size, string, trimmed } from 'superstruct';
 
 const API_URL = `https://${config.firebase.location}-${config.firebase.projectId}.cloudfunctions.net/signup`;
 
@@ -66,13 +66,14 @@ const Page = () => {
         <Form<ISignUp>
           area='content'
           data={data}
+          onSubmit={onSubmit}
           validations={{
             password: string(),
+            agreement: boolean(),
             passwordCnf: string(),
             email: Validations.email,
             class_code: trimmed(size(string(), 6, 6)),
           }}
-          onSubmit={onSubmit}
         >
           {form => (
             <>
@@ -111,7 +112,7 @@ const Page = () => {
 
               <Agreement>
                 <Checkbox required name='agreement' customForm={form}>
-                  <span>
+                  <div>
                     I agree to{' '}
                     <Link href='/terms-of-use'>
                       <a>Terms of use</a>
@@ -120,7 +121,7 @@ const Page = () => {
                     <Link href='/privacy-policy'>
                       <a>Privacy policy</a>
                     </Link>
-                  </span>
+                  </div>
                 </Checkbox>
               </Agreement>
 

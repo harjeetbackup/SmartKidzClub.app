@@ -1,4 +1,5 @@
 import Header from 'components/header';
+import config from 'config';
 import GlobalProvider from 'context/global';
 import { useLoader } from 'hooks/loader';
 import firebaseInit from 'lib/firebase/auth';
@@ -18,8 +19,8 @@ function App({ Component, pageProps }: AppPropsType) {
   const [products, setProducts] = useState([] as IProduct[]);
 
   console.log({
-    nodeEnv: process.env.NODE_ENV,
-    env: process.env.NEXT_PUBLIC_ENV,
+    env: config.env,
+    nodeEnv: config.nodeEnv,
   });
 
   useLoader();

@@ -1,16 +1,17 @@
+import config from 'config';
 import * as admin from 'firebase-admin';
 
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert({
-      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey: (process.env.FIREBASE_PRIVATE_KEY
-        ? JSON.parse(process.env.FIREBASE_PRIVATE_KEY)
+      projectId: config.firebase.projectId,
+      clientEmail: config.firebase.clientEmail,
+      privateKey: (config.firebase.privateKey
+        ? JSON.parse(config.firebase.privateKey)
         : ''
       ).replace(/\\n/g, '\n'),
     }),
-    databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+    databaseURL: config.firebase.databaseURL,
   });
 }
 
