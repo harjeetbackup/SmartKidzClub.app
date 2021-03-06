@@ -1,6 +1,8 @@
 export const size = {
   // default styles should be mobile-first
 
+  /** small devices: 411 */
+  xs: 411,
   /** small devices: 576px */
   s: 576,
   /** medium devices: 768px */
@@ -9,6 +11,8 @@ export const size = {
   l: 992,
   /** extra large devices: 1200 */
   xl: 1200,
+  /** extra large devices: 1366 */
+  xxl: 1366,
 };
 
 export type TSize = keyof typeof size;
