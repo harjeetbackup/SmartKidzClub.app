@@ -1,6 +1,5 @@
 import Grid from 'components/core/grid';
 import { memo, useState } from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 // @ts-ignore
 import Carousel from 'react-simply-carousel';
 import v from 'styles/variables';
