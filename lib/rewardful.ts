@@ -3,6 +3,10 @@ import { IsCSR } from 'utils/common';
 
 const RewardFul = () => IsCSR && (window as any).Rewardful;
 
+export function GetAffiliateToken() {
+  return RewardFul()?.affiliate?.token;
+}
+
 export function CreateRewardfulClientRefId() {
   const createRefId = () =>
     RewardFul()?.referral || 'checkout_' + new Date().getTime();

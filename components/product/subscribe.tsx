@@ -6,6 +6,7 @@ import { db } from 'lib/firebase/client';
 import {
   CreateCouponId,
   CreateRewardfulClientRefId,
+  GetAffiliateToken,
   GetCouponInfo,
 } from 'lib/rewardful';
 import stripe from 'lib/stripe';
@@ -22,7 +23,7 @@ import Wrapper, { AllPrices, Products, PromoWrapper } from './style';
 export default function PriceList() {
   const coupon = GetCouponInfo();
   const auth = useAuthUser() as IAuth;
-  const { products } = useGlobal() || [];
+  const { products, via } = useGlobal() || [];
   const router = useRouter();
   const [status, setStatus] = useState('');
   const [selected, setSelected] = useState<IPrice>();
@@ -68,7 +69,7 @@ export default function PriceList() {
         price: selected!.id,
         priceAmt: selected!.formatted.price,
         priceInterval: selected!.interval,
-        via: router.query.via || null,
+        via: via || router.query.via || GetAffiliateToken() || null,
         allow_promotion_codes: !!coupon,
         cancel_url: routeVia(origin + '/subscribe'),
         success_url: routeVia(origin + '/congrats'),
