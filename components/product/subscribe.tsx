@@ -1,5 +1,5 @@
 import Grid from 'components/core/grid';
-import Overlay, { Rotate } from 'components/core/overlay';
+import Overlay, { LoadIcon } from 'components/core/overlay';
 import FreeTrialLink from 'components/free-trial-button/style';
 import { useGlobal } from 'context/global';
 import { db } from 'lib/firebase/client';
@@ -82,7 +82,7 @@ export default function PriceList() {
     <>
       {status && (
         <Overlay>
-          {status} <Rotate>⌛</Rotate>
+          {status} <LoadIcon />
         </Overlay>
       )}
 

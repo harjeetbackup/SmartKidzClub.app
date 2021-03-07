@@ -2,7 +2,7 @@ import Button from 'components/core/button';
 import Checkbox from 'components/core/checkbox';
 import Form, { IFormSubmit, Validations } from 'components/core/form';
 import Input from 'components/core/input';
-import Overlay, { Rotate } from 'components/core/overlay';
+import Overlay, { LoadIcon } from 'components/core/overlay';
 import config from 'config';
 import { ISignUp } from 'models';
 import Head from 'next/head';
@@ -64,7 +64,7 @@ const Page = () => {
 
       {loading && (
         <Overlay>
-          Submitting... <Rotate>⌛</Rotate>
+          Submitting... <LoadIcon />
         </Overlay>
       )}
 

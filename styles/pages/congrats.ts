@@ -1,5 +1,6 @@
 import Grid, { GridCell } from 'components/core/grid';
 import styled from 'styled-components';
+import media from 'styles/media-query';
 import v from 'styles/variables';
 
 export const DownloadApp = styled.div`
@@ -7,7 +8,10 @@ export const DownloadApp = styled.div`
   gap: 30px;
   align-items: center;
   justify-content: center;
-  padding: ${v.size.px10};
+
+  ${media.min.l} {
+    padding: ${v.size.px10};
+  }
 `;
 
 export const Content = styled(GridCell)`
@@ -18,7 +22,7 @@ export const Content = styled(GridCell)`
   line-height: 1.2;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 
   p {
     padding-bottom: ${v.size.px2};

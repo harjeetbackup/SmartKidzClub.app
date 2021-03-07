@@ -34,7 +34,7 @@ export const AllPrices = styled.div`
   margin-top: ${v.size.px30};
   margin-bottom: ${v.size.px20};
   width: 100%;
-  ${media.min.l} {
+  ${media.min.s} {
     flex-direction: row;
   }
 `;
@@ -51,7 +51,7 @@ export const StyledPrice = styled.div<{ selectable?: boolean }>`
   padding: ${v.size.px10};
   border-radius: 10px;
   grid-gap: 10px;
-  width: 60%;
+  width: 90%;
   position: relative;
 
   ${p =>
@@ -76,6 +76,10 @@ export const StyledPrice = styled.div<{ selectable?: boolean }>`
         }
       }
     `}
+
+  ${media.min.s} {
+    width: 60%;
+  }
 
   ${media.min.m} {
     font-size: ${v.size.px18};
@@ -114,9 +118,18 @@ export const BestValue = styled.span`
 export const PromoWrapper = styled.div`
   text-align: center;
   margin: ${v.size.px10};
-  padding: 0 ${v.size.px20};
+  margin-bottom: ${v.size.px20};
+  background: white;
+  color: black;
+  padding: ${v.size.px10} ${v.size.px20};
+  border-radius: 10px;
+  max-width: 90%;
+  align-self: center;
   b {
     color: ${v.color.blue};
+  }
+  ${media.min.l} {
+    max-width: 80%;
   }
 `;
 
@@ -130,4 +143,5 @@ export default styled(GridCell)`
   position: relative;
   display: flex;
   flex-direction: column;
+  margin: 0 1rem 1rem;
 `;

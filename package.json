@@ -10,7 +10,7 @@
     "logs": "firebase functions:log",
     "shell": "yarn build && firebase functions:shell",
     "serve": "yarn build && firebase emulators:start --only functions,hosting",
-    "deploy": "cross-env NODE_ENV=test yarn build && firebase use stage && firebase deploy --only functions:skc_app,hosting",
+    "deploy": "cross-env NODE_ENV=production yarn build && firebase use stage && firebase deploy --only functions:skc_app,hosting",
     "deploy:prod": "cross-env NODE_ENV=production yarn build && firebase use prod && firebase deploy --only functions:skc_app,hosting"
   },
   "dependencies": {

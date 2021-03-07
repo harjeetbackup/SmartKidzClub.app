@@ -1,5 +1,5 @@
 import Button from 'components/core/button';
-import Overlay, { Rotate } from 'components/core/overlay';
+import Overlay, { LoadIcon } from 'components/core/overlay';
 import { app } from 'lib/firebase/client';
 import { CreateCouponId, CreateRewardfulClientRefId } from 'lib/rewardful';
 import { IAuth, ISubscription } from 'models';
@@ -33,7 +33,7 @@ export default function Account(s: ISubscription & { auth?: IAuth }) {
       {overlay && (
         <Overlay>
           Please wait...
-          <Rotate>⌛</Rotate>
+          <LoadIcon />
         </Overlay>
       )}
 

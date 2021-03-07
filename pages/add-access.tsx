@@ -1,7 +1,7 @@
 import Button from 'components/core/button';
 import Form, { IFormSubmit, Validations } from 'components/core/form';
 import Input from 'components/core/input';
-import Overlay, { Rotate } from 'components/core/overlay';
+import Overlay, { LoadIcon } from 'components/core/overlay';
 import config from 'config';
 import { IAccess } from 'models';
 import Head from 'next/head';
@@ -51,7 +51,7 @@ const Page = () => {
 
       {loading && (
         <Overlay>
-          Submitting... <Rotate>⌛</Rotate>
+          Submitting... <LoadIcon />
         </Overlay>
       )}
 

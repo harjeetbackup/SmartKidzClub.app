@@ -18,7 +18,7 @@ export default styled.div`
   color: ${v.color.white};
 `;
 
-export const Rotate = styled.span`
+const Rotate = styled.span`
   margin-left: 10px;
   animation: spin 4s linear infinite;
 
@@ -28,3 +28,5 @@ export const Rotate = styled.span`
     }
   }
 `;
+
+export const LoadIcon = () => <Rotate>⌛</Rotate>;
