@@ -4,14 +4,15 @@
   "private": true,
   "main": "firebase.function.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=local firebase use stage && next dev -p 5500",
+    "env": "node .env.js",
+    "dev": "cross-env NODE_ENV=test yarn env && firebase use stage && next dev -p 5500",
     "build": "next build",
     "start": "next start",
     "logs": "firebase functions:log",
     "shell": "yarn build && firebase functions:shell",
     "serve": "yarn build && firebase emulators:start --only functions,hosting",
-    "deploy": "cross-env NODE_ENV=production yarn build && firebase use stage && firebase deploy --only functions:skc_app,hosting",
-    "deploy:prod": "cross-env NODE_ENV=production yarn build && firebase use prod && firebase deploy --only functions:skc_app,hosting"
+    "deploy": "cross-env NODE_ENV=test yarn env && yarn build && firebase use stage && firebase deploy --only functions:skc_app,hosting",
+    "deploy:prod": "cross-env NODE_ENV=production yarn env && yarn build && firebase use prod && firebase deploy --only functions:skc_app,hosting"
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^2.0.1",

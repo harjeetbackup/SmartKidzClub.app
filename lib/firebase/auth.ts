@@ -1,5 +1,6 @@
 import config from 'config';
 import { init } from 'next-firebase-auth';
+import { IsCSR } from 'utils/common';
 import { firebaseConfig as firebaseClientInitConfig } from './client';
 
 const TWELVE_DAYS_IN_MS = 12 * 60 * 60 * 24 * 1000;
@@ -27,7 +28,9 @@ const initAuth = () =>
     firebaseClientInitConfig,
     cookies: {
       name: 'SmartKidzClubPremiumApp',
-      keys: [config.cookie.secret.current, config.cookie.secret.previous],
+      keys: IsCSR
+        ? []
+        : [config.cookie.secret.current, config.cookie.secret.previous],
       httpOnly: true,
       maxAge: TWELVE_DAYS_IN_MS,
       overwrite: true,
