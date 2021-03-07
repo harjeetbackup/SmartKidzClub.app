@@ -3,6 +3,16 @@ import { IsCSR } from 'utils/common';
 
 const RewardFul = () => IsCSR && (window as any).Rewardful;
 
+export function Convert(email?: string) {
+  if (email) {
+    try {
+      (window as any).rewardful('convert', { email });
+    } catch (err) {
+      console.error('error while converting', err);
+    }
+  }
+}
+
 export function GetAffiliateToken() {
   return RewardFul()?.affiliate?.token;
 }

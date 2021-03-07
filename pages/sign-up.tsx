@@ -21,7 +21,12 @@ const Page = () => {
   async function onSubmit(form: IFormSubmit) {
     toast.hideAll();
     if (!form.valid) return;
-    const { passwordCnf, agreement, ...rest } = form.data as ISignUp;
+    const {
+      passwordCnf,
+      agreement,
+      class_code,
+      ...rest
+    } = form.data as ISignUp;
     if (passwordCnf !== rest.password) {
       return toast.warn("Passwords don't match");
     }
@@ -30,7 +35,7 @@ const Page = () => {
       setLoading(true);
       const res = await fetch(API_URL, {
         method: 'POST',
-        body: JSON.stringify(rest),
+        body: JSON.stringify({ ...rest, class_code: class_code.toUpperCase() }),
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',

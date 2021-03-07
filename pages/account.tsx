@@ -2,7 +2,11 @@ import Button from 'components/core/button';
 import Overlay, { LoadIcon } from 'components/core/overlay';
 import useUserWithSubscription from 'hooks/user-with-subscription';
 import { app } from 'lib/firebase/client';
-import { CreateCouponId, CreateRewardfulClientRefId } from 'lib/rewardful';
+import {
+  Convert,
+  CreateCouponId,
+  CreateRewardfulClientRefId,
+} from 'lib/rewardful';
 import { IAuth } from 'models';
 import {
   useAuthUser,
@@ -18,6 +22,10 @@ function Page() {
   const auth = useAuthUser() as IAuth;
   const { user, subscription } = useUserWithSubscription();
   const [overlay, setOverlay] = useState(true);
+
+  useEffect(() => {
+    Convert(auth?.email);
+  }, [auth]);
 
   async function manageAccount() {
     setOverlay(true);

@@ -10,7 +10,7 @@ import {
   GetCouponInfo,
 } from 'lib/rewardful';
 import stripe from 'lib/stripe';
-import { IAuth, IPrice } from 'models';
+import { IAuth, ICoupon, IPrice } from 'models';
 import { useAuthUser } from 'next-firebase-auth';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -21,12 +21,19 @@ import Price from './price';
 import Wrapper, { AllPrices, Products, PromoWrapper } from './style';
 
 export default function PriceList() {
-  const coupon = GetCouponInfo();
+  const [coupon, setCoupon] = useState<ICoupon>();
   const auth = useAuthUser() as IAuth;
   const { products, via } = useGlobal() || [];
   const router = useRouter();
   const [status, setStatus] = useState('');
   const [selected, setSelected] = useState<IPrice>();
+  const _coupon = GetCouponInfo();
+
+  useEffect(() => {
+    if (!coupon) {
+      setCoupon(_coupon);
+    }
+  }, [_coupon]);
 
   useEffect(() => {
     if (products.length && !selected) {

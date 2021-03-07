@@ -1,13 +1,21 @@
 import confetti from 'canvas-confetti';
 import { GridCell } from 'components/core/grid';
 import { Android, IOS } from 'components/download-link';
-import { withAuthUser, withAuthUserTokenSSR } from 'next-firebase-auth';
+import { Convert } from 'lib/rewardful';
+import { IAuth } from 'models';
+import {
+  useAuthUser,
+  withAuthUser,
+  withAuthUserTokenSSR,
+} from 'next-firebase-auth';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Wrapper, { Content, DownloadApp } from 'styles/pages/congrats';
 
 const Page = () => {
+  const auth = useAuthUser() as IAuth;
+
   useEffect(() => {
     confetti({
       spread: 70,
@@ -15,6 +23,10 @@ const Page = () => {
       origin: { y: 0.6 },
     });
   }, []);
+
+  useEffect(() => {
+    Convert(auth?.email);
+  }, [auth]);
 
   return (
     <>
