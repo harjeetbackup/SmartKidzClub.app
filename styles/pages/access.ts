@@ -30,4 +30,8 @@ export const Agreement = styled.div`
 export default styled(Grid)`
   padding: 0 ${v.size.px20};
   gap: 20px;
+
+  input[name='class_code'] {
+    text-transform: uppercase;
+  }
 `;

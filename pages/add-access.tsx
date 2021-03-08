@@ -19,11 +19,12 @@ const Page = () => {
   async function onSubmit(form: IFormSubmit) {
     toast.hideAll();
     if (!form.valid) return;
+    const { class_code, ...rest } = form.data as IAccess;
     try {
       setLoading(true);
       const res = await fetch(API_URL, {
         method: 'POST',
-        body: JSON.stringify(form.data),
+        body: JSON.stringify({ ...rest, class_code: class_code.toUpperCase() }),
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
