@@ -3,6 +3,9 @@
   "version": "2.0.0",
   "private": true,
   "main": "firebase.function.js",
+  "engines": {
+    "node": "12"
+  },
   "scripts": {
     "env": "node .env.js",
     "dev": "cross-env NODE_ENV=test yarn env && firebase use stage && next dev -p 5500",
