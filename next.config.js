@@ -20,6 +20,7 @@ module.exports = {
       ...redirected('/addaccess', '/add-access'),
       ...redirected('/termsofuse', '/terms-of-use'),
       ...redirected('/privacy', '/privacy-policy'),
+      ...redirected('/readingclubs/skc_reading_circle', '/reading-circle'),
     ];
   },
 };
