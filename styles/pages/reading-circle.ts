@@ -22,7 +22,8 @@ div.container{max-width:1024px;width:100%;margin:0 auto;}
 
 .inner_txt a, .inner_txt a:visited,.inner_txt a:hover,.inner_txt a:active{-webkit-backface-visibility:hidden; backface-visibility:hidden; position:relative; transition:0.5s color ease; text-decoration:none;}
 
-.inner_txt a.dForm{transform:none; display:inline-block; width:100%;text-align:center;margin:0 auto;}
+.inner_txt div.dMidSection{transform:none; display:inline-block; width:100%;text-align:center;margin:10px auto;}
+.inner_txt div.dMidSection a{display:inline-block;}
 
 .dReadingClub a.dTextLink{color:#138cce;font-family:'RobotoRegular'!important;text-decoration:underline;}
  
@@ -56,7 +57,8 @@ div.container{max-width:1024px;width:100%;margin:0 auto;}
 .dReadingClub .dContainer .dSessions .dSession1{background-color:rgba(212,147,143,0.5);}
 .dReadingClub .dContainer .dSessions .dSession2{background-color:rgba(123,149,46,0.5);margin-bottom:0;}
 .dFontSCG{font-family:ShowcardGothic!important;}
-.dReadingClub img.dButton01{display:block;text-align:center;margin:0 auto;}
+.dReadingClub img.dIcon1,.dReadingClub img.dIcon2{display:block;text-align:center;margin:0 auto;}
+
 .dJr,.dSr{font-size:30px!important;padding:15px 10px 5px 10px;text-shadow: 2px 5px 10px #fff;}
 .dSessionDetails{font-family:RobotoCondensedRegular!important;font-size:28px!important;padding:5px;text-shadow: 1px 2px 10px #fff;}
 .dSessionPrice{font-family:dRoboBlack!important;font-size:30px!important;padding:5px 5px 0 5px;font-weight:bold;text-shadow: 1px 2px 20px #fff;}
@@ -78,7 +80,7 @@ table.dReadingClubTable{margin-bottom:10px;}
 
 @media only screen and (min-width: 1024px)
 {
-.dReadingClub img.dButton01{text-align:right;margin-right:200px;}
+.inner_txt div.dMidSection{display:block;text-align:right;padding-right:250px;margin:0 auto;}
 }
 
 @media screen and (max-width: 991px)

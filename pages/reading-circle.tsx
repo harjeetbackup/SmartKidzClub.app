@@ -21,14 +21,20 @@ export default function Page() {
                 className='dReadingClubChild'
                 alt='SKC Reading Circle Logo'
               />
-
-              <a
-                className='dForm'
+							<div className="dMidSection">
+              <a           
                 href='https://docs.google.com/forms/d/e/1FAIpQLSctlMeVJst_n-TShgPgJtLGBTWInYCEwknoekhcvnsDJZVTtQ/viewform'
                 target='_blank'
               >
-                <img src='pics/rc/dButton01.png' className='dButton01' />
+                <img src='pics/rc/icon_facebook.png' className='dIcon1' />
+              </a> &nbsp; &nbsp; 
+							<a
+                href='https://docs.google.com/forms/d/e/1FAIpQLSctlMeVJst_n-TShgPgJtLGBTWInYCEwknoekhcvnsDJZVTtQ/viewform'
+                target='_blank'
+              >
+                <img src='pics/rc/icon_instagram.png' className='dIcon2' />
               </a>
+							</div>
             </div>
 
             <div className='dContainer'>
@@ -127,14 +133,24 @@ export default function Page() {
                 trusted adult instructor.
               </p>
               <p>
-                Bring a friend along to double the fun. Sign up{' '}
+                Bring a friend along to double the fun. Follow us on 
+								{' '}
                 <a className="dTextLink"
-                  href='https://docs.google.com/forms/d/e/1FAIpQLSctlMeVJst_n-TShgPgJtLGBTWInYCEwknoekhcvnsDJZVTtQ/viewform'
+                  href='https://www.facebook.com/smartkidzclub'
                   target='_blank'
                 >
-                  here
+                  Facebook
                 </a>{' '}
-                to receive information about upcoming sessions.
+								and 
+								{' '}
+                <a className="dTextLink"
+                  href='https://www.instagram.com/smartkidzclub/?hl=en'
+                  target='_blank'
+                >
+                  Instagram
+                </a>{' '} 
+								to get notified of upcoming Reading Circles.
+
               </p>
               <p>&#160;</p>
             </div>
