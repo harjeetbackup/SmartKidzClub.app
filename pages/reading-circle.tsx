@@ -23,13 +23,13 @@ export default function Page() {
               />
 							<div className="dMidSection">
               <a           
-                href='https://docs.google.com/forms/d/e/1FAIpQLSctlMeVJst_n-TShgPgJtLGBTWInYCEwknoekhcvnsDJZVTtQ/viewform'
+                href='https://www.facebook.com/smartkidzclub'
                 target='_blank'
               >
-                <img src='pics/rc/icon_facebook.png' className='dIcon1' />
+                <img src='pics/rc/icon_facebook_LIVE.png' className='dIcon1' />
               </a> &nbsp; &nbsp; 
 							<a
-                href='https://docs.google.com/forms/d/e/1FAIpQLSctlMeVJst_n-TShgPgJtLGBTWInYCEwknoekhcvnsDJZVTtQ/viewform'
+                href='https://www.instagram.com/smartkidzclub/?hl=en'
                 target='_blank'
               >
                 <img src='pics/rc/icon_instagram.png' className='dIcon2' />

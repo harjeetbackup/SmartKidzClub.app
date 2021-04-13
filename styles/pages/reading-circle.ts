@@ -80,7 +80,7 @@ table.dReadingClubTable{margin-bottom:10px;}
 
 @media only screen and (min-width: 1024px)
 {
-.inner_txt div.dMidSection{display:block;text-align:right;padding-right:250px;margin:0 auto;}
+.inner_txt div.dMidSection{display:block;text-align:right;padding-right:210px;margin:0 auto;}
 }
 
 @media screen and (max-width: 991px)
