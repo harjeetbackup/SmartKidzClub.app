@@ -1,5 +1,6 @@
 export interface ISignUp extends IAccess {
   password: string;
+  emailCnf?: string;
   passwordCnf?: string;
   agreement: boolean;
 }

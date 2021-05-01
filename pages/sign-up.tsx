@@ -22,20 +22,31 @@ const Page = () => {
     toast.hideAll();
     if (!form.valid) return;
     const {
-      passwordCnf,
+      emailCnf,
       agreement,
       class_code,
+      passwordCnf,
       ...rest
     } = form.data as ISignUp;
+    if (emailCnf !== rest.email) {
+      return toast.warn("Emails don't match");
+    }
     if (passwordCnf !== rest.password) {
       return toast.warn("Passwords don't match");
     }
-    if (!agreement) return;
+    if (!agreement) {
+      return toast.warn(
+        'Please read Terms of Use and Privacy Policy, and agree to continue'
+      );
+    }
     try {
       setLoading(true);
       const res = await fetch(API_URL, {
         method: 'POST',
-        body: JSON.stringify({ ...rest, class_code: class_code.toUpperCase() }),
+        body: JSON.stringify({
+          ...rest,
+          class_code: class_code.toUpperCase(),
+        }),
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
@@ -93,6 +104,7 @@ const Page = () => {
             class_code: string(),
             passwordCnf: string(),
             email: Validations.email,
+            emailCnf: Validations.email,
           }}
         >
           {form => (
@@ -102,6 +114,14 @@ const Page = () => {
                 name='email'
                 type='email'
                 label='Email'
+                customForm={form}
+              />
+
+              <Input
+                required
+                type='email'
+                name='emailCnf'
+                label='Confirm Email'
                 customForm={form}
               />
 
