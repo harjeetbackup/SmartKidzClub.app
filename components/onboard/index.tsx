@@ -1,19 +1,23 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { useEffect, useState } from 'react';
-import { IsCSR } from 'utils/common';
 import Login from './style';
 
 // next-firebase-auth inits Firebase automatically
 
-const firebaseAuthConfig = {
+const firebaseAuthConfig: firebaseui.auth.Config = {
   // https://github.com/firebase/firebaseui-web#configure-oauth-providers
   signInOptions: [
     {
       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
       requireDisplayName: true,
     },
+    {
+      provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      requireDisplayName: true,
+    },
   ],
+  
   signInSuccessUrl: '/',
   credentialHelper: 'none',
   tosUrl: '/terms-of-use',
@@ -27,9 +31,7 @@ const firebaseAuthConfig = {
 const FirebaseAuth = () => {
   const [renderAuth, setRenderAuth] = useState(false);
   useEffect(() => {
-    if (IsCSR) {
-      setRenderAuth(true);
-    }
+    setRenderAuth(true);
   }, []);
   return (
     <div>
