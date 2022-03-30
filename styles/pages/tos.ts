@@ -31,6 +31,10 @@ export default styled.div`
     vertical-align: top;
   }
 
+  ol li, ul li{
+    font-size: 15px;
+  }
+  
   div.terms {
     margin-bottom: 40px;
 
