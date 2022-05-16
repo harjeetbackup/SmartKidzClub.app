@@ -9,15 +9,15 @@ const firebaseAuthConfig: firebaseui.auth.Config = {
   // https://github.com/firebase/firebaseui-web#configure-oauth-providers
   signInOptions: [
     {
-      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      requireDisplayName: true,
-    },
-    {
       provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       requireDisplayName: true,
     },
+    {
+      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      requireDisplayName: true,
+    },
   ],
-  
+
   signInSuccessUrl: '/',
   credentialHelper: 'none',
   tosUrl: '/terms-of-use',
