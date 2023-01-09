@@ -8,8 +8,8 @@
     ],
     "rewrites": [
       {
-        "source": "**/**",
-        "function": "skc_app"
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   },
