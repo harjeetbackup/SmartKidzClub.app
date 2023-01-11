@@ -11,12 +11,13 @@ import {
   FreeTrialLink,
   Img,
   ImgWrapper,
+  LinkContainer,
   LinkWrapper,
-  VideoWrapper
+  VideoWrapper,
 } from './style';
 import Video from './video';
 
-export default function HeroVideo(p: { landing: boolean }) {
+export default function HeroVideo(props: { landing?: boolean }) {
   const [modal, setModal] = useState(false);
 
   function toggleModal() {
@@ -42,6 +43,7 @@ export default function HeroVideo(p: { landing: boolean }) {
               onClick={toggleModal}
               src='pics/hero-image.jpg'
             />
+
             <Img
               alt='Play'
               className='play animate'
@@ -49,20 +51,6 @@ export default function HeroVideo(p: { landing: boolean }) {
               src='pics/play_icon.jpg'
             />
           </ImgWrapper>
-
-          <LinkWrapper {...p}>
-            <>
-              <Link href='#pricelist'>
-                <FreeTrialLink href='#pricelist'>View Plans</FreeTrialLink>
-              </Link>
-              <LinkWrapper className='apps'>
-                <IOS />
-                <Android />
-              </LinkWrapper>
-            </>
-
-            <FreeTrialButton />
-          </LinkWrapper>
         </VideoWrapper>
 
         <Content area='text'>
@@ -74,6 +62,27 @@ export default function HeroVideo(p: { landing: boolean }) {
           <Badges alt='Badges' src='pics/hero_logos.png' />
         </Content>
       </Grid>
+
+      <LinkWrapper>
+        <>
+          <LinkContainer>
+            {props.landing ? (
+              <></>
+            ) : (
+              <Link href='#pricelist'>
+                <FreeTrialLink href='#pricelist'>View Plans</FreeTrialLink>
+              </Link>
+            )}
+
+            <FreeTrialButton />
+          </LinkContainer>
+
+          <LinkContainer>
+            <IOS />
+            <Android />
+          </LinkContainer>
+        </>
+      </LinkWrapper>
 
       <Modal
         isOpen={modal}

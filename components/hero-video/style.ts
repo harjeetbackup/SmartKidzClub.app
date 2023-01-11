@@ -1,5 +1,5 @@
 import { GridCell } from 'components/core/grid';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import media, { size } from 'styles/media-query';
 import v from 'styles/variables';
 
@@ -68,20 +68,16 @@ export const ImgWrapper = styled.div`
   }
 `;
 
-export const LinkWrapper = styled.div<{ landing?: boolean }>`
+export const LinkContainer = styled.div`
   display: flex;
   gap: 20px;
   justify-content: center;
   align-items: center;
+`;
+
+export const LinkWrapper = styled(LinkContainer)`
   margin-top: ${v.size.px20};
-  ${p =>
-    p.landing &&
-    css`
-      flex-direction: column-reverse;
-      .apps {
-        margin: 0;
-      }
-    `}
+  flex-wrap: wrap;
 `;
 
 export const Img = styled.img`
@@ -116,6 +112,9 @@ export const FreeTrialLink = styled.a`
   position: relative;
   font-family: ${v.font.regular};
   text-align: center;
+  font-size: ${v.size.px14};
+  height: 33px;
+  width: 100px;
 
   &:disabled {
     box-shadow: none;
@@ -134,6 +133,12 @@ export const FreeTrialLink = styled.a`
   &:active {
     transform: scale(0.95);
     transition: 0.1s;
+  }
+
+  ${media.min.l} {
+    height: 45px;
+    width: 150px;
+    font-size: ${v.size.px16};
   }
 `;
 

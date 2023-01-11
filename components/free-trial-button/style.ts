@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
+import media from 'styles/media-query';
 import v from 'styles/variables';
 
 export default styled.a<{ flipColor?: boolean }>`
   align-self: center;
   padding: 10px;
-  font-size: ${v.size.px16};
+  font-size: ${v.size.px14};
   ${p =>
     p.flipColor
       ? css`
@@ -21,6 +22,8 @@ export default styled.a<{ flipColor?: boolean }>`
   transition: 0.1s;
   position: relative;
   text-align: center;
+  height: 33px;
+  width: 150px;
 
   &:disabled {
     box-shadow: none;
@@ -36,5 +39,11 @@ export default styled.a<{ flipColor?: boolean }>`
   &:active {
     transform: scale(0.95);
     transition: 0.1s;
+  }
+
+  ${media.min.l} {
+    font-size: ${v.size.px16};
+    height: 45px;
+    width: 200px;
   }
 `;
