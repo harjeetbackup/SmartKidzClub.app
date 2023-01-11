@@ -183,7 +183,6 @@ export default function Page() {
               <strong>
                 <u>Monthly Subscription Service Plan</u>.
               </strong>{' '}
-              At a current standard rate of $9.99 in USA with 7 day free trial,
               You may subscribe to the monthly subscription service plan in
               which You have access to the Site's collection of electronic books
               for the duration of one month (the "
@@ -206,7 +205,6 @@ export default function Page() {
               <strong>
                 <u>Annual Subscription Service Plan</u>.
               </strong>{' '}
-              At a current standard rate of $79.99 in USA with 7 day free trial,
               You may subscribe to the annual subscription service plan in which
               You have access to the Site's collection of electronic books for
               the duration of twelve (12) months (the "
@@ -563,7 +561,7 @@ export default function Page() {
             the Site without the involvement of a parent or guardian. If You are
             a parent and believe Company may have inadvertently collected such
             information from Your child, please notify Company immediately by
-            sending an email to admin[at]smartkidzclub.com. Moreover, You should
+            sending an email to team[at]smartkidzclub.com. Moreover, You should
             be aware of the fact that parental control protections (such as
             computer hardware, software or filtering services) are commercially
             available that may assist You in limiting access to material that it
@@ -613,7 +611,7 @@ export default function Page() {
             Section 1789.3, California residents are hereby advised of the
             following: (a) Company is located at 2306 Porter Road, Bear,
             Delaware 19701, and can be reached via telephone at (302) 507-7171
-            and via email at admin[at]smartkidzclub.com; (b) You are notified in
+            and via email at team[at]smartkidzclub.com; (b) You are notified in
             advance of any applicable charges resulting from or related to Your
             use of the Site or its products and/or services; (c) consumers may
             contact Company at the address or telephone number indicated above

@@ -51,25 +51,24 @@ export default function HeroVideo(p: { landing: boolean }) {
           </ImgWrapper>
 
           <LinkWrapper {...p}>
-            {p.landing ? (
+            <>
+              <Link href='#pricelist'>
+                <FreeTrialLink href='#pricelist'>View Plans</FreeTrialLink>
+              </Link>
               <LinkWrapper className='apps'>
                 <IOS />
                 <Android />
               </LinkWrapper>
-            ) : (
-              <Link href='#pricelist'>
-                <FreeTrialLink href='#pricelist'>View Plans</FreeTrialLink>
-              </Link>
-            )}
+            </>
 
             <FreeTrialButton />
           </LinkWrapper>
         </VideoWrapper>
 
         <Content area='text'>
-              <h1>Kids not reading enough?</h1>
-              <h2>Inspire kids to read and learn</h2>
-              {/* <h1>Educational Library at Fingertips</h1>
+          <h1>Inspire kids to read and learn</h1>
+          <h2>Top Rated Book App for Kids</h2>
+          {/* <h1>Educational Library at Fingertips</h1>
               <p>Reading | Activities | Quizzes | Math</p>
               <h2>Build independent and strong readers</h2> --> */}
           <Badges alt='Badges' src='pics/hero_logos.png' />

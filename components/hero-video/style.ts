@@ -138,15 +138,15 @@ export const FreeTrialLink = styled.a`
 `;
 
 export const Badges = styled(Img)`
-  width: 200px;
+  width: 250px;
   ${media.min.m} {
-    width: 210px;
+    width: 260px;
   }
   ${media.min.l} {
-    width: 230px;
+    width: 280px;
   }
   ${media.min.xl} {
-    width: 250px;
+    width: 300px;
   }
 `;
 

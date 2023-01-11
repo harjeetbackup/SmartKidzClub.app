@@ -17,7 +17,7 @@ export default function Video() {
         width='100%'
         frameBorder='0'
         allowFullScreen
-        src={`https://www.youtube.com/embed/XKEsrHHyLbk?${params}`}
+        src={`https://www.youtube.com/embed/d60czCq3dVg?${params}`}
       />
     </VideoContainer>
   );
