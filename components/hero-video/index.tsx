@@ -13,7 +13,7 @@ import {
   ImgWrapper,
   LinkContainer,
   LinkWrapper,
-  VideoWrapper,
+  VideoWrapper
 } from './style';
 import Video from './video';
 
@@ -59,7 +59,7 @@ export default function HeroVideo(props: { landing?: boolean }) {
           {/* <h1>Educational Library at Fingertips</h1>
               <p>Reading | Activities | Quizzes | Math</p>
               <h2>Build independent and strong readers</h2> --> */}
-          <Badges alt='Badges' src='pics/hero_logos.png' />
+          <Badges alt='Badges' src='pics/hero_logos_new01.png' />
         </Content>
       </Grid>
 
