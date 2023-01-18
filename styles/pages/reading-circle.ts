@@ -33,6 +33,7 @@ div.container{max-width:1024px;width:100%;margin:0 auto;}
 /* Reading Club styles (Find .dReadingClub in the CSS file) -Start */
 .dReadingClub{background-image:url('pics/rc/ReadingClubBack.png');}
 .dReadingClubLogo{float: right; margin: 0 0 0 2%; max-width:100%; max-height:365;}
+.dReadingClubLogo_Stage02{display:block; margin: 0 auto; padding: 0 5%; text-align:center; max-width:100%; max-height:365;}
 .dReadingClubChild{float: left; margin: 0 2% 0 0; max-width:100%; max-height:365px;}
 
 .dReadingClub .dContainer{width:100%;display:table;}
