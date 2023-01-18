@@ -114,8 +114,8 @@ export const FreeTrialLink = styled.a`
   text-align: center;
   font-size: ${v.size.px14};
   height: 33px;
-  width: 100px;
-
+  width: 110px;
+  white-space: nowrap;
   &:disabled {
     box-shadow: none;
     background: grey;
