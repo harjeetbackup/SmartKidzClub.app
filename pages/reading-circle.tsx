@@ -31,7 +31,7 @@ export default function Page() {
             <div className='dLargeText'>
               <p>
                 Smart Kidz Club's Reading Circles are children's book clubs
-                 led by teachers, author, and storytellers with the goal
+                 led by teachers, authors, and storytellers with the goal
                 for children to engage in reading books, fun activities, quizzes
                 and conversations around related and relevant themes. Children will love this fun-filled time of reading and learning.
 								<br/><br/>
