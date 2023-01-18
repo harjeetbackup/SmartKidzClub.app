@@ -74,6 +74,21 @@ table.dReadingClubTable{margin-bottom:10px;}
 .dReadingClub .dButton1{background-color:#dc8c87;}
 .dReadingClub .dButton2{background-color:#92ac42;}
 .dNoWrap{white-space:nowrap;}
+
+.dRCTable, .dInTable {
+    display:table;
+    width:100%;
+}
+.dRCTable .dCell {
+    display:table-cell;
+		vertical-align:top;
+}
+.dRCTable .dRow {
+    display:table-row;
+}
+
+.dRCTable img{width:100%;}
+
 /* Reading Club styles -End */
 
 

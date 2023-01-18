@@ -21,28 +21,25 @@ export default function Page() {
                 className='dReadingClubLogo_Stage02'
                 alt=''
               />
-							<table width='100%'>
-								<tr>
-								<td rowspan='2'>
-									<img src='pics/rc/bottom01_01.png' className='dReadingClubLogo_Stage02' alt='' />
-								</td>
-								<td colspan='2'>
-									<img src='pics/rc/bottom01_02.png' className='dReadingClubLogo_Stage02' alt='' />
-								</td>
-								<td rowspan='2'>
-									<img src='pics/rc/bottom01_05.png' className='dReadingClubLogo_Stage02' alt='' />
-								</td>
-								</tr>
-								<tr>
-								<td>
-									<a href='https://www.youtube.com/user/mysmartkidzclub/featured?view_as=public' target='_blank'><img src='pics/rc/bottom01_03.png' className='dReadingClubLogo_Stage02' alt='' /></a>
-								</td>
-								<td>
-									<a href='https://www.facebook.com/smartkidzclub' target='_blank'><img src='pics/rc/bottom01_04.png' className='dReadingClubLogo_Stage02' alt='' /></a>
-								</td>
-								</tr>								
-							</table>
-            </div>
+
+<div class='dRCTable'>
+<div class='dRow'>
+<div class='dCell'><img src='pics/rc/bottom01_01.png' /></div>
+      <div class='dInTable'>
+        <div class='dRow'>
+          <div class='dCell'><img src='pics/rc/bottom01_02.png' /></div>
+        </div>
+        <div class='dRow'>
+          <div class='dInTable'>
+            <div class='dCell'><a href='https://www.youtube.com/user/mysmartkidzclub/featured?view_as=public' target='_blank'><img src='pics/rc/bottom01_03.png' alt='' /></a></div>
+            <div class='dCell'><a href='https://www.facebook.com/smartkidzclub' target='_blank'><img src='pics/rc/bottom01_04.png' alt='' /></a></div>
+        </div>
+        </div>
+      </div>
+<div class='dCell'><img src='pics/rc/bottom01_05.png' /></div>
+</div>
+</div>
+
 
             <div className='dLargeText'>
               <p>
@@ -58,6 +55,7 @@ export default function Page() {
             </div>
           </div>
         </div>
+				</div>
       </Wrapper>
     </>
   );
