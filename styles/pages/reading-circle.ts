@@ -19,8 +19,9 @@ div.container{max-width:1024px;width:100%;margin:0 auto;}
 .inner_txt p{font-size: 15px; font-family: 'RobotoRegular'; line-height:20px; color:#585858; margin-bottom:15px; vertical-align:top;}
 .dReadingClub .dLargeText p, table.dReadingClubTable td{font-size: 18px!important; font-family: 'RobotoRegular'; line-height:normal; color:#585858; margin-bottom:15px; vertical-align:top;}
 .dReadingClub .dLargeText{background:white;padding-top:20px;}
+.dReadingClub a.dAnchors{color:#138cce;text-decoration:underline;font-family:RobotoRegular;}
 
-.inner_txt a, .inner_txt a:visited,.inner_txt a:hover,.inner_txt a:active{-webkit-backface-visibility:hidden; backface-visibility:hidden; position:relative; transition:0.5s color ease; text-decoration:none;}
+.inner_txt a, .inner_txt a:visited,.inner_txt a:hover,.inner_txt a:active{-webkit-backface-visibility:hidden; backface-visibility:hidden; position:relative; transition:0.5s color ease;}
 
 .inner_txt div.dMidSection{transform:none; display:inline-block; width:100%;text-align:center;margin:10px auto;}
 .inner_txt div.dMidSection a{display:inline-block;}

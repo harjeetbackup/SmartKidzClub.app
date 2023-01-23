@@ -31,8 +31,8 @@ export default function Page() {
         </div>
         <div className='dRow'>
           <div className='dInTable'>
-            <div className='dCell'><a href='https://www.youtube.com/user/mysmartkidzclub/featured?view_as=public' target='_blank'><img src='pics/rc/bottom01_03.png' alt='' /></a></div>
-            <div className='dCell'><a href='https://www.facebook.com/smartkidzclub' target='_blank'><img src='pics/rc/bottom01_04.png' alt='' /></a></div>
+            <div className='dCell'><a href='https://www.youtube.com/@Smartkidzclub/streams' target='_blank'><img src='pics/rc/bottom01_03.png' alt='' /></a></div>
+            <div className='dCell'><a href='https://www.facebook.com/smartkidzclub/live_videos' target='_blank'><img src='pics/rc/bottom01_04.png' alt='' /></a></div>
         </div>
         </div>
       </div>
@@ -50,6 +50,7 @@ export default function Page() {
 								<br/><br/>
 								<b>FUN READ FRIDAYS!</b><br/>
 								Start 10 February, 2023
+								<br/><br/>Subscribe to our <a className='dAnchors' href='https://www.youtube.com/@Smartkidzclub/streams' target='_blank'>YouTube</a> and <a className='dAnchors' href='https://www.facebook.com/smartkidzclub/live_videos' target='_blank'>Facebook</a> channels to get notifications of when we go live.
               </p>
               <p>&#160;</p>
             </div>
