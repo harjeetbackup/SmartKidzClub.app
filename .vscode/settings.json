@@ -28,5 +28,10 @@
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
     }
+  },
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
   }
 }

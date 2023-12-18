@@ -24,7 +24,7 @@ const Page = () => {
       <Steps count={1} />
 
       <h1 style={{ textAlign: 'center', marginTop: v.size.px10 }}>
-        Lets get you started in 3 easy steps
+        Let's get you started in 3 easy steps
       </h1>
 
       <Onboard />
