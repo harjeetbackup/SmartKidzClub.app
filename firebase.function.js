@@ -10,6 +10,8 @@ const server = next({
 });
 
 const nextjsHandle = server.getRequestHandler();
-exports.skc_app = https.onRequest((req, res) => {
-  return server.prepare().then(() => nextjsHandle(req, res));
+exports.skc_app = https.onRequest(async (req, res) => {
+  console.log({ isDev, req })
+  await server.prepare();
+  return nextjsHandle(req, res);
 });
