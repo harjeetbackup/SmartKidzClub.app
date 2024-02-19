@@ -5,7 +5,7 @@ import { useLoader } from 'hooks/loader';
 import firebaseInit from 'lib/firebase/auth';
 import { db } from 'lib/firebase/client';
 import { IProduct } from 'models';
-import { AppPropsType } from 'next/dist/next-server/lib/utils';
+//import { AppPropsType } from 'next/dist/next-server/lib/utils';
 import Head from 'next/head';
 import 'nprogress/css/nprogress.css';
 import { useEffect, useState } from 'react';
@@ -15,7 +15,7 @@ import { ProductsWithPrices } from 'utils/product';
 
 firebaseInit();
 
-function App({ Component, pageProps }: AppPropsType) {
+function App({ Component, pageProps }: any) {
   const [products, setProducts] = useState([] as IProduct[]);
 
   console.log({
