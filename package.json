@@ -4,7 +4,7 @@
   "private": true,
   "main": "firebase.function.js",
   "engines": {
-    "node": "20"
+    "node": "18.x"
   },
   "scripts": {
     "env": "node .env.js",
