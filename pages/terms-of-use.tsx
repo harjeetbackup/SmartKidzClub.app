@@ -200,7 +200,7 @@ export default function Page() {
             No one under the age of eighteen (18) years old is permitted to use the Digital Assets without the involvement of a parent or guardian. If You are a parent and believe Company may have inadvertently collected such information from Your child, please notify Company immediately by sending an email to support@smartkidz.club.com. Moreover, You should be aware of the fact that parental control protections (such as computer hardware, software or filtering services) are commercially available that may assist You in limiting access to material that it considers to be harmful to minors. For convenience sake only, examples of some such protections are listed below. However, as otherwise set forth herein, Company does not accept any liability for the products and services provided by any third parties. Nor does the following listing constitute, in any way, an endorsement of these products by Company. Rather, it is being provided only as an example and for Your convenience.
           </p>
 
-          <ul class='listing2'>
+          <ul className='listing2'>
               <li>Net Nanny &#8211; available at http://www.netnanny.com</li>
               <li>
                 SafeEyes &#8211; available at
