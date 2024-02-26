@@ -47,6 +47,9 @@ export default function Page() {
                  led by teachers, authors, and storytellers with the goal
                 for children to engage in reading books, fun activities, quizzes
                 and conversations around related and relevant themes. Children will love this fun-filled time of reading and learning.
+								<br/><br/>
+								<b>FUN READ FRIDAYS!</b><br/>
+								Start 10 February, 2023
 								<br/><br/>Subscribe to our <a className='dAnchors' href='https://www.youtube.com/@Smartkidzclub' target='_blank'>YouTube</a> and <a className='dAnchors' href='https://www.facebook.com/smartkidzclub' target='_blank'>Facebook</a> channels to get notifications of when we go live.
               </p>
               <p>&#160;</p>
