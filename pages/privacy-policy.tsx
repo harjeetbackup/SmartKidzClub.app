@@ -23,7 +23,7 @@ export default function Page() {
         </p>
 
         <p>
-          Welcome to Smart Kidz Club, consisting of and including ALL/ANY of the website <a class='link_menu' href='http://www.smartkidzclub.app/' target='_blank'>www.smartkidzclub.app</a>, mobile apps, on iOS App Store, and Google Play Store, or any other digital distribution platforms collectively called ("<b>Digital Assets</b>").
+          Welcome to Smart Kidz Club, consisting of and including ALL/ANY of the website http://www.smartkidzclub.app/, mobile apps, on iOS App Store, and Google Play Store, or any other digital distribution platforms collectively called ("<b>Digital Assets</b>").
         </p>
 
         <p className='xtext-justify'>
