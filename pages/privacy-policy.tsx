@@ -38,7 +38,7 @@ export default function Page() {
           <div className='qu-red'>Revisions to this Policy</div>
           <p className='xtext-justify'>
             The Owner reserves the right to revise, change, amend, alter or modify ("Update") this Privacy Policy and its other policies and agreements at any time and in any manner. The User is responsible for periodically checking for any Updates of this Privacy Policy by re-visiting the Digital Assets and using the "refresh" button on the User's browser. Any Updates supersede any prior versions immediately upon posting on the Digital Assets.{' '}
-						<b>If the User does not agree with the terms of this Privacy Policy, or any updated terms hereto, his sole remedy is to avoid use of the Digital Assets.</b>
+            <b>If the User does not agree with the terms of this Privacy Policy, or any updated terms hereto, his sole remedy is to avoid use of the Digital Assets.</b>
           </p>
         </div>
 
@@ -88,29 +88,29 @@ export default function Page() {
         <div className='terms'>
           <div className='qu-red'>Information Sharing</div>
           <p className='xtext-justify'>
-              Except as otherwise provided in this Privacy Policy, the Owner will not intentionally distribute, rent or sell a User's Personal Information to third parties without the User's permission. Notwithstanding the foregoing, Owner will share Users' information, including without limitation Personal Information amongst its parent companies, subsidiaries, affiliates, and other related entities and related websites. The User acknowledges and agrees that the Owner may use the Personal Information to contact the User and to solicit the User for products and/or services offered by the Owner.
-            </p>
+            Except as otherwise provided in this Privacy Policy, the Owner will not intentionally distribute, rent or sell a User's Personal Information to third parties without the User's permission. Notwithstanding the foregoing, Owner will share Users' information, including without limitation Personal Information amongst its parent companies, subsidiaries, affiliates, and other related entities and related websites. The User acknowledges and agrees that the Owner may use the Personal Information to contact the User and to solicit the User for products and/or services offered by the Owner.
+          </p>
 
-            <p className='xtext-justify'>
-              Information about the Users of the Digital Assets, which include the Users' Personal Information, may be disclosed in association with certain business dealings such as any debt financing, acquisition or merger, sale of assets, and in the event of a bankruptcy, assignment for benefit of creditors or receivership in which particular information could be sold or transferred to other parties as an asset.
-            </p>
+          <p className='xtext-justify'>
+            Information about the Users of the Digital Assets, which include the Users' Personal Information, may be disclosed in association with certain business dealings such as any debt financing, acquisition or merger, sale of assets, and in the event of a bankruptcy, assignment for benefit of creditors or receivership in which particular information could be sold or transferred to other parties as an asset.
+          </p>
 
-            <p className='xtext-justify'>
-              It is the Owner's policy to not use or share the Personal Information of Users of the Digital Assets in ways which have not been outlined or described herein without first allowing its Users a chance to opt out or otherwise disallow such unrelated uses. However, the Owner may disclose Personal Information about its Users or information relating to their Use of the Digital Assets for any reason if, in its sole discretion, it determines that it is reasonable to do so, including, without limitation:
-            </p>
+          <p className='xtext-justify'>
+            It is the Owner's policy to not use or share the Personal Information of Users of the Digital Assets in ways which have not been outlined or described herein without first allowing its Users a chance to opt out or otherwise disallow such unrelated uses. However, the Owner may disclose Personal Information about its Users or information relating to their Use of the Digital Assets for any reason if, in its sole discretion, it determines that it is reasonable to do so, including, without limitation:
+          </p>
 
           <ol type='A' className='listing2'>
             <li>
-                To comply with laws, such as without limitation, the Electronic Communications Privacy Act, regulations, or governmental or legal requests for such information;{' '}
-              </li>
-              <li>
-                To reveal information that is needed to identify, contact or bring legal action against any User who may be violating the terms and conditions of the Digital Assets;
-              </li>
-              <li>To operate the Digital Assets properly;</li>
-              <li>To protect the Digital Assets and its Users; and/or</li>
-              <li>
-                To fully cooperate with law enforcement authorities, private-party litigants, and others seeking information about its Users to the extent required by applicable law.{' '}
-              </li>
+              To comply with laws, such as without limitation, the Electronic Communications Privacy Act, regulations, or governmental or legal requests for such information;{' '}
+            </li>
+            <li>
+              To reveal information that is needed to identify, contact or bring legal action against any User who may be violating the terms and conditions of the Digital Assets;
+            </li>
+            <li>To operate the Digital Assets properly;</li>
+            <li>To protect the Digital Assets and its Users; and/or</li>
+            <li>
+              To fully cooperate with law enforcement authorities, private-party litigants, and others seeking information about its Users to the extent required by applicable law.{' '}
+            </li>
           </ol>
         </div>
 
@@ -129,7 +129,7 @@ export default function Page() {
 
           <p className='xtext-justify'>
             The Owner does not knowingly collect or use any personal information from children (minors younger than 18) through the Digital Assets. If the User is a parent and believes the Owner may have inadvertently collected such information from User's child, please notify the Owner immediately by sending him written communication
-
+          </p>
           <p>
             via mail to:
             <br />
