@@ -21,6 +21,7 @@ module.exports = {
       ...redirected('/termsofuse', '/terms-of-use'),
       ...redirected('/privacy', '/privacy-policy'),
       ...redirected('/readingclubs/skc_reading_circle', '/reading-circle'),
+      ...redirected('/delete_account', '/delete_account'),
     ];
   },
 };

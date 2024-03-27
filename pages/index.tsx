@@ -38,7 +38,7 @@ const features: AppFeatureProps[] = [
     img: 'pics/feature-4.jpg',
   },
   {
-    children: <p>Trusted by parents worldwide</p>,
+    children: <p>Trusted by parents worldwide.</p>,
     color: v.color.yellow,
     alt: 'img',
     img: 'pics/feature-5.jpg',
