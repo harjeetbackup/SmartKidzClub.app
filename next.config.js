@@ -26,7 +26,7 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/delete_account',
+        source: '/delete_account.html',
         destination: '/html/delete_account.html',
       },
     ]
