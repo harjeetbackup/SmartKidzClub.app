@@ -1,0 +1,42 @@
+@font-face {
+  font-family: RobotoThin;
+  src: url(../fonts/RobotoThin.ttf);
+}
+
+@font-face {
+  font-family: RobotoLight;
+  src: url(../fonts/RobotoLight.ttf);
+}
+
+@font-face {
+  font-family: RobotoRegular;
+  src: url(../fonts/RobotoRegular.ttf);
+}
+
+@font-face {
+  font-family: RobotoMedium;
+  src: url(../fonts/RobotoMedium.ttf);
+}
+
+
+.dRoboThin{
+	font-family:RobotoThin;
+}
+
+.dRoboLight{
+	font-family:RobotoLight;
+}
+
+.dRoboRegular{
+	font-family:RobotoRegular;
+}
+
+.dRoboMedium{
+	font-family:RobotoMedium;
+}
+
+@font-face {
+  font-family: RobotoCondensedRegular;
+  src: url(../fonts/robotocondensed-regular.ttf);
+}
+
