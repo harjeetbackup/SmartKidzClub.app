@@ -195,13 +195,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #138CCE;
+    background-color: #fdb515;
 }
 
 header img.logo {
     height: 80px;
-		border-radius: 10px;
-		padding:2px;
+    border-radius: 10px;
+    padding: 2px;
 }
 
 .download-apps.small {
@@ -237,12 +237,12 @@ header img.logo {
 
 .download-apps.large a.ios {
     background-image: url('../images/app_store.png');
-		border:2px solid white;
+    border: 2px solid white;
 }
 
 .download-apps.large a.android {
     background-image: url('../images/google_play.png');
-		border:2px solid white;
+    border: 2px solid white;
 }
 
 .download-apps.small a.ios {
@@ -288,20 +288,20 @@ header img.logo {
 }
 
 
-.dFooterBand{
-	height:50px;
-	width:100%;
-	background-color:#138CCE;
+.dFooterBand {
+    height: 50px;
+    width: 100%;
+    background-color: #fdb515;
 }
 
-.dFooterBand p{
-	font-family:RobotoRegular;
-	display:inline;
-	color:white;
-	font-size:.9rem;
+.dFooterBand p {
+    font-family: RobotoRegular;
+    display: inline;
+    color: white;
+    font-size: .9rem;
 }
 
-.dFooterBand a{
-	font-family:RobotoRegular;
-	color:white;
+.dFooterBand a {
+    font-family: RobotoRegular;
+    color: white;
 }

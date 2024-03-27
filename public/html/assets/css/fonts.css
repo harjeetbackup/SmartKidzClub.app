@@ -19,24 +19,23 @@
 }
 
 
-.dRoboThin{
-	font-family:RobotoThin;
+.dRoboThin {
+  font-family: RobotoThin;
 }
 
-.dRoboLight{
-	font-family:RobotoLight;
+.dRoboLight {
+  font-family: RobotoLight;
 }
 
-.dRoboRegular{
-	font-family:RobotoRegular;
+.dRoboRegular {
+  font-family: RobotoRegular;
 }
 
-.dRoboMedium{
-	font-family:RobotoMedium;
+.dRoboMedium {
+  font-family: RobotoMedium;
 }
 
 @font-face {
   font-family: RobotoCondensedRegular;
   src: url(../fonts/robotocondensed-regular.ttf);
 }
-
