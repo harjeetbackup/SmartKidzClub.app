@@ -63,7 +63,7 @@ function Page(p: { landing: boolean }) {
     </>
   );
 }
-
+console.log("")
 export const getServerSideProps = withAuthUserTokenSSR()(
   async (ctx: NextPageContext) => ({
     props: {
