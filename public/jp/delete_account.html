@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account</title>
+    <link rel="stylesheet" href="/html/assets/css/dBasic.css" type="text/css" />
+    <link rel="stylesheet" href="/html/assets/css/dCustom.css" type="text/css" />
+    <link rel="stylesheet" href="html/assets/css/hero.css" type="text/css" />
+    <link rel="stylesheet" href="html/assets/css/slider.css" type="text/css" />
+    <link rel="stylesheet" href="html/assets/css/grey-area.css" type="text/css" />
+    <link rel="stylesheet" href="html/assets/css/youtube.css" type="text/css" />
+    <link rel="stylesheet" href="html/assets/css/testimonials.css" type="text/css" />
+    <link rel="stylesheet" href="html/assets/css/colored-border.css" type="text/css" />
+    <link rel="stylesheet" href="html/assets/css/fonts.css" type="text/css" />
+    <style>
+        * {
+            font-family: Roboto;
+        }
+
+        form {
+            background-color: #fff;
+            padding-bottom: 2em;
+            border-radius: 8px;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        }
+
+        label {
+            margin-bottom: 8px;
+            width: 20%;
+            display: inline-block;
+            text-align: left;
+        }
+
+        input {
+            font-size: 1em;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 2px solid lightgray;
+            box-shadow: 2px 2px 5px lightgray;
+        }
+
+        input:focus {
+            outline: none !important;
+            border-color: #fdb515;
+            box-shadow: 0 0 4px #fdb515;
+        }
+
+        button {
+            font-size: 1em;
+            background-color: #fdb515;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fdb515;
+        }
+
+        .dTextboxesAlign {
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        form p {
+            text-align: left;
+            padding: 0 20% 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="dContainer dHCenter">
+
+        <header class="pad-1em">
+            <img class="logo" src="/brand-small.png" />
+        </header>
+
+        <!-- Hero with Slider -->
+        <section class="">
+            <form action="" method="POST" id="apiForm">
+                <h2>Dummy page</h2>
+                <p>Enter your email address and click Submit to get a link in your email to delete your account.</p>
+                <div class="dTextboxesAlign">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required autofocus>
+                    <!--<br/>
+									<label for="password">Password</label>
+									<input type="password" id="password" name="password" required>-->
+                </div>
+                <button type="submit">Submit</button>
+                <!--<button type="cancel">Cancel</button>-->
+            </form>
+            <script>
+                function validateForm() {
+                    var emailInput = document.getElementById("email");
+                    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+                    if (!emailPattern.test(emailInput.value)) {
+                        alert("Please enter a valid email address.");
+                        return false;
+                    }
+
+                    return true;
+                }
+            </script>
+        </section>
+
+        <section class="testimonials-container">
+            <div style="height:50px;width:100%;background-color:#fdb515;">&#160;</div>
+        </section>
+
+    </div>
+
+
+</body>
+
+</html>
