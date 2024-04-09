@@ -1,21 +1,21 @@
 @font-face {
   font-family: RobotoThin;
-  src: url(../fonts/RobotoThin.ttf);
+  src: url(../../../fonts/RobotoThin.ttf);
 }
 
 @font-face {
   font-family: RobotoLight;
-  src: url(../fonts/RobotoLight.ttf);
+  src: url(../../../fonts/RobotoLight.ttf);
 }
 
 @font-face {
   font-family: RobotoRegular;
-  src: url(../fonts/RobotoRegular.ttf);
+  src: url(../../../fonts/RobotoRegular.ttf);
 }
 
 @font-face {
   font-family: RobotoMedium;
-  src: url(../fonts/RobotoMedium.ttf);
+  src: url(../../../fonts/RobotoMedium.ttf);
 }
 
 
@@ -37,5 +37,5 @@
 
 @font-face {
   font-family: RobotoCondensedRegular;
-  src: url(../fonts/robotocondensed-regular.ttf);
+  src: url(../../../fonts/robotocondensed-regular.ttf);
 }
