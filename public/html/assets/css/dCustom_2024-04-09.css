@@ -1,23 +1,9 @@
 @media only screen and (orientation: portrait) {
     /*.customTag{attribute:value;}*/
-.play-button-icon {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-}		
-.dImgHeroLogo{margin-bottom:20px;}
 }
 
 @media only screen and (orientation: landscape) {
     /*.customTag{attribute:value;}*/
-.play-button-icon {
-      position: absolute;
-      left: 50%;
-      top: 40%;
-      transform: translate(-50%, -50%);
-}		
-.dSwitch{flex-direction: row-reverse;}
 }
 
 .dShow {
@@ -41,12 +27,11 @@
 
     section.hero .hero-caption {
         font-size: 2rem;
-        margin-bottom: .2em;
+        margin-bottom: .5em;
     }
 
     section.hero .hero-sub-caption {
-        font-size: 1.2rem;
-				margin-bottom: .5em;
+        font-size: 1.5rem;
     }
 
     .half-flex {
@@ -86,12 +71,11 @@
 
     section.hero .hero-caption {
         font-size: 2rem;
-        margin-bottom: .2em;
+        margin-bottom: .5em;
     }
 
     section.hero .hero-sub-caption {
         font-size: 1.5rem;
-				margin-bottom: .5em;
     }
 
     .half-flex {
@@ -118,22 +102,20 @@
     .intro.yt-container {
         min-height: 400px;
     }
-.dSwitch{flex-direction: row-reverse;}
+
 }
 
 /* Medium devices (tablets, 768px and up, upto 991.98px) */
 @media (min-width: 768px) and (max-width: 991.98px) {
 
     section.hero .hero-caption {
-        font-size: 2rem;
-				margin-bottom: .2em;
+        font-size: 2.5rem;
     }
 
     section.hero .hero-sub-caption {
-        font-size: 1.2rem;
-				margin-bottom: .5em;
+        font-size: 2rem;
     }
-.dSwitch{flex-direction: row-reverse;}
+
 }
 
 /* Large devices (desktops, 992px and up, upto 1199.98px) */
@@ -141,14 +123,11 @@
 
     section.hero .hero-caption {
         font-size: 3rem;
-				margin-bottom: .2em;
     }
 
     section.hero .hero-sub-caption {
         font-size: 2.2rem;
-				margin-bottom: .5em;
     }
-.dSwitch{flex-direction: row-reverse;}		
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -156,14 +135,11 @@
 
     section.hero .hero-caption {
         font-size: 3.3rem;
-				margin-bottom: .2em;
     }
 
     section.hero .hero-sub-caption {
         font-size: 2.2rem;
-				margin-bottom: .5em;
     }
-.dSwitch{flex-direction: row-reverse;}		
 }
 
 p {
@@ -291,8 +267,8 @@ header img.logo {
     transform: scale(0.96);
 }
 
-.dContainer .my-5 {
-    margin: 0px !important;
+.my-5 {
+    margin-top: 10px;
 }
 
 .half-flex {
@@ -329,22 +305,3 @@ header img.logo {
     font-family: RobotoRegular;
     color: white;
 }
-
-
-img.dImgHero{width:100%;border-radius: 1vw;box-shadow: 0px 0px 5px 5px rgba(0,0,0,.2);}
-
-.play-button-div {
-  position: relative;
-  display: inline-block;
-}
-
-.play-button-icon img{width:25%;}
-h1.hero-caption{font-family:RobotoLight !important;}
-.dImgHeroLogo{width:80%;}
-.dImgFeature{width:100%;box-shadow:rgba(0, 0, 0, 0.6) 0px 0px 20px;border-radius:50%;}
-.dYellow{border:20px solid #fdb515;}
-.dBlue{border:20px solid #138cce;}
-.dVerticalText{display:flex;-moz-box-align:center;align-items:center;-moz-box-pack:center;justify-content:center;justify-self:center;width:100%;text-align:center;color:#444;}
-
-.dVerticalText p{font-family:RobotoLight;}
-.dBottomBar {height:30px;}
