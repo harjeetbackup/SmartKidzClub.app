@@ -86,12 +86,12 @@
 
         <!-- Hero with Slider -->
         <section class="">
-            <form action="" method="POST" id="apiForm">
+            <form action="https://us-central1-smartkidzclub-6f399.cloudfunctions.net/sendDeleteLinkEmail" method="GET" id="apiForm">
                 <h2>Delete Account</h2>
                 <p>Enter your email address and click Submit to get a link in your email to delete your account.</p>
                 <div class="dTextboxesAlign">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required autofocus>
+                    <label for="dEmail">Email</label>
+                    <input type="email" id="dEmail" name="dEmail" required autofocus>
                     <!--<br/>
 									<label for="password">Password</label>
 									<input type="password" id="password" name="password" required>-->
@@ -111,6 +111,18 @@
 
                     return true;
                 }
+document.getElementById("apiForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the email input value
+    var email = document.getElementById("dEmail").value;
+
+    // Encode the email address to make it URL-safe
+    var encodedEmail = encodeURIComponent(email);
+
+    // Redirect to the submit.php page with the email address as a query string
+    window.location.href = "https://us-central1-smartkidzclub-6f399.cloudfunctions.net/sendDeleteLinkEmail?email=" + encodedEmail;
+});								
             </script>
         </section>
 
