@@ -133,7 +133,33 @@
 
     </div>
 
-    <script src="../html/assets/js/slider.js"></script>
+		<script type="text/javascript">
+const [btnPrevious, btnNext] = document.querySelectorAll("button.action");
+const divScroller = document.querySelector("#scroller");
+let scrollPosition=0;
+
+btnNext.addEventListener("click",()=> {
+  const actualScrollwidth=divScroller.scrollWidth-divScroller.offsetWidth;
+  const nextScrollPosition=scrollPosition+100;
+  if (nextScrollPosition>actualScrollwidth){
+  	scrollPosition  = actualScrollwidth
+  }  else {
+  		scrollPosition  = nextScrollPosition
+  }
+	divScroller.scrollTo(scrollPosition, 0);
+})
+
+btnPrevious.addEventListener("click",()=> {
+  const nextScrollPosition=scrollPosition-100;
+  if (nextScrollPosition<0){
+  	scrollPosition  = 0
+  }  else {
+  		scrollPosition  = nextScrollPosition
+  }
+	divScroller.scrollTo(scrollPosition, 0);
+
+})
+		</script>
 </body>
 
 </html>
