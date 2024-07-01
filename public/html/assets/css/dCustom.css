@@ -40,7 +40,7 @@
     }
 
     section.hero .hero-caption {
-        font-size: 2rem;
+        font-size: 1.7rem;
         margin-bottom: .2em;
     }
 
@@ -85,12 +85,12 @@
 @media (min-width: 576px) and (max-width: 767.98px) {
 
     section.hero .hero-caption {
-        font-size: 2rem;
+        font-size: 1.7rem;
         margin-bottom: .2em;
     }
 
     section.hero .hero-sub-caption {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
 				margin-bottom: .5em;
     }
 
@@ -140,7 +140,7 @@
 @media (min-width: 992px) and (max-width: 1199.98px) {
 
     section.hero .hero-caption {
-        font-size: 3rem;
+        font-size: 2.7rem;
 				margin-bottom: .2em;
     }
 
@@ -155,12 +155,12 @@
 @media (min-width: 1200px) {
 
     section.hero .hero-caption {
-        font-size: 3.3rem;
+        font-size: 2.6rem;
 				margin-bottom: .2em;
     }
 
     section.hero .hero-sub-caption {
-        font-size: 2.2rem;
+        font-size: 1.65rem;
 				margin-bottom: .5em;
     }
 .dSwitch{flex-direction: row-reverse;}		
