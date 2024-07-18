@@ -1,0 +1,70 @@
+/* Notes on "How to use" at the end of code */
+
+/* >>> FAQ STYLES <<< */
+.faq_container { border-bottom: 2px solid #ddd; }
+.faq_question {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.answercont {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.answer {
+  padding-bottom: 20px;
+}
+
+
+.icon.active {
+  background: transparent;
+  border: 2px solid #000;
+}
+.icon:hover { cursor: pointer; }
+.icon-shape { position: relative; width: 50px; height: 50px; }
+.icon .icon-shape::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 4px;
+  background: #138cce;
+  border-radius: 3px;
+  transition: all 0.5s ease;
+}
+.icon .icon-shape::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 20px;
+  background: #138cce;
+  border-radius: 3px;
+  transition: all 0.5s ease;
+}
+.icon .icon-shape.active::before {
+  transform: translate(-50%, -50%) rotate(-180deg);
+  transition: all 0.5s ease;
+	color:red;
+}
+.icon .icon-shape.active::after {
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transition: all 0.5s ease;
+	color:red;
+}
+
+h3.qu-red{
+	margin:auto !important;
+	padding-right:10px;
+}
+
+/* ===> SOME SUGGESTIONS ON USING THE CODE <=== */
+/* There are 2 Main containers in a single FAQ Container - faq_question & answercont */
+/* You can make a div inside these container to add content and styling purposes */
