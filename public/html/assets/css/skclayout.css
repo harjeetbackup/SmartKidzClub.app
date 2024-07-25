@@ -270,7 +270,7 @@ ul.img_link li:last-child{border:none;}
 /* media kit */
 
 /* Faqs */
-.qu-red, .qu-blu{font-family: RobotoCondensedRegular; font-size: 25px; color: #dc0145;  margin-bottom: 5px;}
+.qu-red, .qu-blu{font-family: RobotoCondensedRegular; font-size: 20px; color: #dc0145;  margin-bottom: 5px;}
 .qu-blu{color:#2478dc;}
 .faqs .bull_con{margin-bottom:40px;}
 .faqs .bull_con p{margin-top:15px;}

@@ -15,7 +15,8 @@ body {
     background: #ebebeb !important;
     overflow-x: hidden;
     color: #5e5e5e;
-    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    /* Dheeraj-2024-07-25: font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))); */
+		font-size:1em;
     height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
