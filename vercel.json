@@ -1,13 +1,8 @@
-import type { NextApiRequest, NextApiResponse
-} from 'next'
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { slug
-    }: any = req.query
-  const path = slug?.join('/') || ''
-
-  res.writeHead(301,
-    { Location: `com.skc.smartkidzclub: //${path}` });
-
-  return res.status(200).end()
-    }
+{
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}
