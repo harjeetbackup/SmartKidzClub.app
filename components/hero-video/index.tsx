@@ -54,7 +54,7 @@ export default function HeroVideo(props: { landing?: boolean }) {
         </VideoWrapper>
 
         <Content area='text'>
-          <h1>Inspire kids to read and learn.</h1>
+          <h1>Inspire kids to read and learn</h1>
           <h2>Top Rated Book App for Kids</h2>
           {/* <h1>Educational Library at Fingertips</h1>
               <p>Reading | Activities | Quizzes | Math</p>
