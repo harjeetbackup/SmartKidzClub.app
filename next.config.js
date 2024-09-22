@@ -29,6 +29,14 @@ module.exports = {
         source: '/delete_account.html',
         destination: '/html/delete_account.html',
       },
+      {
+        source: '/.well-known/assetlinks.json',
+        destination: '/api/.well-known/android'
+      },
+      {
+        source: '/.well-known/apple-app-site-association',
+        destination: '/api/.well-known/apple'
+      },
     ]
   },
 };
