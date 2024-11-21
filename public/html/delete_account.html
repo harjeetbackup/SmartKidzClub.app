@@ -86,7 +86,8 @@
 
         <!-- Hero with Slider -->
         <section class="">
-            <form action="https://us-central1-smartkidzclub-6f399.cloudfunctions.net/sendDeleteLinkEmail" method="GET" id="apiForm">
+            <form action="https://us-central1-smartkidzclub-6f399.cloudfunctions.net/sendDeleteLinkEmail" method="GET"
+                id="apiForm">
                 <h2>Delete Account</h2>
                 <p>Enter your email address and click Submit to get a link in your email to delete your account.</p>
                 <div class="dTextboxesAlign">
@@ -111,23 +112,23 @@
 
                     return true;
                 }
-document.getElementById("apiForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+                document.getElementById("apiForm").addEventListener("submit", function (event) {
+                    event.preventDefault(); // Prevent default form submission
 
-    // Get the email input value
-    var email = document.getElementById("dEmail").value;
+                    // Get the email input value
+                    var email = document.getElementById("dEmail").value;
 
-    // Encode the email address to make it URL-safe
-    var encodedEmail = encodeURIComponent(email);
+                    // Encode the email address to make it URL-safe
+                    var encodedEmail = encodeURIComponent(email);
 
-    // Redirect to the submit.php page with the email address as a query string
-    window.location.href = "https://us-central1-smartkidzclub-6f399.cloudfunctions.net/sendDeleteLinkEmail?email=" + encodedEmail;
-});								
+                    // Redirect to the submit.php page with the email address as a query string
+                    window.location.href = "https://us-central1-smartkidzclub-6f399.cloudfunctions.net/sendDeleteLinkEmail?email=" + encodedEmail;
+                });								
             </script>
         </section>
 
         <section class="testimonials-container">
-            <div style="height:50px;width:100%;background-color:#fdb515;">&#160;</div>
+            <div style="height:50px;width:100%;background-color:#fdb515;">&#160;&#160;</div>
         </section>
 
     </div>
