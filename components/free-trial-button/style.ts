@@ -24,7 +24,8 @@ export default styled.a<{ flipColor?: boolean }>`
   position: relative;
   text-align: center;
   height: 33px;
-  width: 160px;
+  //width: 160px;
+  width: max-content;
 
   &:disabled {
     box-shadow: none;
@@ -48,7 +49,8 @@ export default styled.a<{ flipColor?: boolean }>`
   ${media.min.l} {
     font-size: ${v.size.px16};
     height: 45px;
-    width: 200px;
+    // Dheeraj 2025-07-09 width: 200px;
+    width: max-content;
 		white-space: nowrap;
   }
 `;
