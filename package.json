@@ -1,10 +1,10 @@
 {
   "name": "smartkidzclub.app",
-  "version": "2023.1.11",
+  "version": "2026.1.11",
   "private": true,
   "main": "firebase.function.js",
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   },
   "scripts": {
     "env": "node .env.js",
