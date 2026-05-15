@@ -18,7 +18,7 @@ const features: AppFeatureProps[] = [
   {
     flip: true,
     children: (
-      <p>Keep kids focused on reading with audio and word highlighting</p>
+      <p>Keep kids focused on reading with audio &amp; word highlighting</p>
     ),
     color: v.color.blue,
     alt: 'img',
