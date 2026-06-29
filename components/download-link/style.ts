@@ -24,7 +24,9 @@ export default styled.a`
   &.ios {
     background-image: url(pics/app_store.png);
   }
-
+  &.amazon {
+    background-image: url(pics/amazon.png);
+  }  
   ${media.min.l} {
     height: 45px;
     width: 150px;

@@ -1,23 +1,31 @@
 @media only screen and (orientation: portrait) {
+
     /*.customTag{attribute:value;}*/
-.play-button-icon {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-}		
-.dImgHeroLogo{margin-bottom:20px;}
+    .play-button-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .dImgHeroLogo {
+        margin-bottom: 20px;
+    }
 }
 
 @media only screen and (orientation: landscape) {
+
     /*.customTag{attribute:value;}*/
-.play-button-icon {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-}		
-.dSwitch{flex-direction: row-reverse;}
+    .play-button-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .dSwitch {
+        flex-direction: row-reverse;
+    }
 }
 
 .dShow {
@@ -46,7 +54,7 @@
 
     section.hero .hero-sub-caption {
         font-size: 1.2rem;
-				margin-bottom: .5em;
+        margin-bottom: .5em;
     }
 
     .half-flex {
@@ -91,7 +99,7 @@
 
     section.hero .hero-sub-caption {
         font-size: 1.3rem;
-				margin-bottom: .5em;
+        margin-bottom: .5em;
     }
 
     .half-flex {
@@ -118,7 +126,10 @@
     .intro.yt-container {
         min-height: 400px;
     }
-.dSwitch{flex-direction: row-reverse;}
+
+    .dSwitch {
+        flex-direction: row-reverse;
+    }
 }
 
 /* Medium devices (tablets, 768px and up, upto 991.98px) */
@@ -126,14 +137,17 @@
 
     section.hero .hero-caption {
         font-size: 2rem;
-				margin-bottom: .2em;
+        margin-bottom: .2em;
     }
 
     section.hero .hero-sub-caption {
         font-size: 1.2rem;
-				margin-bottom: .5em;
+        margin-bottom: .5em;
     }
-.dSwitch{flex-direction: row-reverse;}
+
+    .dSwitch {
+        flex-direction: row-reverse;
+    }
 }
 
 /* Large devices (desktops, 992px and up, upto 1199.98px) */
@@ -141,14 +155,17 @@
 
     section.hero .hero-caption {
         font-size: 2.7rem;
-				margin-bottom: .2em;
+        margin-bottom: .2em;
     }
 
     section.hero .hero-sub-caption {
         font-size: 2.1rem;
-				margin-bottom: .5em;
+        margin-bottom: .5em;
     }
-.dSwitch{flex-direction: row-reverse;}		
+
+    .dSwitch {
+        flex-direction: row-reverse;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -156,14 +173,17 @@
 
     section.hero .hero-caption {
         font-size: 2.6rem;
-				margin-bottom: .2em;
+        margin-bottom: .2em;
     }
 
     section.hero .hero-sub-caption {
         font-size: 1.65rem;
-				margin-bottom: .5em;
+        margin-bottom: .5em;
     }
-.dSwitch{flex-direction: row-reverse;}		
+
+    .dSwitch {
+        flex-direction: row-reverse;
+    }
 }
 
 p {
@@ -269,12 +289,21 @@ header img.logo {
     border: 2px solid white;
 }
 
+.download-apps.large a.amazon {
+    background-image: url('../images/amazon.png');
+    border: 2px solid white;
+}
+
 .download-apps.small a.ios {
     background-image: url('../images/ios.png');
 }
 
 .download-apps.small a.android {
     background-image: url('../images/android.png');
+}
+
+.download-apps.small a.amazon {
+    background-image: url('../images/amazon_small.png');
 }
 
 .download-apps.small a:hover,
@@ -331,80 +360,119 @@ header img.logo {
 }
 
 
-img.dImgHero{width:100%;border-radius: 1vw;box-shadow: 0px 0px 5px 5px rgba(0,0,0,.2);}
+img.dImgHero {
+    width: 100%;
+    border-radius: 1vw;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .2);
+}
 
 .play-button-div {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
-.play-button-icon img{width:25%;}
-h1.hero-caption{font-family:RobotoLight !important;}
-.dImgHeroLogo{width:80%;}
-.dImgFeature{width:100%;box-shadow:rgba(0, 0, 0, 0.6) 0px 0px 20px;border-radius:50%;}
-.dYellow{border:20px solid #fdb515;}
-.dBlue{border:20px solid #138cce;}
-.dVerticalText{display:flex;-moz-box-align:center;align-items:center;-moz-box-pack:center;justify-content:center;justify-self:center;width:100%;text-align:center;color:#444;}
+.play-button-icon img {
+    width: 25%;
+}
 
-.dVerticalText p{font-family:RobotoLight;}
-.dBottomBar {height:30px;}
+h1.hero-caption {
+    font-family: RobotoLight !important;
+}
+
+.dImgHeroLogo {
+    width: 80%;
+}
+
+.dImgFeature {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 20px;
+    border-radius: 50%;
+}
+
+.dYellow {
+    border: 20px solid #fdb515;
+}
+
+.dBlue {
+    border: 20px solid #138cce;
+}
+
+.dVerticalText {
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    justify-self: center;
+    width: 100%;
+    text-align: center;
+    color: #444;
+}
+
+.dVerticalText p {
+    font-family: RobotoLight;
+}
+
+.dBottomBar {
+    height: 30px;
+}
 
 div.divScroller {
-  position: relative;
-  -ms-overflow-style: none;
+    position: relative;
+    -ms-overflow-style: none;
 }
 
 ul.scroller {
-  scrollbar-width: none;
+    scrollbar-width: none;
 }
 
 ul.scroller {
-  display: flex;
-  list-style: none;
-  padding: 10px;
-  margin: 0;
-  overflow-x: auto;
-  gap: 20px;
-  border: 0px solid red;
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    overflow-x: auto;
+    gap: 20px;
+    border: 0px solid red;
 }
 
 ul.scroller li {
-  height: auto;
-  min-width: 300px;
-  border: 0px solid black;
-  flex: 0;
-  display: block;
+    height: auto;
+    min-width: 300px;
+    border: 0px solid black;
+    flex: 0;
+    display: block;
 }
 
-ul.scroller li img{
-	width:300px;
+ul.scroller li img {
+    width: 300px;
 }
 
 button.action {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-	background-color: rgba(253,181,21,.3);
-	color:white;
-	height:50px;
-	width:50px;
-	border-radius: 50%;
-	text-align:center;
-	align-items:center;
-	justify-content: center;
-	border:none;
-	font-size:.5em;
-	filter: drop-shadow(2px 2px #555);
-	border:1px solid rgba(253,181,21,.7);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(253, 181, 21, .3);
+    color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: .5em;
+    filter: drop-shadow(2px 2px #555);
+    border: 1px solid rgba(253, 181, 21, .7);
 }
 
 button.action:nth-last-of-type(1) {
-  left: auto;
-  right: 0;
+    left: auto;
+    right: 0;
 }
 
-button.action img{
-	width:100%;
-	height:100%;
+button.action img {
+    width: 100%;
+    height: 100%;
 }

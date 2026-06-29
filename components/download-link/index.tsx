@@ -19,3 +19,14 @@ export const Android = () => (
     href='https://play.google.com/store/apps/details?id=com.skc.smartkidzclub'
   />
 );
+
+
+export const Amazon = () => (
+  <Wrapper
+    title='Download Amazon App'
+    target='_blank'
+    rel='noopener noreferrer'
+    className='amazon'
+    href='https://www.amazon.com/gp/product/B0D3ZTNW1H'
+  />
+);
