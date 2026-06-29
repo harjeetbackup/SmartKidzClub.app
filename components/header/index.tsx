@@ -44,6 +44,7 @@ function Header(p: { landing: boolean }) {
             <>
               <IOS />
               <Android />
+              <Amazon />
             </>
           ) : auth?.id ? (
             <>
