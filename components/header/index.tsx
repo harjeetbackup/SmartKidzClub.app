@@ -1,5 +1,5 @@
 import Grid, { GridCell } from 'components/core/grid';
-import { Android, IOS } from 'components/download-link';
+import { Amazon, Android, IOS } from 'components/download-link';
 import useGotoRoute from 'hooks/goto-route';
 import { IAuth } from 'models';
 import { useAuthUser, withAuthUser } from 'next-firebase-auth';

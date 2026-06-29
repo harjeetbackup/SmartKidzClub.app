@@ -20,7 +20,6 @@ export const Android = () => (
   />
 );
 
-
 export const Amazon = () => (
   <Wrapper
     title='Download Amazon App'
