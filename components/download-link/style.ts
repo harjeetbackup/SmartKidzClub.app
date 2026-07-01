@@ -29,6 +29,6 @@ export default styled.a`
   }  
   ${media.min.l} {
     height: 45px;
-    width: 150px;
+    width: 45px;
   }
 `;
