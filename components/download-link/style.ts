@@ -17,15 +17,15 @@ export default styled.a`
   text-transform: uppercase;
   transition: all 300ms ease;
   height: 33px;
-  width: 100px;
+  width: 33px;
   &.android {
-    background-image: url(pics/google_play.png);
+    background-image: url(html/assets/images/android.png);
   }
   &.ios {
-    background-image: url(pics/app_store.png);
+    background-image: url(html/assets/images/ios.png);
   }
   &.amazon {
-    background-image: url(pics/amazon.png);
+    background-image: url(html/assets/images/amazon_small.png);
   }  
   ${media.min.l} {
     height: 45px;
