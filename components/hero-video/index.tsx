@@ -1,6 +1,6 @@
 import Grid from 'components/core/grid';
 import Modal from 'components/core/modal';
-import { Android, IOS } from 'components/download-link';
+import { Amazon, Android, IOS } from 'components/download-link';
 import FreeTrialButton from 'components/free-trial-button';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -80,6 +80,7 @@ export default function HeroVideo(props: { landing?: boolean }) {
           <LinkContainer>
             <IOS />
             <Android />
+            <Amazon />
           </LinkContainer>
         </>
       </LinkWrapper>
