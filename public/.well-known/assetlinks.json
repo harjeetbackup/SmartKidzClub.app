@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.skc.smartkidzclub",
+      "sha256_cert_fingerprints": [
+        "2D:FF:F7:DE:D8:CA:AA:BB:9E:7C:75:52:63:BF:33:0A:24:2C:EA:3C:29:9A:82:17:91:87:3C:01:40:49:D8:43"
+      ]
+    }
+  }
+]
